@@ -1,0 +1,96 @@
+﻿<Window x:Class="OWL_LEARN.LeerlingForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        Title="Kies een les" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
+	<Window.Background>
+		<ImageBrush ImageSource="pack://siteoforigin:,,,/Images/awaken_large.png"/>
+	</Window.Background>
+    <Grid Margin="0,0,-5,0" Background="{x:Null}">
+        <Grid HorizontalAlignment="Right" Height="570" VerticalAlignment="Top" Width="280" Background="#CCFFFFFF" Margin="0,-2,923,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>   
+            <Button x:Name="btTerug" Content="Uitloggen" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#D3815B"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e0a68c"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="4.528,30.896,0,0" VerticalAlignment="Top" Width="202" Source="Images/owl_cropped1.png" Stretch="UniformToFill">
+            	<Image.OpacityMask>
+            		<ImageBrush ImageSource="Images/owl_cropped.png"/>
+            	</Image.OpacityMask>
+            </Image>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="366" Margin="306,86,0,0" VerticalAlignment="Top" Width="266" Background="White">
+            <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="306" Margin="8,52,0,0" VerticalAlignment="Top" Width="250" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lbVakken_SelectionChanged" Background="#CCF0FFF8" Foreground="#FF553A3A">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding VakNaam}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Label Content="Vakken" HorizontalAlignment="Left" Margin="69.5,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="119.006" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
+            <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="8,404,-592,-84" Width="850" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#D3815B"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e0a68c"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="366" Margin="599,86,0,0" VerticalAlignment="Top" Width="266" Background="White">
+            <ListBox x:Name="lbLesOnderdelen" HorizontalAlignment="Left" Height="306" Margin="8,52,0,0" VerticalAlignment="Top" Width="250" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lbLesOnderdelen_SelectionChanged" Background="#CCF0FFF8" Foreground="#FF553A3A">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding loNaam}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Label Content="Lesonderdeel" HorizontalAlignment="Left" Margin="30.5,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="204.506" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="366" Margin="896,86,0,0" VerticalAlignment="Top" Width="266" Background="White">
+            <ListBox x:Name="lbLes" HorizontalAlignment="Left" Height="306" Margin="8,52,0,0" VerticalAlignment="Top" Width="250" FontSize="16" FontFamily="Century Gothic" Background="#CCF0FFF8" Foreground="#FF553A3A">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding lNaam}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Label Content="Lessen" HorizontalAlignment="Left" Margin="77,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="119.006" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
+        </Grid>
+
+    </Grid>
+</Window>

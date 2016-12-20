@@ -21,9 +21,11 @@ namespace OWL_LEARN
     /// </summary>
     public partial class LesOnderwerpCMS : Window
     {
-        public LesOnderwerpCMS()
+        public string user;
+        public LesOnderwerpCMS(string username)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            user = username;
         }
 
         public string selectedVak = "disabled";
@@ -111,7 +113,7 @@ namespace OWL_LEARN
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-            ConsulentForm terug = new ConsulentForm();
+            ConsulentForm terug = new ConsulentForm(user);
             terug.Show();
             this.Close();
         }
@@ -124,7 +126,7 @@ namespace OWL_LEARN
             }
             else if (selectedVak != "disabled")
             {
-                LesonderwerpToevoegen LOT = new LesonderwerpToevoegen(this, selectedVak);
+                LesonderwerpToevoegen LOT = new LesonderwerpToevoegen(selectedVak, user);
                 LOT.Show();
                 this.Hide();
             }
@@ -153,7 +155,7 @@ namespace OWL_LEARN
             else
             {
                 string loID = ((LesOnderdeel)(lbLijst.SelectedItem)).loID;
-                LesonderwerpWijzig LOW = new LesonderwerpWijzig(loID);
+                LesonderwerpWijzig LOW = new LesonderwerpWijzig(loID, user);
                 LOW.Show();
                 this.Hide();
             }

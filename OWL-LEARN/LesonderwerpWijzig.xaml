@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Wijzig het lesonderwerp" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="Images/squirrel2.png"/>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/Images/Sea.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid Margin="0,0,-5,0">
         <Grid.Background>
@@ -25,10 +25,10 @@
                 <ColumnDefinition Width="43*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="#FFFFF6E3" Grid.ColumnSpan="3"  Click="btTerug_Click">
+            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="White" Grid.ColumnSpan="3"  Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#FF779C97"/>
+                        <Setter Property="Background" Value="#9CA7BD"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -40,7 +40,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#9fb9b6"/>
+                                <Setter Property="Background" Value="#AFB8CA"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -52,12 +52,12 @@
                 </Image.OpacityMask>
             </Image>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="366" Margin="308,96,0,0" VerticalAlignment="Top" Width="288" Background="White">
-            <Label x:Name="lbVak" Content="Verander de naam" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="52" Width="382" FontFamily="Century Gothic" FontSize="26.667" Foreground="#FF8B6C51"/>
-            <Button x:Name="btWijzigNaam" Content="Wijzig de naam" HorizontalAlignment="Left" Padding="2" Margin="0,320,0,0" Width="288" FontSize="18.667" Foreground="#FFFFF6E3" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btWijzigNaam_Click">
+        <Grid HorizontalAlignment="Left" Height="366" Margin="308,96,0,0" VerticalAlignment="Top" Width="288" Background="#E5FFFFFF">
+            <Label x:Name="lbVak" Content="Verander de naam" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="288" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FF702A56"/>
+            <Button x:Name="btWijzigNaam" Content="Wijzig de naam" HorizontalAlignment="Left" Padding="2" Margin="0,320,0,0" Width="288" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btWijzigNaam_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#779C97"/>
+                        <Setter Property="Background" Value="#9CA7BD"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -69,7 +69,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#9fb9b6"/>
+                                <Setter Property="Background" Value="#AFB8CA"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -79,13 +79,13 @@
             <Label x:Name="lbContent_Copy" Content="Vul hieronde de nieuwe naam in en&#xD;&#xA;klik op &quot;wijzig de naam&quot; om deze op &#xD;&#xA;te slaan." Margin="10,62,0,0" VerticalAlignment="Top" Height="77" Width="268" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left"/>
 
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="366" Margin="631,96,0,0" VerticalAlignment="Top" Width="537" Background="White" Grid.ColumnSpan="2">
+        <Grid HorizontalAlignment="Left" Height="366" Margin="631,96,0,0" VerticalAlignment="Top" Width="537" Background="#E5FFFFFF" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="121*"/>
                 <ColumnDefinition Width="316*"/>
                 <ColumnDefinition Width="121*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lbContent" Content="Lessen van dit lesonderwerp:" Margin="10,10,0,0" VerticalAlignment="Top" Height="52" Width="397" FontFamily="Century Gothic" FontSize="26.667" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="3"/>
+            <Label x:Name="lbContent" Content="Lessen van dit lesonderwerp:" Margin="-0.25,-0.25,0,0" VerticalAlignment="Top" Height="48" Width="537" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FF702A56"/>
         </Grid>
         <ListBox x:Name="lbLijst" HorizontalAlignment="Left" Height="204" Margin="649,168,0,0" VerticalAlignment="Top" Width="502" FontSize="16" FontFamily="Century Gothic" Background="#CCF0FFF8" Foreground="#FF553A3A" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
@@ -94,10 +94,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Padding="2" Margin="818,409,0,0" Width="164" FontSize="18.667" Foreground="#FFFFF6E3" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
+        <Button x:Name="btVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Padding="2" Margin="818,409,0,0" Width="164" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#779C97"/>
+                    <Setter Property="Background" Value="#9CA7BD"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -109,16 +109,16 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#9fb9b6"/>
+                            <Setter Property="Background" Value="#AFB8CA"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="btVoegToe" Content="Toevoegen" HorizontalAlignment="Left" Padding="2" Margin="987,409,0,0" Width="164" FontSize="18.667" Foreground="#FFFFF6E3" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Grid.ColumnSpan="2" Click="btVoegToe_Click">
+        <Button x:Name="btVoegToe" Content="Toevoegen" HorizontalAlignment="Left" Padding="2" Margin="987,409,0,0" Width="164" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Grid.ColumnSpan="2" Click="btVoegToe_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#779C97"/>
+                    <Setter Property="Background" Value="#9CA7BD"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -130,16 +130,16 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#9fb9b6"/>
+                            <Setter Property="Background" Value="#AFB8CA"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="btBewerk" Content="Bewerken" HorizontalAlignment="Left" Padding="2" Margin="649,409,0,0" Width="164" FontSize="18.667" Foreground="#FFFFF6E3" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435">
+        <Button x:Name="btBewerk" Content="Bewerken" HorizontalAlignment="Left" Padding="2" Margin="649,409,0,0" Width="164" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#779C97"/>
+                    <Setter Property="Background" Value="#9CA7BD"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -151,7 +151,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#9fb9b6"/>
+                            <Setter Property="Background" Value="#AFB8CA"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>

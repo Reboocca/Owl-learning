@@ -22,11 +22,18 @@ namespace OWL_LEARN
     public partial class LesonderwerpWijzig : Window
     {
         public string loID;
-        public LesonderwerpWijzig(string sloID)
+        string user;
+        public LesonderwerpWijzig(string sloID, string username)
         {
             InitializeComponent();
             loID = sloID;
             PopulateListBox();
+            user = username;
+        }
+
+        public LesonderwerpWijzig()
+        {
+            // TODO: Complete member initialization
         }
 
         DBS dbs = new DBS();
@@ -38,7 +45,7 @@ namespace OWL_LEARN
         }
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-            LesOnderwerpCMS terug = new LesOnderwerpCMS();
+            LesOnderwerpCMS terug = new LesOnderwerpCMS(user);
             terug.Show();
             this.Close();
         }
@@ -84,7 +91,9 @@ namespace OWL_LEARN
 
         private void btVoegToe_Click(object sender, RoutedEventArgs e)
         {
-
+            Lestoevoegen form = new Lestoevoegen(loID, user);
+            form.Show();
+            this.Hide();
         }
     }
 }

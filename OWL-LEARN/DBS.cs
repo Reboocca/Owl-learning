@@ -27,7 +27,7 @@ namespace OWL_LEARN
                 MessageBox.Show("Kan geen verbinding maken met de database", "Oh nee!");
             }
         }
- 
+
         private bool validate_login(string user, string password)
         {
             db_connection();
@@ -63,7 +63,7 @@ namespace OWL_LEARN
                 string sRolID = GetRol(user).ToString();
                 if (sRolID == "1")
                 {
-                    ConsulentForm form = new ConsulentForm();
+                    ConsulentForm form = new ConsulentForm(user);
                     form.Show();
                     loginform.Close();
                 }
@@ -75,7 +75,7 @@ namespace OWL_LEARN
                     loginform.Close();
                 }
 
-                else 
+                else
                 {
                     MessageBox.Show("Er is een fout opgetreden in het systeem, neem contact op met de beheerders van het programma", "Whoops!");
                 }
@@ -143,33 +143,19 @@ namespace OWL_LEARN
             return retValue;
         }
 
-        public DataTable getUsers()
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from users"))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
         public DataTable getLOcms(string VakNaam)
         {
-            string VakID="0";
+            string VakID = "0";
             switch (VakNaam)
             {
                 case "Geschiedenis":
                     VakID = "1";
                     break;
-                
+
                 case "Rekenen":
                     VakID = "2";
                     break;
-                
+
                 case "Biologie":
                     VakID = "3";
                     break;
@@ -182,13 +168,13 @@ namespace OWL_LEARN
                     VakID = "5";
                     break;
 
-                default: 
+                default:
                     break;
             }
 
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from LesOnderwerp where VakID="+ VakID))
+            using (MySqlCommand cmd = new MySqlCommand("Select * from LesOnderwerp where VakID=" + VakID))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -245,7 +231,7 @@ namespace OWL_LEARN
             MySqlCommand cmd = new MySqlCommand("DELETE FROM lesonderwerp WHERE LesonderwerpID=" + loID);
             cmd.Connection = connect;
             cmd.Parameters.AddWithValue("@LesonderwerpID", loID);
-            
+
             try
             {
                 cmd.ExecuteNonQuery();
@@ -264,7 +250,7 @@ namespace OWL_LEARN
         public void changeNameLO(string loID, string newName)
         {
             db_connection();
-            MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET  Omschrijving = '"+ newName + "' WHERE LesonderwerpID=" + loID);
+            MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET  Omschrijving = '" + newName + "' WHERE LesonderwerpID=" + loID);
             cmd.Connection = connect;
             cmd.Parameters.AddWithValue("@LesonderwerpID", loID);
 
@@ -304,7 +290,7 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
-        public void newLes(string sloID, string sLesNaam, string sUitleg, Lestoevoegen regform, LesonderwerpWijzig lesbeheerform)
+        public void newLes(string sloID, string sLesNaam, string sUitleg, Lestoevoegen regform, string user)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
@@ -318,7 +304,8 @@ namespace OWL_LEARN
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("De les: " + sLesNaam + " is succesvol aangemaakt.", "WOOHOO!");
-                lesbeheerform.Show();
+                LesonderwerpWijzig form = new LesonderwerpWijzig(sloID, user);
+                form.Show();
                 regform.Close();
 
             }
@@ -331,6 +318,34 @@ namespace OWL_LEARN
                 connect.Close();
 
             }
+        }
+        public string getUserNaam(string username)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from users where Username='" + username + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            string NaamUser = Convert.ToString(retValue.Rows[0]["firstName"]) + " " + Convert.ToString(retValue.Rows[0]["lastName"]);
+            return NaamUser;
+        }
+
+        public DataTable getAccounts(string rol)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from users where rolID=" + rol))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
         }
     }
 }

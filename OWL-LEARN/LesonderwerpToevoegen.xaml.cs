@@ -19,12 +19,12 @@ namespace OWL_LEARN
     /// </summary>
     public partial class LesonderwerpToevoegen : Window
     {
+        string user;
         string VakID;
-        LesOnderwerpCMS lastform = new LesOnderwerpCMS();
-        public LesonderwerpToevoegen(LesOnderwerpCMS form, string SelectedVakID)
+        public LesonderwerpToevoegen(string SelectedVakID, string username)
         {
             InitializeComponent();
-            lastform = form;
+            user = username;
             VakID = SelectedVakID;
         }
 
@@ -32,7 +32,8 @@ namespace OWL_LEARN
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-            lastform.Show();
+            LesOnderwerpCMS form = new LesOnderwerpCMS(user);
+            form.Show();
             this.Close();
         }
 
@@ -40,7 +41,7 @@ namespace OWL_LEARN
         {
             Class.VoegLesOnderwerpToe(VakID, tbNaam.Text);       
 
-            LesOnderwerpCMS form = new LesOnderwerpCMS();
+            LesOnderwerpCMS form = new LesOnderwerpCMS(user);
             form.Show();
             this.Close();
         }

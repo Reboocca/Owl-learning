@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("danrell-white-noise-feat-ryder_9436717-33160_1920x1080.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/image.png")]
 
 

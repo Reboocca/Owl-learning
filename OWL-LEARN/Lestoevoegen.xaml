@@ -7,7 +7,7 @@
         <BindingGroup/>
     </Window.BindingGroup>
     <Window.Background>
-        <ImageBrush Stretch="UniformToFill" ImageSource="image.png"/>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Images/image.png"/>
     </Window.Background>
     <Grid Margin="0,0,-5,0">
         <Grid.Background>
@@ -29,7 +29,7 @@
                     <ImageBrush ImageSource="Images/owl_cropped.png"/>
                 </Image.OpacityMask>
             </Image>
-            <Button x:Name="btTerug" Content="Terug" Padding="2" Margin="0.985,515.015,-2.985,0" FontSize="18.667" Foreground="#FFFFF6E3" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top">
+            <Button x:Name="btTerug" Content="Terug" Padding="2" Margin="0.985,515.015,-2.985,0" FontSize="18.667" Foreground="#FFFFF6E3" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#C95252"/>

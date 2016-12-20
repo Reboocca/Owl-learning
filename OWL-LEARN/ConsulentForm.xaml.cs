@@ -21,38 +21,41 @@ namespace OWL_LEARN
     /// </summary>
     public partial class ConsulentForm : Window
     {
-        public ConsulentForm()
+        DBS dbs = new DBS();
+        public string user;
+        public ConsulentForm(string username)
         {
             InitializeComponent();
+            user = username;
+            GetUser();
+        }
+        
+        private void btUit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow form = new MainWindow();
+            form.Show();
+            this.Close();
         }
 
-        struct LesOnderdeel
+        private void btLO_Click(object sender, RoutedEventArgs e)
         {
-            public string loID { get; set; }
-            public string loNaam { get; set; }
+            LesOnderwerpCMS lo = new LesOnderwerpCMS(user);
+            lo.Show();
+            this.Close();
         }
 
-        struct Users
+        private void GetUser()
         {
-            public string uID { get; set; }
-            public string uFirstName { get; set; }
-            public string uLastName { get; set; }
+            string sUserNaam = dbs.getUserNaam(user).ToString();
+            lbUser.Content = sUserNaam;
+
         }
 
-        private void btTerug_Click(object sender, RoutedEventArgs e)
+        private void btUser_Click(object sender, RoutedEventArgs e)
         {
-            LesOnderwerpCMS login = new LesOnderwerpCMS();
-            login.Show();
-            this.Hide();
-        }
-
-        private void btLeerling_Click(object sender, RoutedEventArgs e)
-        {
-            lbContent.Content = "Kies een lesonderwerp";
-        }
-
-        private void btLes_Click(object sender, RoutedEventArgs e)
-        {
+            UserCMS ac = new UserCMS(user);
+            ac.Show();
+            this.Close();
         }
     }
 }

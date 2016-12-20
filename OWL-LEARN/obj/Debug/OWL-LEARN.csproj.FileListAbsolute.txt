@@ -58,3 +58,8 @@ F:\OWL-LEARN\OWL-LEARN\obj\Debug\OWL-LEARN_MarkupCompile.lref
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\LesonderwerpWijzig.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\Lestoevoegen.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\Lestoevoegen.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\UserCMS.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\UserCMS.g.cs
+F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Sea.jpg
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountToevoeg.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountToevoeg.g.cs

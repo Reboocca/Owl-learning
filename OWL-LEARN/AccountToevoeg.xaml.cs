@@ -29,13 +29,17 @@ namespace OWL_LEARN
             rolID = srolID;
         }
 
+        DBS dbs = new DBS();
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-
+            dbs.newAccount(user, rolID, tbVoorNaam.Text, tbAchterNaam.Text, tbGebruikersNaam.Text, tbWachtwoord.Text, this);
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
+            UserCMS form = new UserCMS(user);
+            form.Show();
+            this.Close();
 
         }
     }

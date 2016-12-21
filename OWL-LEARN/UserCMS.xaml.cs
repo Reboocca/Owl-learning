@@ -62,7 +62,8 @@ namespace OWL_LEARN
             }
             else
             {
-                //voer actie uit
+                string userID = ((Users)(lbLijst.SelectedItem)).userID;
+                dbs.DeleteUser(userID);
             }
         }
 

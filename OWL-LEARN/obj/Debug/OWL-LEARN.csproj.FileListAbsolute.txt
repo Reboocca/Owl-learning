@@ -52,7 +52,6 @@ F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Lakeside_SunRise_1920x1080.jpg
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080.jpg
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\OWL-LEARN.exe
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\OWL-LEARN.pdb
-F:\OWL-LEARN\OWL-LEARN\bin\Debug\MySql.Data.xml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\LesonderwerpWijzig.g.cs
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\OWL-LEARN_MarkupCompile.lref
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\LesonderwerpWijzig.baml

@@ -290,6 +290,7 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+
         public void newLes(string sloID, string sLesNaam, string sUitleg, Lestoevoegen regform, string user)
         {
             db_connection();
@@ -311,7 +312,7 @@ namespace OWL_LEARN
             }
             catch
             {
-                MessageBox.Show("Er is iets mis gegaan met het opslaan van: ", "OOPSIE!");
+                MessageBox.Show("Er is iets mis gegaan met het opslaan van de les ", "OOPSIE!");
             }
             finally
             {
@@ -319,6 +320,7 @@ namespace OWL_LEARN
 
             }
         }
+
         public string getUserNaam(string username)
         {
             DataTable retValue = new DataTable();
@@ -346,6 +348,59 @@ namespace OWL_LEARN
                 connect.Close();
             }
             return retValue;
+        }
+
+        public void newAccount(string user, string rolID, string fName, string lName, string gName, string WW, AccountToevoeg form)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "insert into users (Username, Password, firstName, lastName, rolID) VALUES (@sUsername, @sPassword, @sfName, @slName, @srolID)";
+            cmd.Parameters.AddWithValue("@sUsername", gName);
+            cmd.Parameters.AddWithValue("@sPassword", WW);
+            cmd.Parameters.AddWithValue("@sfName", fName);
+            cmd.Parameters.AddWithValue("@slName", lName);
+            cmd.Parameters.AddWithValue("@srolID", rolID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Het account van: " + fName + " " + lName + " is succesvol aangemaakt.", "Succes!");
+                UserCMS newForm = new UserCMS(user);
+                newForm.Show();
+                form.Close();
+
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
+            }
+            finally
+            {
+                connect.Close();
+
+            }
+        }
+
+        public void DeleteUser(string userID)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM users WHERE UserID=" + userID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Het account is succesvol verwijderd.", "Succes!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het vewijderen van het account, probeer later nog eens.", "Oh oh!");
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
     }
 }

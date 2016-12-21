@@ -24,6 +24,16 @@ namespace OWL_LEARN
             InitializeComponent();
             MessageBox.Show(slesID);
         }
+
+        private void btVerder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btTerug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         
     }
 }

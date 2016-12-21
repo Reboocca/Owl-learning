@@ -1,9 +1,76 @@
 ﻿<Window x:Class="OWL_LEARN.LesForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Les" Height="356.557" Width="871.075"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="Les" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
+    <Grid Margin="0,0,-5,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/car.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Right" Height="570" VerticalAlignment="Top" Width="280" Background="#CCFFFFFF" Margin="0,-2,923,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btTerug" Content="Uitloggen" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#D3815B"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e0a68c"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="5,48,0,0" VerticalAlignment="Top" Width="202" Source="Images/owl_cropped1.png" Stretch="UniformToFill">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/owl_cropped.png"/>
+                </Image.OpacityMask>
+            </Image>
+            <Label x:Name="lbUser" Content="..." Padding="10" HorizontalContentAlignment="Center" Margin="5,11,0,0" VerticalAlignment="Top" Height="57" FontFamily="Century Gothic" FontSize="16" Foreground="#FF1F97AD" HorizontalAlignment="Left" Width="204" RenderTransformOrigin="-0.753,-1.167" Grid.Column="1"/>
+            <Grid Height="38" Margin="19,10,196,0" VerticalAlignment="Top" RenderTransformOrigin="0.372,0.729" Grid.ColumnSpan="2">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/leerlingIcon.png" Stretch="Uniform"/>
+                </Grid.Background>
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="450" Margin="316,36,0,0" VerticalAlignment="Top" Width="848" Background="#E5FFFFFF">
+            <Label Content="Vakken" HorizontalAlignment="Left" VerticalAlignment="Top" Height="108" Width="838" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
+            <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="-2,442,0,-38" Width="850" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#D3815B"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e0a68c"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
 
     </Grid>
 </Window>
+

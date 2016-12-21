@@ -29,13 +29,8 @@ namespace OWL_LEARN
             loID = sloID;
             PopulateListBox();
             user = username;
+            getLOnaam();            
         }
-
-        public LesonderwerpWijzig()
-        {
-            // TODO: Complete member initialization
-        }
-
         DBS dbs = new DBS();
 
         struct Les
@@ -43,6 +38,16 @@ namespace OWL_LEARN
             public string lID { get; set; }
             public string lNaam { get; set; }
         }
+
+        private void getLOnaam()
+        {
+            DataTable dtGegevens = dbs.getLOnaam(loID);
+            foreach (DataRow row in dtGegevens.Rows)
+            {
+                tbNaam.Text = row["Omschrijving"].ToString();
+            }
+        }
+
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             LesOnderwerpCMS terug = new LesOnderwerpCMS(user);

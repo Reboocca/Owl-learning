@@ -70,7 +70,7 @@ namespace OWL_LEARN
 
                 else if (sRolID == "2")
                 {
-                    LeerlingForm form = new LeerlingForm();
+                    LeerlingForm form = new LeerlingForm(user);
                     form.Show();
                     loginform.Close();
                 }
@@ -382,6 +382,38 @@ namespace OWL_LEARN
             }
         }
 
+        public void safeAccount(string user, string fName, string lName, string gName, string WW, string userID, AccountWijzigen form)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "UPDATE  users SET Username=@sUsername, Password=@sPassword, firstName=@sfName, lastName=@slName  WHERE userID="+userID;
+            cmd.Parameters.AddWithValue("@sUsername", gName);
+            cmd.Parameters.AddWithValue("@sPassword", WW);
+            cmd.Parameters.AddWithValue("@sfName", fName);
+            cmd.Parameters.AddWithValue("@slName", lName);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Het account van: " + fName + " " + lName + " is succesvol gewijzigd.", "Succes!");
+                UserCMS newForm = new UserCMS(user);
+                newForm.Show();
+                form.Close();
+
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
+            }
+            finally
+            {
+                connect.Close();
+
+            }
+        }
+
+
         public void DeleteUser(string userID)
         {
             db_connection();
@@ -401,6 +433,48 @@ namespace OWL_LEARN
             {
                 connect.Close();
             }
+        }
+
+        public DataTable getGegevens(string userID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from users where userID=" + userID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public DataTable getLOnaam(string loID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from lesonderwerp where lesonderwerpID=" + loID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public DataTable getLnaam(string lID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from les where lesID=" + lID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
         }
     }
 }

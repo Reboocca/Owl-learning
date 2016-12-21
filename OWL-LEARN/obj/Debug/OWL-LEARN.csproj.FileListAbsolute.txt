@@ -62,3 +62,5 @@ F:\OWL-LEARN\OWL-LEARN\obj\Debug\UserCMS.g.cs
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Sea.jpg
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountToevoeg.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountToevoeg.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountWijzigen.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\AccountWijzigen.g.cs

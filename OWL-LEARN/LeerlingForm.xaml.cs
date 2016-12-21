@@ -21,11 +21,16 @@ namespace OWL_LEARN
     /// </summary>
     public partial class LeerlingForm : Window
     {
-        public LeerlingForm()
+        string user;
+        public LeerlingForm(string username)
         {
             InitializeComponent();
             PopulateListBox();
+            user = username;
+            GetUser();
         }
+
+        DBS dbs = new DBS();
 
         struct Vak
         {
@@ -116,6 +121,13 @@ namespace OWL_LEARN
                 Les.Show();
                 this.Close();
             }
+        }
+
+        private void GetUser()
+        {
+            string sUserNaam = dbs.getUserNaam(user).ToString();
+            lbUser.Content = sUserNaam;
+
         }
     }
 }

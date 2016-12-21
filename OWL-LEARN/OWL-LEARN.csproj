@@ -60,10 +60,17 @@
     <Compile Include="AccountToevoeg.xaml.cs">
       <DependentUpon>AccountToevoeg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AccountWijzigen.xaml.cs">
+      <DependentUpon>AccountWijzigen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserCMS.xaml.cs">
       <DependentUpon>UserCMS.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountToevoeg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AccountWijzigen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +215,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\leerlingIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

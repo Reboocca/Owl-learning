@@ -23,6 +23,7 @@ namespace OWL_LEARN
     {
         DBS dbs = new DBS();
         public string user;
+        
         public ConsulentForm(string username)
         {
             InitializeComponent();

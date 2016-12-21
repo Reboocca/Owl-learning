@@ -50,7 +50,10 @@ namespace OWL_LEARN
             }
             else
             {
-               //voer actie uit
+               string userID = ((Users)(lbLijst.SelectedItem)).userID;
+               AccountWijzigen Wform = new AccountWijzigen(user, userID);
+               Wform.Show();
+               this.Close();
             }
         }
 

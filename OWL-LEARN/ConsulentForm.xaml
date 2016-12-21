@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="OWL_LEARN.ConsulentForm"
          WindowStartupLocation="CenterScreen"
-        Title="Consulent homepagina" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
+        Title="Consulent keuzemenu" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="Images/pnw_insta.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -26,7 +26,7 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="241" Margin="308,185,0,0" VerticalAlignment="Top" Width="853" Background="#E5FFFFFF" Grid.ColumnSpan="2">
             <Label x:Name="lbContent" Content="Welkom op de cms applicatie van Owl-learn!" Padding="10" HorizontalContentAlignment="left" Margin="0,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8"/>
-            <Label x:Name="lbUser" Content="..." Padding="10" HorizontalContentAlignment="right" Margin="609,-41,0,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="White" Background="#FF95ACE8" HorizontalAlignment="Left" Width="188"/>
+            <Label x:Name="lbUser" Content="..." Padding="10" HorizontalContentAlignment="right" Margin="609,-41,0,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="White" Background="#FF95ACE8" HorizontalAlignment="Left" Width="188" RenderTransformOrigin="-0.753,-1.167"/>
             <Label x:Name="lbUserICON" Padding="10" HorizontalContentAlignment="right" Margin="828,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8"/>
             <Button x:Name="btLO" Content="Lesonderwerpen beheren" Padding="2" Margin="10,150,536,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btLO_Click">
                 <Button.Style>

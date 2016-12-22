@@ -63,6 +63,9 @@
     <Compile Include="AccountWijzigen.xaml.cs">
       <DependentUpon>AccountWijzigen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="lesWijzigen.xaml.cs">
+      <DependentUpon>lesWijzigen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserCMS.xaml.cs">
       <DependentUpon>UserCMS.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lestoevoegen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lesWijzigen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -128,7 +128,7 @@ namespace OWL_LEARN
             {
                 LesonderwerpToevoegen LOT = new LesonderwerpToevoegen(selectedVak, user);
                 LOT.Show();
-                this.Hide();
+                this.Close();
             }
         }
 
@@ -157,7 +157,7 @@ namespace OWL_LEARN
                 string loID = ((LesOnderdeel)(lbLijst.SelectedItem)).loID;
                 LesonderwerpWijzig LOW = new LesonderwerpWijzig(loID, user);
                 LOW.Show();
-                this.Hide();
+                this.Close();
             }
         }
     }

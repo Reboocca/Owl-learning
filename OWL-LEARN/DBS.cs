@@ -463,7 +463,7 @@ namespace OWL_LEARN
             return retValue;
         }
 
-        public DataTable getLnaam(string lID)
+        public DataTable getLesInfo(string lID)
         {
             DataTable retValue = new DataTable();
             db_connection();

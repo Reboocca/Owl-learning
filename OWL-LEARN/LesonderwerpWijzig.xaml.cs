@@ -91,6 +91,7 @@ namespace OWL_LEARN
             {
                 string lID = ((Les)(lbLijst.SelectedItem)).lID;
                 dbs.DeleteLes(lID);
+                PopulateListBox();
             }
         }
 
@@ -98,7 +99,22 @@ namespace OWL_LEARN
         {
             Lestoevoegen form = new Lestoevoegen(loID, user);
             form.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void btBewerk_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbLijst.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecteer eerst een les om deze te verwijderen.", "Let op!");
+            }
+            else
+            {
+                string lID = ((Les)(lbLijst.SelectedItem)).lID;
+                lesWijzigen lwijzig = new lesWijzigen(loID, user, lID);
+                lwijzig.Show();
+                this.Close();
+            }
         }
     }
 }

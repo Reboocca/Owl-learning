@@ -21,6 +21,7 @@ namespace OWL_LEARN
     public partial class LesForm : Window
     {
         DBS db = new DBS();
+        public string user;
         public string _psLesID;
         public string _psUitleg;
         public int _piRadioButton;
@@ -29,9 +30,11 @@ namespace OWL_LEARN
         List<string> _lstAntwoorden = new List<string>();
         int _iIndex = 0;
 
-        public LesForm(string slesID)
+        public LesForm(string slesID, string username)
         {
             InitializeComponent();
+            user = username;
+            GetUser();
             _psLesID = slesID; 
             PopulateUitleg();
             PopulateVraagLijst();
@@ -141,8 +144,15 @@ namespace OWL_LEARN
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            LeerlingForm form = new LeerlingForm(user);
+            form.Show();
+            this.Close();
         }
-        
+
+        private void GetUser()
+        {
+            string sUserNaam = db.getUserNaam(user).ToString();
+            lbUser.Content = sUserNaam;
+        }
     }
 }

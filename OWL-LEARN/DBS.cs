@@ -521,5 +521,26 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+
+        public void changeLesInfo(string lID, string newName, string newUitleg)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("UPDATE les SET  lesNaam = '" + newName + "', Uitleg ='" + newUitleg + "' WHERE LesID=" + lID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("De naam en/of uitleg van de les is succesvol gewijzigd.", "Succes!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het wijzigen van de les gegevens, probeer later nog eens.", "Oh oh!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
 }

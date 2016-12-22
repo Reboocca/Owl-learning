@@ -45,7 +45,6 @@ namespace OWL_LEARN
             }
         }
 
-
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             LesonderwerpWijzig terug = new LesonderwerpWijzig(loID, user);
@@ -55,7 +54,8 @@ namespace OWL_LEARN
 
         private void btWijzigNaam_Click(object sender, RoutedEventArgs e)
         {
-
+            string sUitleg = new TextRange(rbUitleg.Document.ContentStart, rbUitleg.Document.ContentEnd).Text;
+            dbs.changeLesInfo(lesID, tbNaam.Text, sUitleg);
         }
 
         private void btBewerk_Click(object sender, RoutedEventArgs e)

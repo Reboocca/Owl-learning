@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="43*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btTerug" Content="Uitloggen" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
+            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#D3815B"/>

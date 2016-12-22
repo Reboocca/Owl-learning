@@ -117,7 +117,7 @@ namespace OWL_LEARN
             else
             {
                 string sLesID = ((Les)(lbLes.SelectedItem)).lID;
-                LesForm Les = new LesForm(sLesID);
+                LesForm Les = new LesForm(sLesID, user);
                 Les.Show();
                 this.Close();
             }
@@ -127,7 +127,6 @@ namespace OWL_LEARN
         {
             string sUserNaam = dbs.getUserNaam(user).ToString();
             lbUser.Content = sUserNaam;
-
         }
     }
 }

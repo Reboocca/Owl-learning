@@ -24,11 +24,12 @@ namespace OWL_LEARN
         public string user;
         public string _psLesID;
         public string _psUitleg;
-        public int _piRadioButton;
+        int _piRadioButton = 99;
         List<string> _lsVragen = new List<string>();
         List<string> _lstVraagIDs = new List<string>();
         List<string> _lstAntwoorden = new List<string>();
         int _iIndex = 0;
+        int _iScore = 0;
 
         public LesForm(string slesID, string username)
         {
@@ -71,24 +72,66 @@ namespace OWL_LEARN
 
             if (sContentButton == "Verder")
             {
+                if (_piRadioButton != 99)
+                {
+                    DataTable dtJuist_onjuist = db.GetGoedFout(_lstAntwoorden[_piRadioButton], lbVraagID.Content.ToString());
+
+                    foreach (DataRow row in dtJuist_onjuist.Rows)
+                    {
+                        if (row["Juist_onjuist"].ToString() == "1")
+                        {
+                            _iScore++;
+                            //MessageBox.Show("Je hebt het goede antwoord ingevuld.", "Goed zo");
+                        }
+
+                        else if (row["Juist_onjuist"].ToString() == "2")
+                        {
+                            //MessageBox.Show("Je een foutje gemaakt.", "Oh nee");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Er is iets mis gegaan met het controleren van je antwoord, sluit de les af en probeer het opnieuw!", "Oops");
+                        }
+                    }
+                }
+
+
                 if (_iIndex < _lsVragen.Count)
                 {
                     lbVraag.Content = _lsVragen[_iIndex];
                     lbVraagID.Content = _lstVraagIDs[_iIndex];
                     _iIndex++;
 
+
+                    rbAntwoord1.IsChecked = false;
+                    rbAntwoord2.IsChecked = false;
+                    rbAntwoord3.IsChecked = false;
+                    rbAntwoord4.IsChecked = false;
+
+                    _lstAntwoorden.Clear();
                     PopulateAntwoordLijst();
                 }
+
                 else
                 {
-                    MessageBox.Show("De les is voltooid!", "Done");
+                    //MessageBox.Show("Je hebt alle vragen beantwoord, klik op opslaan om verder te gaan.", "Done");
                     btVerder.Content = "Opslaan";
                 }
             }
+
             if (sContentButton == "Opslaan")
             {
-                MessageBox.Show("ALIWEJ0");
-                btVerder.Content = "Verder";
+                if (_iScore >= (_lsVragen.Count / 2))
+                {
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Goed gedaan!");
+                    //db.updateVoortgang(user, _psLesID, this);
+                }
+                else
+                {
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Volgende keer beter!");
+                }
+
             }
 
         }
@@ -106,8 +149,6 @@ namespace OWL_LEARN
             rbAntwoord2.Content = _lstAntwoorden[1];
             rbAntwoord3.Content = _lstAntwoorden[2];
             rbAntwoord4.Content = _lstAntwoorden[3];
-
-            _lstAntwoorden.Clear();
         }
 
         private void btVerder_Click(object sender, RoutedEventArgs e)
@@ -116,25 +157,21 @@ namespace OWL_LEARN
             {
                 _piRadioButton = 0;
                 NextQuestion();
-                rbAntwoord1.IsChecked = false;
             }
             else if (rbAntwoord2.IsChecked == true)
             {
                 _piRadioButton = 1;
                 NextQuestion();
-                rbAntwoord2.IsChecked = false;
             }
             else if (rbAntwoord3.IsChecked == true)
             {
                 _piRadioButton = 2;
                 NextQuestion();
-                rbAntwoord3.IsChecked = false;
             }
             else if (rbAntwoord4.IsChecked == true)
             {
                 _piRadioButton = 3;
                 NextQuestion();
-                rbAntwoord4.IsChecked = false;
             }
             else
             {

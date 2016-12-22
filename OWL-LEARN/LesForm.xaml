@@ -47,7 +47,7 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="450" Margin="316,36,0,0" VerticalAlignment="Top" Width="848" Background="#E5FFFFFF">
-            <Label Content="Vakken" HorizontalAlignment="Left" VerticalAlignment="Top" Height="108" Width="838" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
+            <Label x:Name="lbVraag" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="97" Width="848" FontFamily="Century Gothic" FontSize="22" Foreground="#FFFF7556" HorizontalContentAlignment="Center"/>
             <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="-2,442,0,-38" Width="850" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -69,7 +69,13 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <TextBlock x:Name="tblUitleg" HorizontalAlignment="Left" Margin="-303,221,0,-19" TextWrapping="Wrap" Text="Uitleg" VerticalAlignment="Top" Height="248" Width="256" FontSize="16" FontFamily="Century Gothic" Foreground="#FF2B2B2B"/>
         </Grid>
+        <Label x:Name="lbVraagID" Content="Label" HorizontalAlignment="Left" Margin="1113,200,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbAntwoord1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,214,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
+        <RadioButton x:Name="rbAntwoord2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,253,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
+        <RadioButton x:Name="rbAntwoord3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,293,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
+        <RadioButton x:Name="rbAntwoord4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,332,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
 
     </Grid>
 </Window>

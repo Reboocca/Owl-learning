@@ -143,6 +143,71 @@ namespace OWL_LEARN
             return retValue;
         }
 
+        public DataTable getVragen(string lesID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesID=" + lesID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public void DeleteVraag(string vID)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM vragen WHERE VraagID=" + vID);
+            bool r = DeleteAntwoorden(vID);
+
+            try
+            {
+                db_connection();
+                cmd.Connection = connect;
+                cmd.ExecuteNonQuery();
+                if (r)
+                {
+                    MessageBox.Show("De vraag is succesvol verwijderd.", "Succes!");
+                }
+                else
+                {
+                    MessageBox.Show("Er is iets mis gegaan met het verwijderen van de antwoorden die bij de vraag horen, contacteer een beheerder", "Ohjee.");
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het verwijderen van de vraag, probeer later nog eens.", "Oh oh!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+        public bool DeleteAntwoorden(string vID)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM antwoorden WHERE VraagID=" + vID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
         public DataTable getLOcms(string VakNaam)
         {
             string VakID = "0";

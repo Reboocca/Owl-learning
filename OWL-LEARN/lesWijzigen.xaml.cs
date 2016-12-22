@@ -24,6 +24,7 @@ namespace OWL_LEARN
         string user;
         string lesID;
         string loID;
+        DBS dbs = new DBS();
         public lesWijzigen(string sloID, string username, string leswijzigID)
         {
             InitializeComponent();
@@ -31,9 +32,14 @@ namespace OWL_LEARN
             lesID = leswijzigID;
             getlesInformatie();
             loID = sloID;
+            PopulateListBox();
         }
 
-        DBS dbs = new DBS();
+        struct Vragen
+        {
+            public string vID { get; set; }
+            public string vraag { get; set; }
+        }
 
         private void getlesInformatie()
         {
@@ -65,13 +71,34 @@ namespace OWL_LEARN
 
         private void btVerwijder_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lbLijst.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecteer eerst een les om deze te verwijderen.", "Let op!");
+            }
+            else
+            {
+                string vraagID = ((Vragen)(lbLijst.SelectedItem)).vID;
+                dbs.DeleteVraag(vraagID); ;
+                PopulateListBox();
+            } 
         }
 
         private void btVoegToe_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        private void PopulateListBox()
+        {
+            List<Vragen> lstLes = new List<Vragen>();
+            DataTable dtLes = new DBS().getVragen(lesID);
+
+            foreach (DataRow row in dtLes.Rows)
+            {
+                lstLes.Add(new Vragen() { vID = row["VraagID"].ToString(), vraag = row["Vraag"].ToString() });
+            }
+            lbLijst.ItemsSource = lstLes;
+        }
+
     }
 }
 

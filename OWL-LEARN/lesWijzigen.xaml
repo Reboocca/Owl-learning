@@ -89,7 +89,7 @@
         <ListBox x:Name="lbLijst" HorizontalAlignment="Left" Height="204" Margin="649,168,0,0" VerticalAlignment="Top" Width="502" FontSize="16" FontFamily="Century Gothic" Background="#CCF0FFF8" Foreground="#FF553A3A" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding lNaam}"/>
+                    <TextBlock Text="{Binding vraag}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

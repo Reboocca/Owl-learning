@@ -476,5 +476,50 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+
+        public DataTable GetUitleg(string sLesID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select Uitleg from les where LesID=" + sLesID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public DataTable GetVraag(string sLesID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesID=" + sLesID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public DataTable GetAntwoorden(string sVraagID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select * from antwoorden where VraagID=" + sVraagID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

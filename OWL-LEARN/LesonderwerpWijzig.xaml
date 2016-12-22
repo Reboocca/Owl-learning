@@ -76,7 +76,7 @@
                 </Button.Style>
             </Button>
             <TextBox x:Name="tbNaam" HorizontalAlignment="Left" Padding="5" Height="34" Margin="10,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" TextAlignment="Center" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436"/>
-            <Label x:Name="lbContent_Copy" Content="Vul hieronde de nieuwe naam in en&#xD;&#xA;klik op &quot;wijzig de naam&quot; om deze op &#xD;&#xA;te slaan." Margin="10,62,0,0" VerticalAlignment="Top" Height="77" Width="268" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left"/>
+            <Label x:Name="lbContent_Copy" Content="Vul hieronder de nieuwe naam in en&#xA;klik op &quot;wijzig de naam&quot; om deze op &#xA;te slaan." Margin="10,62,0,0" VerticalAlignment="Top" Height="77" Width="268" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left"/>
 
         </Grid>
         <Grid HorizontalAlignment="Left" Height="366" Margin="631,96,0,0" VerticalAlignment="Top" Width="537" Background="#E5FFFFFF" Grid.ColumnSpan="2">

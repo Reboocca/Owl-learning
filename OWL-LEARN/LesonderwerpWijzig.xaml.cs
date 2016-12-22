@@ -106,7 +106,7 @@ namespace OWL_LEARN
         {
             if (lbLijst.SelectedIndex == -1)
             {
-                MessageBox.Show("Selecteer eerst een les om deze te verwijderen.", "Let op!");
+                MessageBox.Show("Selecteer eerst een les om deze te bewerken.", "Let op!");
             }
             else
             {

@@ -125,7 +125,7 @@ namespace OWL_LEARN
                 if (_iScore >= (_lsVragen.Count / 2))
                 {
                     MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Goed gedaan!");
-                    //db.updateVoortgang(user, _psLesID, this);
+                    db.findIDVoorVoortgang(user, _psLesID, this);
                 }
                 else
                 {

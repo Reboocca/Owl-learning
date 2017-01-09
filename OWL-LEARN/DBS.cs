@@ -607,5 +607,65 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+
+        public DataTable GetGoedFout(string sAntwoord, string sVraagID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select Juist_onjuist from antwoorden where VraagID=" + sVraagID + " AND Antwoord=" + sAntwoord))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
+
+        public void findIDVoorVoortgang(string sUsername, string sLesID, LesForm lsForm)
+        {
+            db_connection();
+            string sUserID;
+
+            using (MySqlCommand cmd = new MySqlCommand("select UserID from users where Username='" + sUsername + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    sUserID = reader[0].ToString();
+
+                    updateVoortgang(sUserID, sLesID, sUsername, lsForm);
+                }
+            }
+            connect.Close();
+        }
+
+        public void updateVoortgang(string sUserID, string sLesID, string sUsername, LesForm lsForm)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("insert into voortgang (UserID, LesID, Voortgang) VALUES (@sUserID, @sLesID, 1)");
+            cmd.Parameters.AddWithValue("@sUserID", sUserID);
+            cmd.Parameters.AddWithValue("@sLesID", sLesID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("De voortgang is opgeslagen!", "Succes!");
+                LeerlingForm lf = new LeerlingForm(sUsername);
+                lf.Show();
+                lsForm.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het opslaan de voortgang.", "Error!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
 }

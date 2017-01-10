@@ -30,6 +30,7 @@ namespace OWL_LEARN
             sloID = loID;
         }
 
+        public int _juistAntwoord;
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
@@ -39,7 +40,26 @@ namespace OWL_LEARN
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (A1.IsChecked == true)
+            {
+                _juistAntwoord = 1;
+            }
+            else if (A2.IsChecked == true)
+            {
+                _juistAntwoord = 2;
+            }
+            else if (A3.IsChecked == true)
+            {
+                _juistAntwoord = 3;
+            }
+            else if (A4.IsChecked == true)
+            {
+                _juistAntwoord = 4;
+            }
+            else
+            { 
+                MessageBox.Show("Zorg ervoor dat je het juiste antwoord hebt aangevinkt!", "Whoops!");
+            }
         }
     }
 }

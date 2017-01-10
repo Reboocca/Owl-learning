@@ -228,3 +228,5 @@ F:\School\Owl-learn\OWL-LEARN\obj\Debug\LesonderwerpWijzig.baml
 F:\School\Owl-learn\OWL-LEARN\obj\Debug\OWL-LEARN.g.resources
 F:\School\Owl-learn\OWL-LEARN\obj\Debug\OWL_LEARN.Properties.Resources.resources
 F:\School\Owl-learn\OWL-LEARN\obj\Debug\OWL-LEARN.csproj.GenerateResource.Cache
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\addVraag.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\addVraag.g.cs

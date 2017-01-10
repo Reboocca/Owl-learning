@@ -85,8 +85,8 @@
             <RichTextBox x:Name="rbUitleg" HorizontalAlignment="Left" Padding="5" Height="128" Margin="275,4,0,0" VerticalAlignment="Top" Width="443" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436" Grid.Row="1">
                 <FlowDocument/>
             </RichTextBox>
+            <Label x:Name="lbContent" Content="Les toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="0,-34,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252"/>
         </Grid>
-        <Label x:Name="lbContent" Content="Les toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="386.5,90,89.5,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252" Grid.ColumnSpan="2"/>
-        <Label x:Name="lbContent_Copy" Content="Voeg een nieuwe les toe door een lesnaam in te voeren en een korte les-&#xD;&#xA;uitleg erbij te geven. Vervolgens kunt u op &quot;opslaan&quot; klikken om de les toe &#xD;&#xA;te voegen aan het huidige lesonderwerp." Padding="10" Margin="406,152,0,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
+        <Label x:Name="lbContent_Copy" Content="Voeg een nieuwe les toe door een lesnaam in te voeren en een korte les-&#xD;&#xA;uitleg erbij te geven. Vervolgens kunt u op &quot;opslaan&quot; klikken om de les toe &#xD;&#xA;te voegen aan het huidige lesonderwerp." Padding="10" Margin="386,152,0,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
     </Grid>
 </Window>

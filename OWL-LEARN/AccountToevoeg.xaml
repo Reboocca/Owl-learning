@@ -87,8 +87,8 @@
             <Label x:Name="lbVoegin3" Content="Gebruikersnaam" Padding="10" HorizontalContentAlignment="Center" Margin="10,110,458,0" VerticalAlignment="Top" Height="50" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FFA0B974" Grid.Row="1"/>
             <TextBox x:Name="tbWachtwoord" HorizontalAlignment="Left" Padding="5" Height="50" Margin="275,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="443" TextAlignment="Center" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436" Grid.Row="1"/>
             <Label x:Name="lbVoegin4" Content="Wachtwoord" Padding="10" HorizontalContentAlignment="Center" Margin="10,165,458,0" VerticalAlignment="Top" Height="50" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FFA0B974" Grid.Row="1"/>
+            <Label x:Name="lbContent" Content="Account toevoegen" Padding="10" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252"/>
         </Grid>
-        <Label x:Name="lbContent" Content="Account toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="392,36,84,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252" Grid.ColumnSpan="2"/>
         <Label x:Name="lbContent_Copy" Content="Vul hieronder de gegevens van het nieuwe account in en klik vervolgens op&#xD;&#xA;&quot;opslaan&quot;, om het account toe te voegen aan de database." Padding="10" Margin="394,98,82,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

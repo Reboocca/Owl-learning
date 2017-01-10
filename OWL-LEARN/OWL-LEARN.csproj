@@ -63,6 +63,9 @@
     <Compile Include="AccountWijzigen.xaml.cs">
       <DependentUpon>AccountWijzigen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="addVraag.xaml.cs">
+      <DependentUpon>addVraag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="lesWijzigen.xaml.cs">
       <DependentUpon>lesWijzigen.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AccountWijzigen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addVraag.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

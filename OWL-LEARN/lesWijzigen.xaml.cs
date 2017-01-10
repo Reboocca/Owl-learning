@@ -85,6 +85,9 @@ namespace OWL_LEARN
 
         private void btVoegToe_Click(object sender, RoutedEventArgs e)
         {
+            addVraag newVraag = new addVraag(lesID, user, loID);
+            newVraag.Show();
+            this.Close();
 
         }
         private void PopulateListBox()

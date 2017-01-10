@@ -78,8 +78,8 @@
             </Button>
             <TextBox x:Name="tbNaam" HorizontalAlignment="Left" Padding="5" Height="50" Margin="275,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="443" TextAlignment="Center" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436" Grid.Row="1"/>
             <Label x:Name="lbVoegin" Content="Lesonderwerp naam:" Padding="10" HorizontalContentAlignment="Center" Margin="10,0,458,0" VerticalAlignment="Top" Height="50" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FFA0B974" Width="260" Grid.Row="1"/>
+            <Label x:Name="lbContent" Content="Les onderwerp toevoegen" Padding="10" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252" Margin="0,-14,0,0"/>
         </Grid>
-        <Label x:Name="lbContent" Content="Les onderwerp toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="386.5,90,89.5,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFC95252" Grid.ColumnSpan="2"/>
-        <Label x:Name="lbContent_Copy" Content="&#x9;Voer hieronder een lesonderwerp naam in en druk vervolgens &#xD;&#xA;&#x9;op &quot;opslaan&quot; om een nieuw lesonderwerp toe te voegen." Padding="10" Margin="388,151.5,88,0" VerticalAlignment="Top" Height="86.5" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbContent_Copy" Content="Voer hieronder een lesonderwerp naam in en druk vervolgens op &quot;opslaan&quot; &#xD;&#xA;om een nieuw lesonderwerp toe te voegen." Padding="10" Margin="388,152,90,0" VerticalAlignment="Top" Height="66" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

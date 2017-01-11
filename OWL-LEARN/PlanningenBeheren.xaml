@@ -43,6 +43,7 @@
         </ListView>
         <Label x:Name="label2" Content="Geef aan voor welke leerling de planning is bedoeld:" HorizontalAlignment="Left" Margin="535,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.545" Height="27" Width="315"/>
         <Label x:Name="label3" Content="Vanaf wanneer mag de les gemaakt worden?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="920,208,0,0" Width="246"/>
+        <Button x:Name="btPlanningVerwijderen" Content="Planning verwijderen" HorizontalAlignment="Left" Margin="875,442,0,0" VerticalAlignment="Top" Width="119" Height="35" Click="btPlanningVerwijderen_Click"/>
 
     </Grid>
 </Window>

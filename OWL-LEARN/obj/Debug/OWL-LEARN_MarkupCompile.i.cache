@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\App.xaml
-14-805583509
+15694461075
 
-23-1737587536
+24196352356
 151966014981
-AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;PlanningenBeheren.xaml;UserCMS.xaml;
+AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;PlanningenBeheren.xaml;PlanningVerwijderen.xaml;UserCMS.xaml;
 
-False
+True
 

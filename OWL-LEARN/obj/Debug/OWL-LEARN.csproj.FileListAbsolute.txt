@@ -275,3 +275,5 @@ C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\OWL_LEARN.Propertie
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csproj.GenerateResource.Cache
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml

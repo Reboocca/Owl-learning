@@ -178,5 +178,12 @@ namespace OWL_LEARN
                 sGekozenLeerlingId = ((leerlingen)(lvLeerlingen.SelectedItem)).LeerlingId;
             }
         }
+
+        private void btPlanningVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            PlanningVerwijderen PV = new PlanningVerwijderen();
+            PV.Show();
+            this.Close();
+        }
     }
 }

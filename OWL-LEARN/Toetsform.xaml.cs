@@ -20,6 +20,7 @@ namespace OWL_LEARN
     /// </summary>
     public partial class Toetsform : Window
     {
+        #region fields
         DBS db = new DBS();
         public List<string> _plstVraagID = new List<string>();
         public List<string> _psltSelectieVragen = new List<string>();
@@ -31,6 +32,7 @@ namespace OWL_LEARN
         int _iIndex = 0;
         int _piRadioButton = 99;
         int _iScore = 0;
+        #endregion 
 
         public Toetsform(string sUser, string sLesonderwerp)
         {
@@ -43,6 +45,7 @@ namespace OWL_LEARN
             NextQuestion();
         }
 
+        //Lijst vullen met de vragen van alle lessen:
         public void PopulateVraagLijst()
         {
             DataTable dtToetsVraag = db.GetToetsVraag(lesonderwerp);
@@ -54,6 +57,7 @@ namespace OWL_LEARN
 
         }
 
+        //Lijst vullen met een random selectie van de vragen -> max 10
         private void SelectVragen()
         {
             for (int i = _psltSelectieVragen.Count; i < 10; i++)
@@ -72,14 +76,19 @@ namespace OWL_LEARN
             }
 
         }
+
+        //Handelingen om naar de volgende vraag te gaan
         public void NextQuestion()
         {
+            //Om te kijken of er op verder of opslaan geklikt wordt
             string sContentButton = btVerder.Content.ToString();
 
             if (sContentButton == "Verder")
             {
+                //Zolang er een van de radiobuttons is aangevinkt:
                 if (_piRadioButton != 99)
                 {
+                    //Controleerd of het antwoord juist of onjuist is
                     DataTable dtJuist_onjuist = db.GetGoedFout(_lstAntwoorden[_piRadioButton], _psVraagID);
 
                     foreach (DataRow row in dtJuist_onjuist.Rows)
@@ -102,26 +111,33 @@ namespace OWL_LEARN
                     }
                 }
 
-
+                //Zolang er nog vragen zijn om te beantwoorden: 
                 if (_iIndex < _psltSelectieVragen.Count)
                  {
+                    //Neem het VraagID
                      _psVraagID = _psltSelectieVragen[_iIndex];
+
+                    //Haal de vraag op via het VraagID
                     DataTable dtVraag = db.GetToetsVraagByID(_psVraagID);
                     foreach (DataRow row in dtVraag.Rows)
                      {
                          lbVraag.Content = row["Vraag"].ToString();
                      }
+
                     _iIndex++;
 
+                    //Zorg dat alle radiobuttons uitgevinkt staan
                     rbAntwoord1.IsChecked = false;
                     rbAntwoord2.IsChecked = false;
                     rbAntwoord3.IsChecked = false;
                     rbAntwoord4.IsChecked = false;
 
+                    //Verwijder alles uit de antwoord lijst en repopulate hem
                     _lstAntwoorden.Clear();
                     PopulateAntwoordLijst();
                 }
 
+                    //Wanneer alle vragen zijn beantwoord:
                 else
                 {
                     //MessageBox.Show("Je hebt alle vragen beantwoord, klik op opslaan om verder te gaan.", "Done");
@@ -129,6 +145,7 @@ namespace OWL_LEARN
                 }
             }
 
+            //Kleine melding of de student het goed of fout heeft gedaan:
             if (sContentButton == "Opslaan")
             {
                 if (_iScore >= (_psltSelectieVragen.Count / 2))
@@ -143,6 +160,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Lijst vullen met de mogelijke antwoorden -> vul deze in de radiobuttons in.
         private void PopulateAntwoordLijst()
         {
             DataTable dtAntwoorden = db.GetAntwoorden(_psVraagID);
@@ -158,8 +176,10 @@ namespace OWL_LEARN
             rbAntwoord4.Content = _lstAntwoorden[3];
         }
 
+        //Wanneer er op verder geklikt word:
         private void btVerder_Click(object sender, RoutedEventArgs e)
         {
+            //Geef mee welke radiobutton is gecheckt voor het controleren of het antwoord juist is beantwoord
             if (rbAntwoord1.IsChecked == true)
             {
                 _piRadioButton = 0;
@@ -186,6 +206,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Handelingen die gebeuren wanneer je op terug klikt
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
 

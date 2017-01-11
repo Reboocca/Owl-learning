@@ -5,11 +5,16 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\
+=======
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\
+>>>>>>> master
 OWL_LEARN
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\App.xaml
 14-805583509
 
@@ -31,6 +36,8 @@ OWL_LEARN
 none
 false
 DEBUG;TRACE
+=======
+>>>>>>> master
 C:\Users\miche\Owl-learning\OWL-LEARN\App.xaml
 131191654045
 

@@ -7,13 +7,17 @@
         mc:Ignorable="d"
         Title="Planning verwijderen" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="451" VerticalAlignment="Top" Width="328" Margin="385,91,0,0">
+        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="333" Margin="303,10,0,0" SelectionChanged="lvPlanningen_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="75"/>
+                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="75"/>
+                    <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="75"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btVerwijderPlanning" Content="Verwijder planning" HorizontalAlignment="Left" Margin="723,539,0,0" VerticalAlignment="Top" Width="130" Click="btVerwijderPlanning_Click"/>
 
     </Grid>
 </Window>

@@ -43,7 +43,15 @@ namespace OWL_LEARN {
         
         #line 10 "..\..\PlanningVerwijderen.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ListView listView;
+        internal System.Windows.Controls.ListView lvPlanningen;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 20 "..\..\PlanningVerwijderen.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btVerwijderPlanning;
         
         #line default
         #line hidden
@@ -79,7 +87,22 @@ namespace OWL_LEARN {
             switch (connectionId)
             {
             case 1:
-            this.listView = ((System.Windows.Controls.ListView)(target));
+            this.lvPlanningen = ((System.Windows.Controls.ListView)(target));
+            
+            #line 10 "..\..\PlanningVerwijderen.xaml"
+            this.lvPlanningen.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.lvPlanningen_SelectionChanged);
+            
+            #line default
+            #line hidden
+            return;
+            case 2:
+            this.btVerwijderPlanning = ((System.Windows.Controls.Button)(target));
+            
+            #line 20 "..\..\PlanningVerwijderen.xaml"
+            this.btVerwijderPlanning.Click += new System.Windows.RoutedEventHandler(this.btVerwijderPlanning_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;

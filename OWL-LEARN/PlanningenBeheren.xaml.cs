@@ -53,6 +53,7 @@ namespace OWL_LEARN
         {
             InitializeComponent();
             FillCbKiesVak();
+            PopulateLVLeerlingen();
             cbKiesLes.IsEnabled = false;
             cbKiesLesonderdeel.IsEnabled = false;
         }
@@ -60,13 +61,13 @@ namespace OWL_LEARN
         public void PopulateLVLeerlingen()
         {
             DataTable dtLeerlingen = new DBS().getLeerlingen();
-            List<Vakken> lstVakken = new List<Vakken>();
+            List<leerlingen> lstLeerlingen = new List<leerlingen>();
 
-            foreach (DataRow drVakken in dtVakken.Rows)
+            foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
             {
-                lstVakken.Add(new Vakken() { VakId = drVakken[0].ToString(), VakNaam = drVakken[1].ToString() });
+                lstLeerlingen.Add(new leerlingen() { LeerlingId = drLeerlingen[0].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
             }
-            lvLeerlingen.ItemsSource = lstVakken;
+            lvLeerlingen.ItemsSource = lstLeerlingen;
         }
         public void FillCbKiesVak()
         {

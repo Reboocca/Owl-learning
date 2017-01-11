@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 namespace OWL_LEARN
 {
-    // test
     /// <summary>
     /// Interaction logic for PlanningenBeheren.xaml
     /// </summary>

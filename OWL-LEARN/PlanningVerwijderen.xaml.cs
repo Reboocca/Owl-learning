@@ -21,9 +21,11 @@ namespace OWL_LEARN
     public partial class PlanningVerwijderen : Window
     {
         string sSelectedPlanning;
+        string sGekozenLeerlingId;
         public PlanningVerwijderen()
         {
             InitializeComponent();
+            PopulateLvLeerlingen();
         }
 
 
@@ -38,7 +40,13 @@ namespace OWL_LEARN
             public string LesNaam { get; set; }
             public string LesId { get; set; }
         }*/
-        struct Datum
+        struct LvLeerlingInfo
+        {
+            public string LeerlingVoornaam { get; set; }
+            public string LeerlingAchternaam { get; set; }
+            public string LeerlingId { get; set; }
+        }
+        struct LvPlanningInfo
         {
             public string Date { get; set; }
             public string PlanningLeerlingId { get; set; }
@@ -46,9 +54,16 @@ namespace OWL_LEARN
             public string SelectedPlanningId { get; set; }
         }
 
-        private void PupulateLvPlanningen()
+        private void PopulateLvLeerlingen()
         {
-            
+            DataTable dtLeerlingen = new DBS().getLeerlingen();
+            List<LvLeerlingInfo> lstLeerlingen = new List<LvLeerlingInfo>();
+
+            foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
+            {
+                lstLeerlingen.Add(new LvLeerlingInfo() { LeerlingId = drLeerlingen[0].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
+            }
+            lvLeerlingen.ItemsSource = lstLeerlingen;
         }
         private void btVerwijderPlanning_Click(object sender, RoutedEventArgs e)
         {
@@ -67,6 +82,15 @@ namespace OWL_LEARN
             if (sSelectedPlanning != null)
             {
                 sSelectedPlanning = "";
+            }
+        }
+
+        private void lvLeerlingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvLeerlingen.SelectedItem != null)
+            {
+                sGekozenLeerlingId = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingId;
+                
             }
         }
     }

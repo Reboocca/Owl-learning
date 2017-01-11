@@ -74,7 +74,6 @@ C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\Sea.jpg
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\OWL-LEARN.exe
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\OWL-LEARN.pdb
-C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\AccountToevoeg.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\AccountWijzigen.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ConsulentForm.baml
@@ -279,5 +278,12 @@ F:\OWL-LEARN\OWL-LEARN\obj\Debug\Toetsform.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\Toetsform.g.cs
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.baml
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\addVraag.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\lesWijzigen.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\addVraag.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\lesWijzigen.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache

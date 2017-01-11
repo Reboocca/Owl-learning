@@ -16,7 +16,7 @@
             <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#81B95F"/>
+                        <Setter Property="Background" Value="#D47737"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -28,7 +28,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#9ac77e"/>
+                                <Setter Property="Background" Value="#E28443"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -47,11 +47,11 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="450" Margin="316,36,0,0" VerticalAlignment="Top" Width="848" Background="#D8FFFFFF">
-            <Label x:Name="lbVraag" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="97" Width="848" FontFamily="Century Gothic" FontSize="22" Foreground="#FFFF7556" HorizontalContentAlignment="Center"/>
-            <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="-2,423,0,-19" Width="850" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
+            <Label x:Name="lbVraag" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="97" Width="848" FontFamily="Century Gothic" FontSize="22" Foreground="#FF2C0F71" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="0,423,0,-19" Width="848" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#81B95F"/>
+                        <Setter Property="Background" Value="#D47737"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -63,16 +63,14 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#9ac77e"/>
+                                <Setter Property="Background" Value="#E28443"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
-            <TextBlock x:Name="tblUitleg" HorizontalAlignment="Left" Margin="-303,221,0,-19" TextWrapping="Wrap" Text="Uitleg" VerticalAlignment="Top" Height="248" Width="256" FontSize="16" FontFamily="Century Gothic" Foreground="#FF2B2B2B"/>
-            <ListBox x:Name="lbIDvragen" HorizontalAlignment="Left" Height="166" Margin="724,239,0,0" VerticalAlignment="Top" Width="114"/>
+            <TextBlock x:Name="tblUitleg" HorizontalAlignment="Left" Margin="-303,221,0,-19" TextWrapping="Wrap" VerticalAlignment="Top" Height="248" Width="256" FontSize="16" FontFamily="Century Gothic" Foreground="#FF2B2B2B"><Run Text="Uitleg"/></TextBlock>
         </Grid>
-        <Label x:Name="lbVraagID" Content="Label" HorizontalAlignment="Left" Margin="1113,200,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbAntwoord1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,214,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,253,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,293,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>

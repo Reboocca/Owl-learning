@@ -24,6 +24,7 @@ namespace OWL_LEARN
         public string user;
         public string _psLesID;
         public string _psUitleg;
+        public string _psVraagID;
         int _piRadioButton = 99;
         List<string> _lsVragen = new List<string>();
         List<string> _lstVraagIDs = new List<string>();
@@ -74,7 +75,7 @@ namespace OWL_LEARN
             {
                 if (_piRadioButton != 99)
                 {
-                    DataTable dtJuist_onjuist = db.GetGoedFout(_lstAntwoorden[_piRadioButton], lbVraagID.Content.ToString());
+                    DataTable dtJuist_onjuist = db.GetGoedFout(_lstAntwoorden[_piRadioButton], _psVraagID);
 
                     foreach (DataRow row in dtJuist_onjuist.Rows)
                     {
@@ -100,7 +101,7 @@ namespace OWL_LEARN
                 if (_iIndex < _lsVragen.Count)
                 {
                     lbVraag.Content = _lsVragen[_iIndex];
-                    lbVraagID.Content = _lstVraagIDs[_iIndex];
+                    _psVraagID = _lstVraagIDs[_iIndex];
                     _iIndex++;
 
 
@@ -138,7 +139,7 @@ namespace OWL_LEARN
 
         private void PopulateAntwoordLijst()
         {
-            DataTable dtAntwoorden = db.GetAntwoorden(lbVraagID.Content.ToString());
+            DataTable dtAntwoorden = db.GetAntwoorden(_psVraagID);
 
             foreach (DataRow row in dtAntwoorden.Rows)
             {

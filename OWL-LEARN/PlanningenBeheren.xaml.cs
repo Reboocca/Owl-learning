@@ -24,6 +24,7 @@ namespace OWL_LEARN
         string sCurrentDate = DateTime.Now.ToString("yyyy-MM-dd");
         string sChosenDate;
         string sGekozenVakId;
+        string sGekozenLesonderwerpId;
 
         struct Vakken
         {
@@ -34,6 +35,12 @@ namespace OWL_LEARN
         {
             public string Lesonderdeel { get; set; }
             public string LesonderdeelId { get; set; }
+        }
+
+        struct Lessen
+        {
+            public string LesNaam { get; set; }
+            public string LesId { get; set; }
         }
         public PlanningenBeheren()
         {
@@ -65,14 +72,14 @@ namespace OWL_LEARN
         }
         public void FillCbKiesLes()
         {
-            DataTable dtVakken = new DBS().getLOnaam(sGekozenVakId);
-            List<Lesonderdelen> lstVakken = new List<Lesonderdelen>();
+            DataTable dtLessen = new DBS().getLes(sGekozenLesonderwerpId);
+            List<Lessen> lstLes = new List<Lessen>();
 
-            foreach (DataRow drVakken in dtVakken.Rows)
+            foreach (DataRow drLessen in dtLessen.Rows)
             {
-                lstVakken.Add(new Lesonderdelen() { LesonderdeelId = drVakken[0].ToString(), Lesonderdeel = drVakken[1].ToString() });
+                lstLes.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[4].ToString() });
             }
-            cbKiesLesonderdeel.ItemsSource = lstVakken;
+            cbKiesLes.ItemsSource = lstLes;
         }
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
@@ -93,6 +100,15 @@ namespace OWL_LEARN
             {
                 sGekozenVakId = ((Vakken)(cbKiesVak.SelectedItem)).VakId;
                 FillCbLesonderdelen();
+            }
+        }
+
+        private void cbKiesLesonderdeel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbKiesLesonderdeel.SelectedItem != null)
+            {
+                sGekozenLesonderwerpId = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
+                FillCbKiesLes();
             }
         }
     }

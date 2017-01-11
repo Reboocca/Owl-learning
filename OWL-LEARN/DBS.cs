@@ -667,5 +667,20 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+
+        public DataTable GetToetsVraag(string sLesonderwerpID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesonderwerpID=" + sLesonderwerpID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

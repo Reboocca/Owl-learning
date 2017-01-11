@@ -72,6 +72,9 @@
     <Compile Include="PlanningenBeheren.xaml.cs">
       <DependentUpon>PlanningenBeheren.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Toetsform.xaml.cs">
+      <DependentUpon>Toetsform.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserCMS.xaml.cs">
       <DependentUpon>UserCMS.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PlanningenBeheren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Toetsform.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,6 +260,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bluetree.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Route_66_Larger.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

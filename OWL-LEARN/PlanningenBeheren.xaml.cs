@@ -26,6 +26,7 @@ namespace OWL_LEARN
         string sGekozenVakId;
         string sGekozenLesonderwerpId;
 
+
         struct Vakken
         {
             public string VakNaam {get;set;}
@@ -46,6 +47,8 @@ namespace OWL_LEARN
         {
             InitializeComponent();
             FillCbKiesVak();
+            cbKiesLes.IsEnabled = false;
+            cbKiesLesonderdeel.IsEnabled = false;
         }
 
         public void FillCbKiesVak()
@@ -61,25 +64,45 @@ namespace OWL_LEARN
         }
        public void FillCbLesonderdelen()
         {
-            DataTable dtVakken = new DBS().getLOnaam(sGekozenVakId);
-            List<Lesonderdelen> lstVakken = new List<Lesonderdelen>();
-
-            foreach (DataRow drVakken in dtVakken.Rows)
+            DataTable dtLesonderwerpen = new DBS().getLO(sGekozenVakId);
+            List<Lesonderdelen> lstLesonderwerpen = new List<Lesonderdelen>();
+            if (dtLesonderwerpen.Rows.Count != 0)
             {
-                lstVakken.Add(new Lesonderdelen() { LesonderdeelId = drVakken[0].ToString(), Lesonderdeel = drVakken[1].ToString() });
+                foreach (DataRow drVakken in dtLesonderwerpen.Rows)
+                {
+                    lstLesonderwerpen.Add(new Lesonderdelen() { LesonderdeelId = drVakken[0].ToString(), Lesonderdeel = drVakken[1].ToString() });
+                }
+                cbKiesLesonderdeel.ItemsSource = lstLesonderwerpen;
+                cbKiesLesonderdeel.IsEnabled = true;
             }
-            cbKiesLesonderdeel.ItemsSource = lstVakken;
+            else
+            {
+                cbKiesLesonderdeel.IsEnabled = false;
+                cbKiesLesonderdeel.ItemsSource = null;
+                MessageBox.Show("Het gekozen vak heeft nog geen lesonderwerpen, voeg deze allereerst toe.", "Voeg een lesonderwerp toe");
+            }
         }
         public void FillCbKiesLes()
         {
             DataTable dtLessen = new DBS().getLes(sGekozenLesonderwerpId);
             List<Lessen> lstLes = new List<Lessen>();
 
-            foreach (DataRow drLessen in dtLessen.Rows)
+            if (dtLessen.Rows.Count != 0)
             {
-                lstLes.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[4].ToString() });
+                foreach (DataRow drLessen in dtLessen.Rows)
+                {
+                    lstLes.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[4].ToString() });
+                }
+                cbKiesLes.ItemsSource = lstLes;
+                cbKiesLes.IsEnabled = true;
             }
-            cbKiesLes.ItemsSource = lstLes;
+            else
+	        {
+                cbKiesLesonderdeel.IsEnabled = false;
+                cbKiesLesonderdeel.ItemsSource = null;
+                MessageBox.Show("Het gekozen vak heeft nog geen lesonderwerpen, voeg deze allereerst toe.", "Voeg een lesonderwerp toe");
+                cbKiesLes.IsEnabled = false;
+            }
         }
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {

@@ -99,6 +99,7 @@
                 <ImageBrush ImageSource="Images/User.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
+        <Button x:Name="btPlanningMaken" Content="Planningen beheren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="659,318,0,0" Height="62" Click="btPlanningMaken_Click"/>
 
     </Grid>
 </Window>

@@ -58,5 +58,12 @@ namespace OWL_LEARN
             ac.Show();
             this.Close();
         }
+
+        private void btPlanningMaken_Click(object sender, RoutedEventArgs e)
+        {
+            PlanningenBeheren PB = new PlanningenBeheren();
+            PB.Show();
+            this.Close();
+        }
     }
 }

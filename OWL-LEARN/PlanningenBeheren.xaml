@@ -8,7 +8,7 @@
         Title="Planningen beheren" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700">
     <Grid>
         <Button x:Name="btOpslaan" Content="Opslaan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1024,445,0,0" Click="btOpslaan_Click"/>
-        <Calendar x:Name="cdCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="920,258,0,0"/>
+        <Calendar x:Name="cdCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="920,234,0,0"/>
         <ComboBox x:Name="cbKiesVak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="179" Margin="920,52,0,0" SelectionChanged="cbKiesVak_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -33,6 +33,15 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Label x:Name="label1_Copy" Content="Kies een les:" HorizontalAlignment="Left" Margin="920,116,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="444" Margin="535,74,0,0" VerticalAlignment="Top" Width="315">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="label2" Content="Geef aan voor welke leerling de planning is bedoeld:" HorizontalAlignment="Left" Margin="535,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.545" Height="27" Width="315"/>
+        <Label x:Name="label3" Content="Vanaf wanneer mag de les gemaakt worden?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="920,208,0,0" Width="246"/>
 
     </Grid>
 </Window>

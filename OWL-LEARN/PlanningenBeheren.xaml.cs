@@ -100,7 +100,7 @@ namespace OWL_LEARN
 	        {
                 cbKiesLesonderdeel.IsEnabled = false;
                 cbKiesLesonderdeel.ItemsSource = null;
-                MessageBox.Show("Het gekozen vak heeft nog geen lesonderwerpen, voeg deze allereerst toe.", "Voeg een lesonderwerp toe");
+                MessageBox.Show("Het gekozen lesonderwerp heeft nog geen lessen, voeg deze allereerst toe.", "Voeg een les toe");
                 cbKiesLes.IsEnabled = false;
             }
         }

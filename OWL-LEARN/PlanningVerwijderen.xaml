@@ -11,7 +11,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="75"/>
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="75"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>

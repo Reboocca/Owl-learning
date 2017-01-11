@@ -706,11 +706,11 @@ namespace OWL_LEARN
 
             }
         }
-        public DataTable GetPlanningen()
+        public DataTable GetPlanningen(string sGekozenLeerlingId)
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from planning"))
+            using (MySqlCommand cmd = new MySqlCommand("Select * from planning WHERE leerlingid ="+sGekozenLeerlingId+""))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -719,6 +719,18 @@ namespace OWL_LEARN
             }
             return retValue;
         }
-
+        public DataTable GetLessen(string sGekozenLesId)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from les WHERE LesID =" + sGekozenLesId + ""))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

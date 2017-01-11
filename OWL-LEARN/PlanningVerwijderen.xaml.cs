@@ -49,9 +49,9 @@ namespace OWL_LEARN
         struct LvPlanningInfo
         {
             public string Date { get; set; }
-            public string PlanningLeerlingId { get; set; }
             public string PlanningLesId { get; set; }
             public string SelectedPlanningId { get; set; }
+            public string LesNaam { get; set; }
         }
 
         private void PopulateLvLeerlingen()
@@ -64,6 +64,25 @@ namespace OWL_LEARN
                 lstLeerlingen.Add(new LvLeerlingInfo() { LeerlingId = drLeerlingen[0].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
             }
             lvLeerlingen.ItemsSource = lstLeerlingen;
+        }
+        private void PopulateLvPlanningen()
+        {
+            DataTable dtPlanningen = new DBS().GetPlanningen(sGekozenLeerlingId);
+            List<LvPlanningInfo> lstPlanninginfo = new List<LvPlanningInfo>();
+
+            foreach (DataRow drPlanningen in dtPlanningen.Rows)
+            {
+                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), PlanningLesId = drPlanningen[2].ToString(), Date = drPlanningen[3].ToString() });
+            }
+
+            //string sPlanningLesId = Convert.ToString(dtPlanningen[]);
+            //DataTable dtLessen = new DBS().GetLessen(sPlanningLesId);
+
+            //foreach (DataRow drLessen in dtLessen.Rows)
+            {
+               // lstPlanninginfo.Add(new LvPlanningInfo() { LesNaam = drLessen[4].ToString() });
+            }
+            lvPlanningen.ItemsSource = lstPlanninginfo;
         }
         private void btVerwijderPlanning_Click(object sender, RoutedEventArgs e)
         {
@@ -90,7 +109,7 @@ namespace OWL_LEARN
             if (lvLeerlingen.SelectedItem != null)
             {
                 sGekozenLeerlingId = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingId;
-                
+                PopulateLvPlanningen();
             }
         }
     }

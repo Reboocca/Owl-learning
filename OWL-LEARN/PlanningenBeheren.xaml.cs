@@ -135,7 +135,7 @@ namespace OWL_LEARN
                     string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
                     if (sGekozenLesId != null)
                     {
-
+                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, sChosenDate);
                     }
                     else
                     {

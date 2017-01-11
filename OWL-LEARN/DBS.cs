@@ -681,5 +681,30 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+        public void PlanningToevoegen(string LeerlingId, string LesId, string SelectedDate)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "insert into planning (leerlingid, lesid, datum) VALUES (@leerlingid, @lesid, @selecteddate)";
+            cmd.Parameters.AddWithValue("@leerlingid", LeerlingId);
+            cmd.Parameters.AddWithValue("@lesid", LesId);
+            cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("De planning is succesvol toegevoegd!", "Succes!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
+            }
+            finally
+            {
+                connect.Close();
+
+            }
+        }
     }
 }

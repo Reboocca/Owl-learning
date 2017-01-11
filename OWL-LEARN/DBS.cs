@@ -682,5 +682,20 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+
+        public DataTable GetToetsVraagByID(string sVraagID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where VraagID=" + sVraagID))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

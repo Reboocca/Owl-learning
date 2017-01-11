@@ -43,6 +43,12 @@ namespace OWL_LEARN
             public string LesNaam { get; set; }
             public string LesId { get; set; }
         }
+        struct leerlingen
+        {
+            public string LeerlingVoornaam { get; set; }
+            public string LeerlingAchternaam { get; set; }
+            public string LeerlingId { get; set; }
+        }
         public PlanningenBeheren()
         {
             InitializeComponent();
@@ -50,7 +56,18 @@ namespace OWL_LEARN
             cbKiesLes.IsEnabled = false;
             cbKiesLesonderdeel.IsEnabled = false;
         }
+        #region Vullen van de comboboxen en listview
+        public void PopulateLVLeerlingen()
+        {
+            DataTable dtLeerlingen = new DBS().getLeerlingen();
+            List<Vakken> lstVakken = new List<Vakken>();
 
+            foreach (DataRow drVakken in dtVakken.Rows)
+            {
+                lstVakken.Add(new Vakken() { VakId = drVakken[0].ToString(), VakNaam = drVakken[1].ToString() });
+            }
+            lvLeerlingen.ItemsSource = lstVakken;
+        }
         public void FillCbKiesVak()
         {
             DataTable dtVakken = new DBS().GetVakken();
@@ -104,6 +121,7 @@ namespace OWL_LEARN
                 cbKiesLes.IsEnabled = false;
             }
         }
+        #endregion
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
             if (cdCalendar.SelectedDate != null)

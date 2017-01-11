@@ -107,13 +107,13 @@ namespace OWL_LEARN {
         
         #line 36 "..\..\PlanningenBeheren.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ListView listView;
+        internal System.Windows.Controls.ListView lvLeerlingen;
         
         #line default
         #line hidden
         
         
-        #line 43 "..\..\PlanningenBeheren.xaml"
+        #line 44 "..\..\PlanningenBeheren.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label2;
         
@@ -121,7 +121,7 @@ namespace OWL_LEARN {
         #line hidden
         
         
-        #line 44 "..\..\PlanningenBeheren.xaml"
+        #line 45 "..\..\PlanningenBeheren.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label3;
         
@@ -201,7 +201,7 @@ namespace OWL_LEARN {
             this.label1_Copy = ((System.Windows.Controls.Label)(target));
             return;
             case 9:
-            this.listView = ((System.Windows.Controls.ListView)(target));
+            this.lvLeerlingen = ((System.Windows.Controls.ListView)(target));
             return;
             case 10:
             this.label2 = ((System.Windows.Controls.Label)(target));

@@ -33,10 +33,11 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Label x:Name="label1_Copy" Content="Kies een les:" HorizontalAlignment="Left" Margin="920,116,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="444" Margin="535,74,0,0" VerticalAlignment="Top" Width="315">
+        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="444" Margin="535,74,0,0" VerticalAlignment="Top" Width="316">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="158"/>
+                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="158"/>
                 </GridView>
             </ListView.View>
         </ListView>

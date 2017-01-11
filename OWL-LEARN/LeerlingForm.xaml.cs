@@ -128,5 +128,12 @@ namespace OWL_LEARN
             string sUserNaam = dbs.getUserNaam(user).ToString();
             lbUser.Content = sUserNaam;
         }
+
+        private void btToets_Click(object sender, RoutedEventArgs e)
+        {
+            Toetsform newform = new Toetsform();
+            newform.Show();
+            this.Close();
+        }
     }
 }

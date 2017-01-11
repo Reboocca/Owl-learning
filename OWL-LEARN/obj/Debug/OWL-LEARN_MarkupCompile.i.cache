@@ -1,50 +1,20 @@
-<<<<<<< Jordy
 ﻿OWL-LEARN
 
 
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\
-=======
-C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\
->>>>>>> master
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\
 OWL_LEARN
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\App.xaml
-14-805583509
+F:\OWL-LEARN\OWL-LEARN\App.xaml
+151353884059
 
-23-1737587536
-151966014981
-AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;PlanningenBeheren.xaml;UserCMS.xaml;
-
-False
-
-=======
-﻿OWL-LEARN
-
-
-winexe
-C#
-.cs
-C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\
-OWL_LEARN
-none
-false
-DEBUG;TRACE
-=======
->>>>>>> master
-C:\Users\miche\Owl-learning\OWL-LEARN\App.xaml
-131191654045
-
-22-381180024
-15575855375
-AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;UserCMS.xaml;
+241025984712
+15-100933472
+AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;PlanningenBeheren.xaml;Toetsform.xaml;UserCMS.xaml;
 
 False
 
->>>>>>> New database version

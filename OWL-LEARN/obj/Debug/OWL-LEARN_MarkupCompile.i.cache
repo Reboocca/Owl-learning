@@ -1,3 +1,4 @@
+<<<<<<< Jordy
 ﻿OWL-LEARN
 
 
@@ -18,3 +19,25 @@ AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;Leerli
 
 False
 
+=======
+﻿OWL-LEARN
+
+
+winexe
+C#
+.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\
+OWL_LEARN
+none
+false
+DEBUG;TRACE
+C:\Users\miche\Owl-learning\OWL-LEARN\App.xaml
+131191654045
+
+22-381180024
+15575855375
+AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;UserCMS.xaml;
+
+False
+
+>>>>>>> New database version

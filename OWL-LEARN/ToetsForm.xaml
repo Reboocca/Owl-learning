@@ -1,0 +1,16 @@
+﻿<Window x:Class="OWL_LEARN.ToetsForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ToetsForm" Height="586.15" Width="1049">
+    <Grid>
+        <Label x:Name="lbVraag" Content="&lt;&lt;VRAAG&gt;&gt;" HorizontalAlignment="Left" Margin="282,88,0,0" VerticalAlignment="Top" FontSize="18" Width="596"/>
+        <RadioButton x:Name="rbAntwoord1" Content="A)" HorizontalAlignment="Left" Margin="282,174,0,0" VerticalAlignment="Top" Height="36" Width="486" FontSize="16"/>
+        <RadioButton x:Name="rbAntwoord2" Content="B)" HorizontalAlignment="Left" Margin="282,221,0,0" VerticalAlignment="Top" Height="36" Width="486" FontSize="16"/>
+        <RadioButton x:Name="rbAntwoord3" Content="C)" HorizontalAlignment="Left" Margin="282,269,0,0" VerticalAlignment="Top" Height="36" Width="486" FontSize="16"/>
+        <RadioButton x:Name="rbAntwoord4" Content="D)" HorizontalAlignment="Left" Margin="282,316,0,0" VerticalAlignment="Top" Height="36" Width="486" FontSize="16"/>
+        <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Margin="545,439,0,0" VerticalAlignment="Top" Width="182" Height="68" Click="btVerder_Click"/>
+        <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Margin="173,439,0,0" VerticalAlignment="Top" Width="182" Height="68"/>
+        <ListBox x:Name="lstbTest" HorizontalAlignment="Left" Height="446" Margin="758,24,0,0" VerticalAlignment="Top" Width="273"/>
+
+    </Grid>
+</Window>

@@ -131,9 +131,9 @@ namespace OWL_LEARN
 
         private void btToets_Click(object sender, RoutedEventArgs e)
         {
-            Toetsform newform = new Toetsform();
-            newform.Show();
-            this.Close();
+            //Toetsform newform = new Toetsform();
+            //newform.Show();
+           // this.Close();
         }
     }
 }

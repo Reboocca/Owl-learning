@@ -27,19 +27,6 @@ namespace OWL_LEARN
             InitializeComponent();
             PopulateLvLeerlingen();
         }
-
-
-       /* struct Leerlingen
-        {
-            public string LeerlingVoornaam { get; set; }
-            public string LeerlingAchternaam { get; set; }
-            public string LeerlingId { get; set; }
-        }
-        struct Lessen
-        {
-            public string LesNaam { get; set; }
-            public string LesId { get; set; }
-        }*/
         struct LvLeerlingInfo
         {
             public string LeerlingVoornaam { get; set; }
@@ -81,21 +68,33 @@ namespace OWL_LEARN
         }
         private void btVerwijderPlanning_Click(object sender, RoutedEventArgs e)
         {
-            if (lvPlanningen.SelectedItem != null)
+            if (lvLeerlingen.SelectedItem != null)
             {
-
+                if (lvPlanningen.SelectedItem != null)
+                {
+                    MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je deze planning wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                    if (DeleteYesNo == MessageBoxResult.Yes)
+                    {
+                        new DBS().DeletePlanning(sSelectedPlanning);
+                        PopulateLvPlanningen();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U moet een planning selecteren voordat u er een kan verwijderen", "Selecteer een planning");
+                }
             }
             else
             {
-                MessageBox.Show("U moet een planning selecteren voordat u er een kan verwijderen", "Selecteer een planning");
+                MessageBox.Show("U moet een leerling selecteren voordat u een planning kan verwijderen", "Selecteer een leerling");
             }
         }
 
         private void lvPlanningen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (sSelectedPlanning != null)
+            if (lvPlanningen.SelectedItem != null)
             {
-                sSelectedPlanning = "";
+                sSelectedPlanning = ((LvPlanningInfo)(lvPlanningen.SelectedItem)).SelectedPlanningId;
             }
         }
 

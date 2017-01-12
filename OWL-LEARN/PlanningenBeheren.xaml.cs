@@ -187,5 +187,10 @@ namespace OWL_LEARN
             PV.Show();
             this.Close();
         }
+
+        private void btTerug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

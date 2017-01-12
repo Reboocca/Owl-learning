@@ -106,5 +106,17 @@ namespace OWL_LEARN
                 PopulateLvPlanningen();
             }
         }
+
+        private void btOpslaan_Click(object sender, RoutedEventArgs e)
+        {
+            PlanningenBeheren form = new PlanningenBeheren();
+            form.Show();
+            this.Close();
+        }
+
+        private void btTerug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

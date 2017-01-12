@@ -68,27 +68,13 @@ namespace OWL_LEARN
         private void PopulateLvPlanningen()
         {
             DataTable dtPlanningen = new DBS().GetPlanningen(sGekozenLeerlingId);
-            string sPlanningLesId = Convert.ToString(dtPlanningen.Rows[0]["lesid"]);
             List<LvPlanningInfo> lstPlanninginfo = new List<LvPlanningInfo>();
-
-            DataTable merged = new DataTable();
 
             foreach (DataRow drPlanningen in dtPlanningen.Rows)
             {
-                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), PlanningLesId = drPlanningen[2].ToString(), Date = drPlanningen[3].ToString() });
+                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), PlanningLesId = drPlanningen[2].ToString(), Date = drPlanningen[3].ToString(), LesNaam = drPlanningen[4].ToString() });
             }
-            merged.Merge(dtPlanningen);
 
-            DataTable dtLessen = new DBS().GetLessen(sPlanningLesId);
-            foreach (DataRow drLessen in dtLessen.Rows)
-            {
-               lstPlanninginfo.Add(new LvPlanningInfo() { LesNaam = drLessen[4].ToString() });
-            }
-             string sdtLessen = dtLessen.Rows.Count.ToString();
-            MessageBox.Show(sdtLessen);
-            merged.Merge(dtLessen);
-
-            dtTest.DataContext = merged;
             lvPlanningen.ItemsSource = lstPlanninginfo;
         }
         private void btVerwijderPlanning_Click(object sender, RoutedEventArgs e)

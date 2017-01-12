@@ -67,6 +67,7 @@ namespace OWL_LEARN
             {
                 string userID = ((Users)(lbLijst.SelectedItem)).userID;
                 dbs.DeleteUser(userID);
+                FillLVLeerlingen();
             }
         }
 
@@ -99,6 +100,11 @@ namespace OWL_LEARN
         }
 
         private void btLeerling_Click(object sender, RoutedEventArgs e)
+        {
+            FillLVLeerlingen();
+        }
+
+        public void FillLVLeerlingen()
         {
             rolID = "2";
             List<Users> lstUsers = new List<Users>();

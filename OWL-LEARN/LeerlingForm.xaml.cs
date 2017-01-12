@@ -22,11 +22,11 @@ namespace OWL_LEARN
     public partial class LeerlingForm : Window
     {
         string user;
-        public LeerlingForm(string username)
+        public LeerlingForm(string userRol)
         {
             InitializeComponent();
             PopulateListBox();
-            user = username;
+            user = userRol;
             GetUser();
         }
 
@@ -79,6 +79,7 @@ namespace OWL_LEARN
                 lstLesOnderdeel.Add(new LesOnderdeel() { loID = row["LesonderwerpID"].ToString(), loNaam = row["Omschrijving"].ToString() });
             }
             lbLesOnderdelen.ItemsSource = lstLesOnderdeel;
+            MessageBox.Show(user);
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
@@ -102,10 +103,23 @@ namespace OWL_LEARN
                     lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
                 }
                 lbLes.ItemsSource = lstLes;
-               
+
             }
 
+            /*string sLO = "";
+            List<Les> lstLes = new List<Les>();
+            if (lbLesOnderdelen.SelectedItem != null)
+            {
+                sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
+                DataTable dtLes = new DBS().getLes(sLO);
 
+                foreach (DataRow row in dtLes.Rows)
+                {
+                    lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
+                }
+                lbLes.ItemsSource = lstLes;
+               
+            }*/
         }
 
         private void btVerder_Click(object sender, RoutedEventArgs e)

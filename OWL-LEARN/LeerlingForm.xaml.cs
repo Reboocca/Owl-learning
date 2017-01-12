@@ -85,6 +85,7 @@ namespace OWL_LEARN
                 lstLesOnderdeel.Add(new LesOnderdeel() { loID = row["LesonderwerpID"].ToString(), loNaam = row["Omschrijving"].ToString() });
             }
             lbLesOnderdelen.ItemsSource = lstLesOnderdeel;
+            lbLes.ItemsSource = null;
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)

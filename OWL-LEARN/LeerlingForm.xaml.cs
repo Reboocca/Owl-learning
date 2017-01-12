@@ -96,7 +96,7 @@ namespace OWL_LEARN
         private void lbLesOnderdelen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sLO = "";
-            DataTable dtPlanningen = new DBS().Search("planning", "leerlingid", user);
+            DataTable dtPlanningen = new DBS().FindPlanningMetUsername("planning", "usrname", user);
             List<Les> lstLes = new List<Les>();
             int iCounterLes = 0;
             if (lbLesOnderdelen.SelectedItem != null)

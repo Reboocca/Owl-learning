@@ -588,7 +588,20 @@ namespace OWL_LEARN
 
             }
         }
+        public DataTable FindPlanningMetUsername(string sTable, string sParameterA, string sParameterB)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB +"'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
 
-        
+
     }
 }

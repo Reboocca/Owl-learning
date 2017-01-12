@@ -59,8 +59,8 @@
             <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,90,0,0" VerticalAlignment="Top" Width="371" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="186"/>
-                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="186"/>
+                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
+                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="180"/>
                     </GridView>
                 </ListView.View>
             </ListView>

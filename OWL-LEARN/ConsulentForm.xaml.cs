@@ -61,7 +61,7 @@ namespace OWL_LEARN
 
         private void btPlanningMaken_Click(object sender, RoutedEventArgs e)
         {
-            PlanningVerwijderen PB = new PlanningVerwijderen();
+            PlanningVerwijderen PB = new PlanningVerwijderen(user);
             PB.Show();
             this.Close();
         }

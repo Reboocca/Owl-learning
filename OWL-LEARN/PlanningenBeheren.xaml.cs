@@ -27,6 +27,7 @@ namespace OWL_LEARN
         string sGekozenLesNaam;
         string sGekozenLeerlingId;
         string sGekozenLeerlingUsrname;
+        public string user;
 
 
         struct Vakken
@@ -52,13 +53,14 @@ namespace OWL_LEARN
             public string LeerlingAchternaam { get; set; }
             public string LeerlingId { get; set; }
         }
-        public PlanningenBeheren()
+        public PlanningenBeheren(string username)
         {
             InitializeComponent();
             FillCbKiesVak();
             PopulateLVLeerlingen();
             cbKiesLes.IsEnabled = false;
             cbKiesLesonderdeel.IsEnabled = false;
+            user = username;
         }
         #region Vullen van de comboboxen en listview
         public void PopulateLVLeerlingen()
@@ -183,14 +185,16 @@ namespace OWL_LEARN
 
         private void btPlanningVerwijderen_Click(object sender, RoutedEventArgs e)
         {
-            PlanningVerwijderen PV = new PlanningVerwijderen();
+            PlanningVerwijderen PV = new PlanningVerwijderen(user);
             PV.Show();
             this.Close();
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            PlanningVerwijderen PV = new PlanningVerwijderen(user);
+            PV.Show();
+            this.Close();
         }
     }
 }

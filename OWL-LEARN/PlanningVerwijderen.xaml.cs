@@ -22,10 +22,12 @@ namespace OWL_LEARN
     {
         string sSelectedPlanning;
         string sGekozenLeerlingId;
-        public PlanningVerwijderen()
+        public string user;
+        public PlanningVerwijderen(string username)
         {
             InitializeComponent();
             PopulateLvLeerlingen();
+            user = username;
         }
         struct LvLeerlingInfo
         {
@@ -109,14 +111,16 @@ namespace OWL_LEARN
 
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            PlanningenBeheren form = new PlanningenBeheren();
+            PlanningenBeheren form = new PlanningenBeheren(user);
             form.Show();
             this.Close();
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            ConsulentForm form = new ConsulentForm (user);
+            form.Show();
+            this.Close();
         }
     }
 }

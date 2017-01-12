@@ -67,7 +67,14 @@ namespace OWL_LEARN
             {
                 string userID = ((Users)(lbLijst.SelectedItem)).userID;
                 dbs.DeleteUser(userID);
-                FillLVLeerlingen();
+                if (rolID == "1")
+                {
+                    FillLVDocenten();
+                }
+                else
+                {
+                    FillLVLeerlingen();
+                }
             }
         }
 
@@ -87,16 +94,7 @@ namespace OWL_LEARN
 
         private void btDocent_Click(object sender, RoutedEventArgs e)
         {
-            rolID = "1";
-            List<Users> lstUsers = new List<Users>();
-
-            DataTable dtUsers = dbs.getAccounts(rolID);
-
-            foreach (DataRow row in dtUsers.Rows)
-            {
-                lstUsers.Add(new Users() { userID = row["userID"].ToString(), userName = row["firstName"].ToString()+" "+ row["lastName"].ToString() });
-            }
-            lbLijst.ItemsSource = lstUsers;
+            FillLVDocenten();
         }
 
         private void btLeerling_Click(object sender, RoutedEventArgs e)
@@ -107,6 +105,20 @@ namespace OWL_LEARN
         public void FillLVLeerlingen()
         {
             rolID = "2";
+            List<Users> lstUsers = new List<Users>();
+
+            DataTable dtUsers = dbs.getAccounts(rolID);
+
+            foreach (DataRow row in dtUsers.Rows)
+            {
+                lstUsers.Add(new Users() { userID = row["userID"].ToString(), userName = row["firstName"].ToString() + " " + row["lastName"].ToString() });
+            }
+            lbLijst.ItemsSource = lstUsers;
+        }
+
+        public void FillLVDocenten()
+        {
+            rolID = "1";
             List<Users> lstUsers = new List<Users>();
 
             DataTable dtUsers = dbs.getAccounts(rolID);

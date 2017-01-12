@@ -33,7 +33,7 @@ namespace OWL_LEARN
         DBS dbs = new DBS();
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dtCheckUserExistance = dbs.CheckUserExistance(tbGebruikersNaam.Text);
+            DataTable dtCheckUserExistance = dbs.Search("users", "Username", tbGebruikersNaam.Text);
             if (dtCheckUserExistance.Rows.Count != 0)
             {
                 MessageBox.Show("Deze gebruikersnaam bestaat al, kies een andere, unieke, gebruikersnaam", "Kies een andere gebruikersnaam");

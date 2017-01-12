@@ -61,7 +61,7 @@ namespace OWL_LEARN
         #region Vullen van de comboboxen en listview
         public void PopulateLVLeerlingen()
         {
-            DataTable dtLeerlingen = new DBS().getLeerlingen();
+            DataTable dtLeerlingen = new DBS().Search("users", "RolID", "2");
             List<leerlingen> lstLeerlingen = new List<leerlingen>();
 
             foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
@@ -83,7 +83,7 @@ namespace OWL_LEARN
         }
         public void FillCbLesonderdelen()
         {
-            DataTable dtLesonderwerpen = new DBS().getLO(sGekozenVakId);
+            DataTable dtLesonderwerpen = new DBS().Search("lesonderwerp", "VakID", sGekozenVakId);
             List<Lesonderdelen> lstLesonderwerpen = new List<Lesonderdelen>();
             if (dtLesonderwerpen.Rows.Count != 0)
             {
@@ -103,7 +103,7 @@ namespace OWL_LEARN
         }
         public void FillCbKiesLes()
         {
-            DataTable dtLessen = new DBS().getLes(sGekozenLesonderwerpId);
+            DataTable dtLessen = new DBS().Search("Les", "LesOnderwerpID", sGekozenLesonderwerpId);
             List<Lessen> lstLes = new List<Lessen>();
 
             if (dtLessen.Rows.Count != 0)

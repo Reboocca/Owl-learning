@@ -294,3 +294,5 @@ C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen
 C:\Users\Jordy\Desktop\Bureaublad\school\programmeren\elearning tests\owl-learn-backups\Owl-learning-backup-2\OWL-LEARN\bin\Debug\OWL-LEARN.exe.config
 C:\Users\Jordy\Desktop\Bureaublad\school\programmeren\elearning tests\owl-learn-backups\Owl-learning-backup-2\OWL-LEARN\obj\Debug\OWL-LEARN.exe
 C:\Users\Jordy\Desktop\Bureaublad\school\programmeren\elearning tests\owl-learn-backups\Owl-learning-backup-2\OWL-LEARN\obj\Debug\OWL-LEARN.pdb
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml

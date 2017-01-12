@@ -35,7 +35,7 @@ namespace OWL_LEARN
        
         private void PopulateTextBox()
         {
-            DataTable dtGegevens = dbs.getGegevens(userID);
+            DataTable dtGegevens = dbs.Search("users", "userID", userID);
             foreach (DataRow row in dtGegevens.Rows)
             {
                 tbVoorNaam.Text = row["firstName"].ToString();
@@ -54,7 +54,7 @@ namespace OWL_LEARN
 
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dtCheckUserNameUnique = dbs.CheckUserExistance(tbGebruikersNaam.Text);
+            DataTable dtCheckUserNameUnique = dbs.Search("users", "Username", tbGebruikersNaam.Text);
             if (dtCheckUserNameUnique.Rows.Count != 0)
             {
                 string sCheckGebruikersnaamID = dtCheckUserNameUnique.Rows[0]["UserID"].ToString();

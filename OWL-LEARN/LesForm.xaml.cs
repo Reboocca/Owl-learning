@@ -46,7 +46,7 @@ namespace OWL_LEARN
 
         private void PopulateUitleg()
         {
-            DataTable dtUitleg = db.GetUitleg(_psLesID);
+            DataTable dtUitleg = db.Search("les", "lesID", _psLesID);
 
             foreach (DataRow row in dtUitleg.Rows)
             {
@@ -58,7 +58,7 @@ namespace OWL_LEARN
 
         private void PopulateVraagLijst()
         {
-            DataTable dtVraag = db.GetVraag(_psLesID);
+            DataTable dtVraag = db.Search("vragen", "lesID", _psLesID);
 
             foreach (DataRow row in dtVraag.Rows)
             {
@@ -139,7 +139,7 @@ namespace OWL_LEARN
 
         private void PopulateAntwoordLijst()
         {
-            DataTable dtAntwoorden = db.GetAntwoorden(_psVraagID);
+            DataTable dtAntwoorden = db.Search("antwoorden", "VraagID", _psVraagID);
 
             foreach (DataRow row in dtAntwoorden.Rows)
             {

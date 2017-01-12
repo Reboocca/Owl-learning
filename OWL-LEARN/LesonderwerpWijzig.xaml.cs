@@ -41,7 +41,7 @@ namespace OWL_LEARN
 
         private void getLOnaam()
         {
-            DataTable dtGegevens = dbs.getLOnaam(loID);
+            DataTable dtGegevens = dbs.Search("lesonderwerp", "lesonderwerpID", loID);
             foreach (DataRow row in dtGegevens.Rows)
             {
                 tbNaam.Text = row["Omschrijving"].ToString();
@@ -72,7 +72,7 @@ namespace OWL_LEARN
         private void PopulateListBox()
         {
             List<Les> lstLes = new List<Les>();
-            DataTable dtLes = new DBS().getLes(loID);
+            DataTable dtLes = new DBS().Search("Les", "LesOnderwerpID", loID);
 
             foreach (DataRow row in dtLes.Rows)
             {

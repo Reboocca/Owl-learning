@@ -101,6 +101,7 @@ namespace OWL_LEARN
             string RolID = Convert.ToString(retValue.Rows[0]["rolID"]);
             return RolID;
         }
+
         public DataTable GetVakken()
         {
             DataTable retValue = new DataTable();
@@ -115,39 +116,11 @@ namespace OWL_LEARN
             return retValue;
         }
 
-        public DataTable getLO(string vakID)
+        public DataTable Search(string sTable, string sParameterA, string sParameterB)
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from lesonderwerp where VakID=" + vakID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable getLes(string lesOnderwerpID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from Les where LesOnderwerpID=" + lesOnderwerpID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable getVragen(string lesID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesID=" + lesID))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "=" + sParameterB))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -401,20 +374,6 @@ namespace OWL_LEARN
             return NaamUser;
         }
 
-        public DataTable getAccounts(string rol)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from users where rolID=" + rol))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
         public void newAccount(string user, string rolID, string fName, string lName, string gName, string WW, AccountToevoeg form)
         {
             db_connection();
@@ -478,7 +437,6 @@ namespace OWL_LEARN
             }
         }
 
-
         public void DeleteUser(string userID)
         {
             db_connection();
@@ -498,93 +456,6 @@ namespace OWL_LEARN
             {
                 connect.Close();
             }
-        }
-
-        public DataTable getGegevens(string userID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from users where userID=" + userID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable getLOnaam(string loID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from lesonderwerp where lesonderwerpID=" + loID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable getLesInfo(string lID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from les where lesID=" + lID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable GetUitleg(string sLesID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-
-            using (MySqlCommand cmd = new MySqlCommand("Select Uitleg from les where LesID=" + sLesID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable GetVraag(string sLesID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-
-            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesID=" + sLesID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable GetAntwoorden(string sVraagID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-
-            using (MySqlCommand cmd = new MySqlCommand("Select * from antwoorden where VraagID=" + sVraagID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
         }
 
         public void changeLesInfo(string lID, string newName, string newUitleg)
@@ -668,35 +539,6 @@ namespace OWL_LEARN
             }
         }
 
-        public DataTable GetToetsVraag(string sLesonderwerpID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-
-            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where LesonderwerpID=" + sLesonderwerpID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-
-        public DataTable GetToetsVraagByID(string sVraagID)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-
-            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where VraagID=" + sVraagID))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
         public void DeletePlanning(string PlanningId)
         {
             db_connection();
@@ -718,6 +560,7 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+
         public void PlanningToevoegen(string LeerlingId, string LesId, DateTime SelectedDate, string GekozenLesNaam)
         {
             db_connection();
@@ -744,45 +587,7 @@ namespace OWL_LEARN
 
             }
         }
-        public DataTable getLeerlingen()
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from users where RolID = 2"))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
-        public DataTable GetPlanningen(string sGekozenLeerlingId)
-        {
-            DataTable retValue = new DataTable();
-            db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("Select * from planning WHERE leerlingid =" + sGekozenLeerlingId + ""))
-            {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
-            }
-            return retValue;
-        }
 
-         public DataTable CheckUserExistance(string sUserName)
-         {
-             DataTable retValue = new DataTable();
-             db_connection();
-             using (MySqlCommand cmd = new MySqlCommand("Select * from users where Username='" + sUserName + "'"))
-             {
-                 cmd.Connection = connect;
-                 MySqlDataReader reader = cmd.ExecuteReader();
-                 retValue.Load(reader);
-                 connect.Close();
-             }
-            return retValue;
-         }
+        
     }
 }

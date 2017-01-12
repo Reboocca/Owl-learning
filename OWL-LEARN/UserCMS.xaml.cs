@@ -107,7 +107,7 @@ namespace OWL_LEARN
             rolID = "2";
             List<Users> lstUsers = new List<Users>();
 
-            DataTable dtUsers = dbs.getAccounts(rolID);
+            DataTable dtUsers = dbs.Search("users", "rolID", rolID);
 
             foreach (DataRow row in dtUsers.Rows)
             {
@@ -121,7 +121,7 @@ namespace OWL_LEARN
             rolID = "1";
             List<Users> lstUsers = new List<Users>();
 
-            DataTable dtUsers = dbs.getAccounts(rolID);
+            DataTable dtUsers = dbs.Search("users", "rolID", rolID);
 
             foreach (DataRow row in dtUsers.Rows)
             {

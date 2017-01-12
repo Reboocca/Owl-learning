@@ -1,0 +1,29 @@
+﻿<Window x:Class="OWL_LEARN.PlanningVerwijderen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OWL_LEARN"
+        mc:Ignorable="d"
+        Title="Planning verwijderen" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700">
+    <Grid>
+        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="333" Margin="442,10,0,0" SelectionChanged="lvPlanningen_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="75"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btVerwijderPlanning" Content="Verwijder planning" HorizontalAlignment="Left" Margin="892,539,0,0" VerticalAlignment="Top" Width="130" Click="btVerwijderPlanning_Click"/>
+        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="549" Margin="26,10,0,0" VerticalAlignment="Top" Width="371" SelectionChanged="lvLeerlingen_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="150"/>
+                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

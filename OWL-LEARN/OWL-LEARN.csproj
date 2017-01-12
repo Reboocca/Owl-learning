@@ -72,6 +72,9 @@
     <Compile Include="PlanningenBeheren.xaml.cs">
       <DependentUpon>PlanningenBeheren.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlanningVerwijderen.xaml.cs">
+      <DependentUpon>PlanningVerwijderen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Toetsform.xaml.cs">
       <DependentUpon>Toetsform.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PlanningenBeheren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlanningVerwijderen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -98,6 +98,7 @@ namespace OWL_LEARN
             string sLO = "";
             DataTable dtPlanningen = new DBS().Search("planning", "leerlingid", user);
             List<Les> lstLes = new List<Les>();
+            int iCounterLes = 0;
             if (lbLesOnderdelen.SelectedItem != null)
             {
                 sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
@@ -105,10 +106,16 @@ namespace OWL_LEARN
 
                 foreach (DataRow row in dtPlanningen.Rows)
                 {
-                    
+                    foreach (DataRow rowsplanningen in dtLes.Rows)
+                    {
+                        if (dtPlanningen.Rows[iCounterLes]["lesid"] == dtLes.Rows[iCounterLes]["LesID"])
+                        {
+                            lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
+                        }
+                    }
                     
                 }
-                lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
+                
                 lbLes.ItemsSource = lstLes;
 
             }

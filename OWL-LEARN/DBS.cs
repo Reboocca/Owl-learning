@@ -561,15 +561,16 @@ namespace OWL_LEARN
             }
         }
 
-        public void PlanningToevoegen(string LeerlingId, string LesId, DateTime SelectedDate, string GekozenLesNaam)
+        public void PlanningToevoegen(string LeerlingId, string LesId, DateTime SelectedDate, string GekozenLesNaam, string sUsername)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "insert into planning (leerlingid, lesid, datum, lesnaam) VALUES (@leerlingid, @lesid, @selecteddate, @lesnaam)";
+            cmd.CommandText = "insert into planning (leerlingid, lesid, datum, lesnaam, usrname) VALUES (@leerlingid, @lesid, @selecteddate, @lesnaam, @usrname)";
             cmd.Parameters.AddWithValue("@leerlingid", LeerlingId);
             cmd.Parameters.AddWithValue("@lesid", LesId);
             cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
             cmd.Parameters.AddWithValue("@lesnaam", GekozenLesNaam);
+            cmd.Parameters.AddWithValue("@usrname", sUsername);
             cmd.Connection = connect;
 
             try

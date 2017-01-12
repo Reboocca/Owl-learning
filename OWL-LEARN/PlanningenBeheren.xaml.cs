@@ -26,6 +26,7 @@ namespace OWL_LEARN
         string sGekozenLesonderwerpId;
         string sGekozenLesNaam;
         string sGekozenLeerlingId;
+        string sGekozenLeerlingUsrname;
 
 
         struct Vakken
@@ -46,6 +47,7 @@ namespace OWL_LEARN
         }
         struct leerlingen
         {
+            public string LeerlingUsrname { get; set; }
             public string LeerlingVoornaam { get; set; }
             public string LeerlingAchternaam { get; set; }
             public string LeerlingId { get; set; }
@@ -66,7 +68,7 @@ namespace OWL_LEARN
 
             foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
             {
-                lstLeerlingen.Add(new leerlingen() { LeerlingId = drLeerlingen[0].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
+                lstLeerlingen.Add(new leerlingen() { LeerlingId = drLeerlingen[0].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString(), LeerlingUsrname = drLeerlingen[1].ToString() });
             }
             lvLeerlingen.ItemsSource = lstLeerlingen;
         }
@@ -134,7 +136,7 @@ namespace OWL_LEARN
                     string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
                     if (sGekozenLesId != null)
                     {
-                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam);
+                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam, sGekozenLeerlingUsrname);
                     }
                     else
                     {
@@ -175,6 +177,7 @@ namespace OWL_LEARN
             if (lvLeerlingen.SelectedItem != null)
             {
                 sGekozenLeerlingId = ((leerlingen)(lvLeerlingen.SelectedItem)).LeerlingId;
+                sGekozenLeerlingUsrname = ((leerlingen)(lvLeerlingen.SelectedItem)).LeerlingUsrname;
             }
         }
 

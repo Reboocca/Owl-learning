@@ -54,6 +54,27 @@ namespace OWL_LEARN
 
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
+            DataTable dtCheckUserNameUnique = dbs.CheckUserExistance(tbGebruikersNaam.Text);
+            if (dtCheckUserNameUnique.Rows.Count != 0)
+            {
+                string sCheckGebruikersnaamID = dtCheckUserNameUnique.Rows[0]["UserID"].ToString();
+                if (sCheckGebruikersnaamID != userID)
+                {
+                    MessageBox.Show("Deze gebruikersnaam is al door iemand anders in gebruik, kies een andere, of de bij jouw behorende gebruikersnaam", "Kies een andere gebruikersnaam");
+                }
+                else
+                {
+                    ModifyUser();
+                }
+            }
+            else
+            {
+                ModifyUser();
+            }
+        }
+        
+        public void ModifyUser()
+        {
             dbs.safeAccount(user, tbVoorNaam.Text, tbAchterNaam.Text, tbGebruikersNaam.Text, tbWachtwoord.Text, userID, this);
         }
     }

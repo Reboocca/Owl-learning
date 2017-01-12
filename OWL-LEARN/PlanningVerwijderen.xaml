@@ -5,25 +5,125 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OWL_LEARN"
         mc:Ignorable="d"
-        Title="Planning verwijderen" Height="600" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700">
-    <Grid>
-        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="333" Margin="442,10,0,0" SelectionChanged="lvPlanningen_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="75"/>
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="75"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="btVerwijderPlanning" Content="Verwijder planning" HorizontalAlignment="Left" Margin="892,539,0,0" VerticalAlignment="Top" Width="130" Click="btVerwijderPlanning_Click"/>
-        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="549" Margin="26,10,0,0" VerticalAlignment="Top" Width="371" SelectionChanged="lvLeerlingen_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="150"/>
-                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="150"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        WindowStartupLocation="CenterScreen"
+        Title="Planningen beheren" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/mointains-01.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid Margin="0,0,-5,0" RenderTransformOrigin="0.541,0.519">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1101*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid HorizontalAlignment="Right" Height="570" VerticalAlignment="Top" Width="280" Background="#CCFFFFFF" Margin="0,-2,820,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="White" Grid.ColumnSpan="3"  Click="btTerug_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#AA4B27"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#bb6e52"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="9.005,36.866,0,0" VerticalAlignment="Top" Width="202" Source="Images/owl_cropped1.png" Stretch="UniformToFill">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/owl_cropped.png"/>
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="412" Margin="308,38,0,0" VerticalAlignment="Top" Width="395" Background="#D8FFFFFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="395" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FF3284A8" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbContent_Copy" Content="Selecteer een leerling:" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="375" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+            <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,90,0,0" VerticalAlignment="Top" Width="371" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="150"/>
+                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="412" Margin="732,38,0,0" VerticalAlignment="Top" Width="436" Background="#D8FFFFFF" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="411*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbContent" Content="Planningen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="436" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FF3284A8"/>
+            <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="10,87,0,0" SelectionChanged="lvPlanningen_SelectionChanged" Grid.Column="1" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="75"/>
+                        <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="75"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="lbContent_Copy1" Content="Selecteer een planning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Button x:Name="btVerwijder" Content="Planning verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,490,0,0" Width="395" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435"  Click="btVerwijderPlanning_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#AA4B27"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#bb6e52"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="btOpslaan" Content="Nieuwe planning toevoegen" HorizontalAlignment="Left" Padding="2" Margin="732,490,0,0" Width="436" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btOpslaan_Click" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#AA4B27"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#bb6e52"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

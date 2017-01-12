@@ -24,11 +24,15 @@
                 </Image.OpacityMask>
             </Image>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="241" Margin="308,185,0,0" VerticalAlignment="Top" Width="853" Background="#E5FFFFFF" Grid.ColumnSpan="2">
-            <Label x:Name="lbContent" Content="Welkom op de cms applicatie van Owl-learn!" Padding="10" HorizontalContentAlignment="left" Margin="0,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8"/>
-            <Label x:Name="lbUser" Content="..." Padding="10" HorizontalContentAlignment="right" Margin="609,-41,0,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="White" Background="#FF95ACE8" HorizontalAlignment="Left" Width="188" RenderTransformOrigin="-0.753,-1.167"/>
-            <Label x:Name="lbUserICON" Padding="10" HorizontalContentAlignment="right" Margin="828,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8"/>
-            <Button x:Name="btLO" Content="Lesonderwerpen beheren" Padding="2" Margin="10,150,536,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btLO_Click">
+        <Grid HorizontalAlignment="Left" Height="205" Margin="308,185,0,0" VerticalAlignment="Top" Width="853" Background="#E5FFFFFF" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="426*"/>
+                <ColumnDefinition Width="427*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbContent" Content="Welkom op de cms applicatie van Owl-learn!" Padding="10" HorizontalContentAlignment="left" Margin="0,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbUser" Content="..." Padding="10" HorizontalContentAlignment="right" Margin="183,-41,0,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="White" Background="#FF95ACE8" HorizontalAlignment="Left" Width="188" RenderTransformOrigin="-0.753,-1.167" Grid.Column="1"/>
+            <Label x:Name="lbUserICON" Padding="10" HorizontalContentAlignment="right" Margin="402,-51,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF95ACE8" Grid.Column="1"/>
+            <Button x:Name="btLO" Content="Lesonderwerpen beheren" Padding="2" Margin="10,121,161,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btLO_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#9C7C71"/>
@@ -49,8 +53,29 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Label x:Name="lbContents" Content="U krijgt hier de kans om de users en lesonderwerpen te beheren. Klik op een van de onder-&#xD;&#xA;staande knoppen om verder te gaan." Padding="10" Margin="10,10,10,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
-            <Button x:Name="btUser" Content="Users beheren" Padding="2" Margin="536,150,10,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btUser_Click">
+            <Label x:Name="lbContents" Content="U krijgt hier de kans om de users en lesonderwerpen te beheren. Klik op een van de onder-&#xD;&#xA;staande knoppen om verder te gaan." Padding="10" Margin="10,30,10,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}" Grid.ColumnSpan="2"/>
+            <Button x:Name="btUser" Content="Users beheren" Padding="2" Margin="299,121,298,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btUser_Click" Grid.ColumnSpan="2">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#9C7C71"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#af968d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btPlanningMaken" Content="Planningen beheren" Padding="2" Margin="0,121,10,0" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" Click="btPlanningMaken_Click" Grid.Column="1" HorizontalAlignment="Right" Width="255">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#9C7C71"/>
@@ -99,7 +124,6 @@
                 <ImageBrush ImageSource="Images/User.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
-        <Button x:Name="btPlanningMaken" Content="Planningen beheren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="659,318,0,0" Height="62" Click="btPlanningMaken_Click"/>
 
     </Grid>
 </Window>

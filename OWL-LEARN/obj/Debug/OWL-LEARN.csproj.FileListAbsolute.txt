@@ -296,3 +296,11 @@ C:\Users\Jordy\Desktop\Bureaublad\school\programmeren\elearning tests\owl-learn-
 C:\Users\Jordy\Desktop\Bureaublad\school\programmeren\elearning tests\owl-learn-backups\Owl-learning-backup-2\OWL-LEARN\obj\Debug\OWL-LEARN.pdb
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\addVraag.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\addVraag.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml

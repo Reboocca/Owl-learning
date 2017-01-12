@@ -697,5 +697,26 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+        public void DeletePlanning(string PlanningId)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM planning WHERE id= @planningid");
+            cmd.Connection = connect;
+            cmd.Parameters.AddWithValue("@planningid", PlanningId);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("de planning is succesvol verwijderd.", "Succes!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het vewijderen van de planning, probeer later nog eens.", "Oh oh!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace OWL_LEARN
         string sChosenDate;
         string sGekozenVakId;
         string sGekozenLesonderwerpId;
+        string sGekozenLesNaam;
         string sGekozenLeerlingId;
 
 
@@ -126,6 +127,7 @@ namespace OWL_LEARN
         #endregion
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
+            sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
             if (cdCalendar.SelectedDate != null)
             {
                 sChosenDate = cdCalendar.SelectedDate.Value.ToString("yyyy/MM/dd");
@@ -135,7 +137,7 @@ namespace OWL_LEARN
                     string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
                     if (sGekozenLesId != null)
                     {
-                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, sChosenDate);
+                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, sChosenDate, sGekozenLesNaam);
                     }
                     else
                     {

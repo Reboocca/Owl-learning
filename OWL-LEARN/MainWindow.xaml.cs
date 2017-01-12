@@ -32,7 +32,6 @@ namespace OWL_LEARN
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             db.try_login(tb_User.Text, pb_Pwd.Password, this);
-
         }
 
        

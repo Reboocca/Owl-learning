@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,15 @@ namespace OWL_LEARN
         DBS dbs = new DBS();
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            dbs.newAccount(user, rolID, tbVoorNaam.Text, tbAchterNaam.Text, tbGebruikersNaam.Text, tbWachtwoord.Text, this);
+            DataTable dtCheckUserExistance = dbs.CheckUserExistance(tbGebruikersNaam.Text);
+            if (dtCheckUserExistance.Rows.Count != 0)
+            {
+                MessageBox.Show("Deze gebruikersnaam bestaat al, kies een andere, unieke, gebruikersnaam", "Kies een andere gebruikersnaam");
+            }
+            else
+            {
+                dbs.newAccount(user, rolID, tbVoorNaam.Text, tbAchterNaam.Text, tbGebruikersNaam.Text, tbWachtwoord.Text, this);
+            }
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)

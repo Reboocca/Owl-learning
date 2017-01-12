@@ -22,7 +22,6 @@ namespace OWL_LEARN
     public partial class PlanningenBeheren : Window
     {
         //sCurrentDate = DateTime.Now;
-        string sChosenDate;
         string sGekozenVakId;
         string sGekozenLesonderwerpId;
         string sGekozenLesNaam;

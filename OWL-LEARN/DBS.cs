@@ -757,5 +757,18 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+        public DataTable GetPlanningen(string sGekozenLeerlingId)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from planning WHERE leerlingid =" + sGekozenLeerlingId + ""))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace OWL_LEARN
     /// </summary>
     public partial class PlanningenBeheren : Window
     {
-        string sCurrentDate = DateTime.Now.ToString("yyyy-MM-dd");
+         //sCurrentDate = DateTime.Now;
         string sChosenDate;
         string sGekozenVakId;
         string sGekozenLesonderwerpId;
@@ -130,14 +130,13 @@ namespace OWL_LEARN
             sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
             if (cdCalendar.SelectedDate != null)
             {
-                sChosenDate = cdCalendar.SelectedDate.Value.ToString("yyyy/MM/dd");
-                MessageBox.Show(sChosenDate, sCurrentDate);
+                DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
                 if (sGekozenLeerlingId != null)
                 {
                     string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
                     if (sGekozenLesId != null)
                     {
-                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, sChosenDate, sGekozenLesNaam);
+                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam);
                     }
                     else
                     {

@@ -681,7 +681,7 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
-        public void PlanningToevoegen(string LeerlingId, string LesId, string SelectedDate,string GekozenLesNaam)
+        public void PlanningToevoegen(string LeerlingId, string LesId, DateTime SelectedDate,string GekozenLesNaam)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();

@@ -69,10 +69,12 @@ namespace OWL_LEARN
         {
             DataTable dtPlanningen = new DBS().GetPlanningen(sGekozenLeerlingId);
             List<LvPlanningInfo> lstPlanninginfo = new List<LvPlanningInfo>();
+            int iCounterDatum = 0;
 
             foreach (DataRow drPlanningen in dtPlanningen.Rows)
             {
-                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), PlanningLesId = drPlanningen[2].ToString(), Date = drPlanningen[3].ToString(), LesNaam = drPlanningen[4].ToString() });
+                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), PlanningLesId = drPlanningen[2].ToString(), Date = Convert.ToDateTime(dtPlanningen.Rows[iCounterDatum]["datum"]).ToString("dd/MM/yyyy"), LesNaam = drPlanningen[4].ToString() });
+                iCounterDatum++;
             }
 
             lvPlanningen.ItemsSource = lstPlanninginfo;

@@ -48,6 +48,11 @@ namespace OWL_LEARN
             public string lID { get; set; }
             public string lNaam { get; set; }
         }
+        struct Planningen
+        {
+            public string Date { get; set; }
+            public string PlanningLesId { get; set; }
+        }
 
         private void PopulateListBox()
         {
@@ -91,16 +96,19 @@ namespace OWL_LEARN
         private void lbLesOnderdelen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sLO = "";
+            DataTable dtPlanningen = new DBS().Search("planning", "leerlingid", user);
             List<Les> lstLes = new List<Les>();
             if (lbLesOnderdelen.SelectedItem != null)
             {
                 sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
                 DataTable dtLes = dbs.Search("Les", "LesOnderwerpID", sLO);
 
-                foreach (DataRow row in dtLes.Rows)
+                foreach (DataRow row in dtPlanningen.Rows)
                 {
-                    lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
+                    
+                    
                 }
+                lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
                 lbLes.ItemsSource = lstLes;
 
             }

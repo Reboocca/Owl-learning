@@ -744,5 +744,18 @@ namespace OWL_LEARN
 
             }
         }
+        public DataTable getLeerlingen()
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from users where RolID = 2"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace OWL_LEARN
         //Lijst vullen met de vragen van alle lessen:
         public void PopulateVraagLijst()
         {
-            DataTable dtToetsVraag = db.GetToetsVraag(lesonderwerp);
+            DataTable dtToetsVraag = db.Search("vragen", "LesonderwerpID", lesonderwerp);
 
             foreach (DataRow row in dtToetsVraag.Rows)
             {
@@ -118,7 +118,7 @@ namespace OWL_LEARN
                      _psVraagID = _psltSelectieVragen[_iIndex];
 
                     //Haal de vraag op via het VraagID
-                    DataTable dtVraag = db.GetToetsVraagByID(_psVraagID);
+                    DataTable dtVraag = db.Search("vragen", "VraagID", _psVraagID);
                     foreach (DataRow row in dtVraag.Rows)
                      {
                          lbVraag.Content = row["Vraag"].ToString();
@@ -163,7 +163,7 @@ namespace OWL_LEARN
         //Lijst vullen met de mogelijke antwoorden -> vul deze in de radiobuttons in.
         private void PopulateAntwoordLijst()
         {
-            DataTable dtAntwoorden = db.GetAntwoorden(_psVraagID);
+            DataTable dtAntwoorden = db.Search("antwoorden", "VraagID", _psVraagID);
 
             foreach (DataRow row in dtAntwoorden.Rows)
             {

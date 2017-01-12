@@ -72,14 +72,13 @@ namespace OWL_LEARN
                 sVakID = ((Vak)(lbVakken.SelectedItem)).ID;
             }
 
-            DataTable dtLesOnderdeel = new DBS().getLO(sVakID);
+            DataTable dtLesOnderdeel = dbs.Search("lesonderwerp", "VakID", sVakID);
 
             foreach (DataRow row in dtLesOnderdeel.Rows)
             {
                 lstLesOnderdeel.Add(new LesOnderdeel() { loID = row["LesonderwerpID"].ToString(), loNaam = row["Omschrijving"].ToString() });
             }
             lbLesOnderdelen.ItemsSource = lstLesOnderdeel;
-            MessageBox.Show(user);
         }
 
         private void btTerug_Click(object sender, RoutedEventArgs e)
@@ -96,7 +95,7 @@ namespace OWL_LEARN
             if (lbLesOnderdelen.SelectedItem != null)
             {
                 sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
-                DataTable dtLes = new DBS().getLes(sLO);
+                DataTable dtLes = dbs.Search("Les", "LesOnderwerpID", sLO);
 
                 foreach (DataRow row in dtLes.Rows)
                 {

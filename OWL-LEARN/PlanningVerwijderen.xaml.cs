@@ -43,7 +43,7 @@ namespace OWL_LEARN
 
         private void PopulateLvLeerlingen()
         {
-            DataTable dtLeerlingen = new DBS().getLeerlingen();
+            DataTable dtLeerlingen = new DBS().Search("users", "RolID", "2");
             List<LvLeerlingInfo> lstLeerlingen = new List<LvLeerlingInfo>();
 
             foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
@@ -54,7 +54,7 @@ namespace OWL_LEARN
         }
         private void PopulateLvPlanningen()
         {
-            DataTable dtPlanningen = new DBS().GetPlanningen(sGekozenLeerlingId);
+            DataTable dtPlanningen = new DBS().Search("planning", "leerlingid", sGekozenLeerlingId);
             List<LvPlanningInfo> lstPlanninginfo = new List<LvPlanningInfo>();
             int iCounterDatum = 0;
 

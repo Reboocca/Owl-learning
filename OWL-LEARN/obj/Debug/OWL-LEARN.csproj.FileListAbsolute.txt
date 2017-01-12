@@ -287,3 +287,7 @@ C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.baml
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml

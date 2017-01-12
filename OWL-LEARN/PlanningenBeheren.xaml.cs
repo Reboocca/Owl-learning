@@ -118,10 +118,9 @@ namespace OWL_LEARN
             }
             else
             {
-                cbKiesLesonderdeel.IsEnabled = false;
-                cbKiesLesonderdeel.ItemsSource = null;
                 MessageBox.Show("Het gekozen lesonderwerp heeft nog geen lessen, voeg deze allereerst toe.", "Voeg een les toe");
                 cbKiesLes.IsEnabled = false;
+                cbKiesLes.ItemsSource = null;
             }
         }
         #endregion

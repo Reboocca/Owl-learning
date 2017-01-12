@@ -129,30 +129,38 @@ namespace OWL_LEARN
         #endregion
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
-            if (cdCalendar.SelectedDate != null)
+            string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
+            DataTable dtCheckExistancePlanning = new DBS().CheckExistancePlanning(sGekozenLeerlingUsrname, sGekozenLesId);
+            if (dtCheckExistancePlanning.Rows.Count != 0)
             {
-                DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
-                if (sGekozenLeerlingId != null)
+                MessageBox.Show("De planning van de les in combinatie met de leerling bestaat al. Verwijder de huidige planning en maak een nieuwe aan.", "Planning bestaat al");
+            }
+            else
+            {
+                sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
+                if (cdCalendar.SelectedDate != null)
                 {
-                    string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
-                    if (sGekozenLesId != null)
+                    DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
+                    if (sGekozenLeerlingId != null)
                     {
-                        new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam, sGekozenLeerlingUsrname);
+                        if (sGekozenLesId != null)
+                        {
+                            new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam, sGekozenLeerlingUsrname);
+                        }
+                        else
+                        {
+                            MessageBox.Show("U heeft geen les geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een les");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("U heeft geen les geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een les");
+                        MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
+                    MessageBox.Show("U moet een datum selecteren in de kalender!", "Selecteer een datum");
                 }
-            }
-            else
-            {
-                MessageBox.Show("U moet een datum selecteren in de kalender!", "Selecteer een datum");
             }
         }
 

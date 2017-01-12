@@ -601,6 +601,19 @@ namespace OWL_LEARN
             }
             return retValue;
         }
+        public DataTable CheckExistancePlanning(string sParameterA, string sParameterB)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM planning WHERE usrname ='" + sParameterA + "'AND lesid ="+ sParameterB ))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            return retValue;
+        }
 
 
     }

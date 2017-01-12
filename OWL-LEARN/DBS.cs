@@ -588,11 +588,11 @@ namespace OWL_LEARN
 
             }
         }
-        public DataTable FindPlanningMetUsername(string sTable, string sParameterA, string sParameterB)
+        public DataTable FindPlanningMetUsername(string sTable, string sParameterA, string sParameterB, string sCurrentDate)
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB +"'"))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB +"' AND datum > '" + sCurrentDate + "' OR usrname = '" + sCurrentDate + "' AND datum ='" + sCurrentDate + "'"))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();

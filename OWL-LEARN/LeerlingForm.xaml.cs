@@ -22,6 +22,7 @@ namespace OWL_LEARN
     public partial class LeerlingForm : Window
     {
         string user;
+        string sCurrentDate = DateTime.Now.ToString("yyyy-MM-dd");
         public LeerlingForm(string userRol)
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace OWL_LEARN
         struct Planningen
         {
             public string Date { get; set; }
-            public string PlanningLesId { get; set; }
+            public string LesID { get; set; }
         }
 
         private void PopulateListBox()
@@ -95,45 +96,27 @@ namespace OWL_LEARN
 
         private void lbLesOnderdelen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string sLO = "";
-            DataTable dtPlanningen = new DBS().FindPlanningMetUsername("planning", "usrname", user);
-            List<Les> lstLes = new List<Les>();
-            int iCounterLes = 0;
             if (lbLesOnderdelen.SelectedItem != null)
             {
+                string sLO = "";
                 sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
                 DataTable dtLes = dbs.Search("Les", "LesOnderwerpID", sLO);
 
-                foreach (DataRow row in dtPlanningen.Rows)
+                DataTable dtPlanningen = new DBS().FindPlanningMetUsername("planning", "usrname", user, sCurrentDate);
+                List<Les> lstLes = new List<Les>();
+                List<Planningen> lstPlanningen = new List<Planningen>();
+                foreach (DataRow drLes in dtLes.Rows)
                 {
-                    foreach (DataRow rowsplanningen in dtLes.Rows)
+                    foreach (DataRow drPlanningen in dtPlanningen.Rows)
                     {
-                        if (dtPlanningen.Rows[iCounterLes]["lesid"] == dtLes.Rows[iCounterLes]["LesID"])
+                        if (drLes["LesID"].ToString().Equals(drPlanningen["lesid"].ToString()))
                         {
-                            lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
+                            lstLes.Add(new Les() { lID = drLes["LesID"].ToString(), lNaam = drLes["LesNaam"].ToString() });
                         }
                     }
-                    
                 }
-                
                 lbLes.ItemsSource = lstLes;
-
             }
-
-            /*string sLO = "";
-            List<Les> lstLes = new List<Les>();
-            if (lbLesOnderdelen.SelectedItem != null)
-            {
-                sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
-                DataTable dtLes = new DBS().getLes(sLO);
-
-                foreach (DataRow row in dtLes.Rows)
-                {
-                    lstLes.Add(new Les() { lID = row["LesID"].ToString(), lNaam = row["LesNaam"].ToString() });
-                }
-                lbLes.ItemsSource = lstLes;
-               
-            }*/
         }
 
         private void btVerder_Click(object sender, RoutedEventArgs e)

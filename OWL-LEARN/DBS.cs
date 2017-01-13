@@ -409,10 +409,12 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het ophalen van de user's naam
         public string getUserNaam(string username)
         {
             DataTable retValue = new DataTable();
             db_connection();
+
             using (MySqlCommand cmd = new MySqlCommand("Select * from users where Username='" + username + "'"))
             {
                 cmd.Connection = connect;
@@ -420,6 +422,7 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+            //Return Username
             string NaamUser = Convert.ToString(retValue.Rows[0]["firstName"]) + " " + Convert.ToString(retValue.Rows[0]["lastName"]);
             return NaamUser;
         }

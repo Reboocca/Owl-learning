@@ -30,7 +30,8 @@ namespace OWL_LEARN
             sloID = loID;
         }
 
-        public int _juistAntwoord;
+        DBS dbs = new DBS();
+
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
@@ -40,26 +41,52 @@ namespace OWL_LEARN
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (A1.IsChecked == true)
+            if (tbVraag.Text == null || tbAntwoordA.Text == null || tbAntwoordB.Text == null || tbAntwoordC.Text == null || tbAntwoordD.Text == null)
             {
-                _juistAntwoord = 1;
-            }
-            else if (A2.IsChecked == true)
-            {
-                _juistAntwoord = 2;
-            }
-            else if (A3.IsChecked == true)
-            {
-                _juistAntwoord = 3;
-            }
-            else if (A4.IsChecked == true)
-            {
-                _juistAntwoord = 4;
+                MessageBox.Show("Zorg ervoor dat alle invoervelden ingevuld zijn voordat je de vraag opslaat.", "Let op!");
             }
             else
-            { 
-                MessageBox.Show("Zorg ervoor dat je het juiste antwoord hebt aangevinkt!", "Whoops!");
+            {
+                //Controleer of de consulent een van de checkboxes heeft aangevinkt
+                if (A1.IsChecked == true)
+                {
+                    dbs.addVraag(tbVraag.Text, lesID, sloID);
+                    dbs.addAntwoord(tbVraag.Text, lesID, sloID, 1, tbAntwoordA.Text, tbAntwoordB.Text, tbAntwoordC.Text, tbAntwoordD.Text);
+                    lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
+                    terug.Show();
+                    this.Close();
+                }
+                else if (A2.IsChecked == true)
+                {
+                    dbs.addVraag(tbVraag.Text, lesID, sloID);
+                    dbs.addAntwoord(tbVraag.Text, lesID, sloID, 2, tbAntwoordA.Text, tbAntwoordB.Text, tbAntwoordC.Text, tbAntwoordD.Text);
+                    lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
+                    terug.Show();
+                    this.Close();
+                }
+                else if (A3.IsChecked == true)
+                {
+                    dbs.addVraag(tbVraag.Text, lesID, sloID);
+                    dbs.addAntwoord(tbVraag.Text, lesID, sloID, 3, tbAntwoordA.Text, tbAntwoordB.Text, tbAntwoordC.Text, tbAntwoordD.Text);
+                    lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
+                    terug.Show();
+                    this.Close();
+                }
+                else if (A4.IsChecked == true)
+                {
+                    dbs.addVraag(tbVraag.Text, lesID, sloID);
+                    dbs.addAntwoord(tbVraag.Text, lesID, sloID, 4, tbAntwoordA.Text, tbAntwoordB.Text, tbAntwoordC.Text, tbAntwoordD.Text);
+                    lesWijzigen terug = new lesWijzigen(sloID, user, lesID);
+                    terug.Show();
+                    this.Close();
+                }
+                //Wanneer geen antwoord is aangevinkt, geef de consulent een bericht hierover
+                else
+                {
+                    MessageBox.Show("Zorg ervoor dat je het juiste antwoord hebt aangevinkt!", "Whoops!");
+                }
             }
+           
         }
     }
 }

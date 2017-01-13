@@ -98,7 +98,7 @@ namespace OWL_LEARN
             lbLes.ItemsSource = null;
         }
 
-        //Handelingen die gebeuren wanneer je op terug klikt
+        //Handelingen die gebeuren wanneer je op terug klikt:
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             MainWindow login = new MainWindow();
@@ -106,31 +106,47 @@ namespace OWL_LEARN
             this.Close();
         }
 
+        //Handelingen wanneer de gebruiker een lesonderdeel selecteerd:
         private void lbLesOnderdelen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Controle of er wel iets is geselecteerd
             if (lbLesOnderdelen.SelectedItem != null)
             {
+                //Haal het LesonderwerpID op via het geselecteerde item
                 string sLO = "";
                 sLO = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
+
+                //Geef deze informatie mee en haal de verschillende lessen op
                 DataTable dtLes = dbs.Search("Les", "LesOnderwerpID", sLO);
 
+                //Controleer of de leerling recht heeft om de les te zien i.v.m. de planning
                 DataTable dtPlanningen = new DBS().FindPlanningMetUsername("planning", "usrname", user, sCurrentDate);
+
+                //Maak een lijst aan met lessen en een lijst met planningen
                 List<Les> lstLes = new List<Les>();
                 List<Planningen> lstPlanningen = new List<Planningen>();
+
+                //Voor elke opgehaalde les
                 foreach (DataRow drLes in dtLes.Rows)
                 {
+                    //Voor elke opgehaalde planning
                     foreach (DataRow drPlanningen in dtPlanningen.Rows)
                     {
+                        //Zolang het LesID klopt met het LesID dat is opgehaald via de planningen
                         if (drLes["LesID"].ToString().Equals(drPlanningen["lesid"].ToString()))
                         {
+                            //Voeg de les toe aan de lijst
                             lstLes.Add(new Les() { lID = drLes["LesID"].ToString(), lNaam = drLes["LesNaam"].ToString() });
                         }
                     }
                 }
+
+                //Weergeef de items van de lijst in de listbox
                 lbLes.ItemsSource = lstLes;
             }
         }
 
+        //Handelingen wanneer er op verder geklikt word:
         private void btVerder_Click(object sender, RoutedEventArgs e)
         {
             if (lbLes.SelectedIndex == -1)

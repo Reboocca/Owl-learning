@@ -7,7 +7,7 @@
         <BindingGroup/>
     </Window.BindingGroup>
     <Window.Background>
-        <ImageBrush Stretch="UniformToFill" ImageSource="image.png"/>
+        <ImageBrush Stretch="UniformToFill" ImageSource="pack://siteoforigin:,,,/Images/Sea.jpg"/>
     </Window.Background>
     <Grid Margin="0,0,-5,0">
         <Grid.Background>
@@ -29,10 +29,10 @@
                     <ImageBrush ImageSource="Images/owl_cropped.png"/>
                 </Image.OpacityMask>
             </Image>
-            <Button x:Name="btTerug" Content="Terug" Padding="2" Margin="0.985,515.015,-2.985,0" FontSize="18.667" Foreground="#FFFFF6E3" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
+            <Button x:Name="btTerug" Content="Terug" Padding="2" Margin="0,514,0,0" FontSize="18.667" Foreground="#FFFFF6E3" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click" Background="#FF460B30">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#C95252"/>
+                        <Setter Property="Background" Value="#460B30"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -44,7 +44,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#d37474"/>
+                                <Setter Property="Background" Value="#631145"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -58,10 +58,10 @@
                 <RowDefinition Height="132*"/>
                 <RowDefinition Height="59*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btOpslaan" Content="Opslaan" Padding="2" Margin="0,12,0,0" FontSize="18.667" Foreground="#FFFFF6E3" Height="47" VerticalAlignment="Top" Grid.Row="2" Click="btOpslaan_Click" >
+            <Button x:Name="btOpslaan" Content="Opslaan" Padding="2" Margin="0,12,0,0" FontSize="18.667" Foreground="#FFFFF6E3" Height="47" VerticalAlignment="Top" Grid.Row="2" Click="btOpslaan_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#C95252"/>
+                        <Setter Property="Background" Value="#460B30"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -80,12 +80,12 @@
                 </Button.Style>
             </Button>
             <TextBox x:Name="tbNaam" HorizontalAlignment="Left" Padding="5" Height="50" Margin="275,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="443" TextAlignment="Center" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436"/>
-            <Label x:Name="lbVoegin" Content="Les naam:" Padding="10" HorizontalContentAlignment="Center" Margin="10,145,468,0" VerticalAlignment="Top" Height="50" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FFA0B974"/>
-            <Label x:Name="lbVoegin_Copy" Content="Les uitleg" Padding="10" HorizontalContentAlignment="Center" Margin="10,4,468,0" VerticalAlignment="Top" Height="128" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FFA0B974" Grid.Row="1"/>
+            <Label x:Name="lbVoegin" Content="Les naam:" Padding="10" HorizontalContentAlignment="Center" Margin="10,145,468,0" VerticalAlignment="Top" Height="50" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FF9CA7BD"/>
+            <Label x:Name="lbVoegin_Copy" Content="Les uitleg" Padding="10" HorizontalContentAlignment="Center" Margin="10,4,468,0" VerticalAlignment="Top" Height="128" FontFamily="Century Gothic" FontSize="21.333" Foreground="White" Background="#FF9CA7BD" Grid.Row="1"/>
             <RichTextBox x:Name="rbUitleg" HorizontalAlignment="Left" Padding="5" Height="128" Margin="275,4,0,0" VerticalAlignment="Top" Width="443" FontSize="16" Foreground="#FF463428" SelectionBrush="#FF548436" Grid.Row="1">
                 <FlowDocument/>
             </RichTextBox>
-            <Label x:Name="lbContent" Content="Les toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="0,-34,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FFF0A246"/>
+            <Label x:Name="lbContent" Content="Les toevoegen" Padding="10" HorizontalContentAlignment="Center" Margin="0,-33.723,0,0" VerticalAlignment="Top" Height="58" FontFamily="Century Gothic" FontSize="24" Foreground="White" Background="#FF460B30"/>
         </Grid>
         <Label x:Name="lbContent_Copy" Content="Voeg een nieuwe les toe door een lesnaam in te voeren en een korte les-&#xD;&#xA;uitleg erbij te geven. Vervolgens kunt u op &quot;opslaan&quot; klikken om de les toe &#xD;&#xA;te voegen aan het huidige lesonderwerp." Padding="10" Margin="386,152,0,0" VerticalAlignment="Top" Height="86" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
     </Grid>

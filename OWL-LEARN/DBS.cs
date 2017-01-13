@@ -609,10 +609,10 @@ namespace OWL_LEARN
         }
 
         //Functie voor het verwijderen van de planning
-        public void DeletePlanning(string PlanningId)
+        public void DeletePlanning(string sTable, string PlanningId)
         {
             db_connection();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM planning WHERE id= @planningid");
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM " + sTable + " WHERE id= @planningid");
             cmd.Connection = connect;
             cmd.Parameters.AddWithValue("@planningid", PlanningId);     //Parameter with PlanningID
 

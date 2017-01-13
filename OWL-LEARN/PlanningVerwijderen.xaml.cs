@@ -77,7 +77,7 @@ namespace OWL_LEARN
                     MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je deze planning wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
                     if (DeleteYesNo == MessageBoxResult.Yes)
                     {
-                        new DBS().DeletePlanning(sSelectedPlanning);
+                        new DBS().DeletePlanning("planning",sSelectedPlanning);
                         PopulateLvPlanningen();
                     }
                 }

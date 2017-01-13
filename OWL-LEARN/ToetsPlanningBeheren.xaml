@@ -15,7 +15,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="620,60,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="620,60,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Toets" DisplayMemberBinding="{Binding ToetsNaam}" Width="196"/>
@@ -24,7 +24,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="btAddToetsPlanning" Content="Voeg toetsplanning toe" HorizontalAlignment="Left" Margin="720,387,0,0" VerticalAlignment="Top" Width="170" Height="22" Click="btAddToetsPlanning_Click"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="286,424,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btVerwijder" Content="Verwijder" HorizontalAlignment="Left" Margin="286,424,0,0" VerticalAlignment="Top" Width="75" Click="btVerwijder_Click"/>
 
     </Grid>
 </Window>

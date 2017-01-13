@@ -21,6 +21,7 @@ namespace OWL_LEARN
     public partial class ToetsPlanningBeheren : Window
     {
         string sGekozenLeerlingId;
+        string sSelectedPlanning;
         struct LvLeerlingInfo
         {
             public string LeerlingVoornaam { get; set; }
@@ -79,6 +80,38 @@ namespace OWL_LEARN
             }
 
             lvPlanningen.ItemsSource = lstPlanninginfo;
+        }
+
+        private void btVerwijder_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvLeerlingen.SelectedItem != null)
+            {
+                if (lvPlanningen.SelectedItem != null)
+                {
+                    MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je deze planning wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                    if (DeleteYesNo == MessageBoxResult.Yes)
+                    {
+                        new DBS().DeletePlanning("toetsplanning",sSelectedPlanning);
+                        PopulateLVToetsPlanningen();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U moet een planning selecteren voordat u er een kan verwijderen", "Selecteer een planning");
+                }
+            }
+            else
+            {
+                MessageBox.Show("U moet een leerling selecteren voordat u een planning kan verwijderen", "Selecteer een leerling");
+            }
+        }
+
+        private void lvPlanningen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvPlanningen.SelectedItem != null)
+            {
+                sSelectedPlanning = ((LvPlanningInfo)(lvPlanningen.SelectedItem)).SelectedPlanningId;
+            }
         }
     }
 }

@@ -11,8 +11,10 @@ namespace OWL_LEARN
 {
     class DBS
     {
+        #region fields
         private string conn;
         private MySqlConnection connect;
+        #endregion
 
         private void db_connection()
         {

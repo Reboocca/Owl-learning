@@ -16,6 +16,7 @@ namespace OWL_LEARN
         private MySqlConnection connect;
         #endregion
 
+        //Connectie met de database
         private void db_connection()
         {
             try
@@ -24,7 +25,8 @@ namespace OWL_LEARN
                 connect = new MySqlConnection(conn);
                 connect.Open();
             }
-            catch (MySqlException)
+
+            catch (MySqlException) //Foutafhandeling
             {
                 MessageBox.Show("Kan geen verbinding maken met de database", "Oh nee!");
             }

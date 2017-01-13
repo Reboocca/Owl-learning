@@ -663,6 +663,8 @@ namespace OWL_LEARN
 
             }
         }
+
+        //Functie voor het vinden van de planning via de username
         public DataTable FindPlanningMetUsername(string sTable, string sParameterA, string sParameterB, string sCurrentDate)
         {
             DataTable retValue = new DataTable();
@@ -674,8 +676,12 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
+
+        //Functie voor het vinden van de bestaande planning
         public DataTable CheckExistancePlanning(string sParameterA, string sParameterB)
         {
             DataTable retValue = new DataTable();
@@ -687,9 +693,10 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
-
-
+        
     }
 }

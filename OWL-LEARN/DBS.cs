@@ -153,31 +153,35 @@ namespace OWL_LEARN
             return retValue;
         }
 
+        //Fucntie voor het verwijderen van een vraag
         public void DeleteVraag(string vID)
         {
             MySqlCommand cmd = new MySqlCommand("DELETE FROM vragen WHERE VraagID=" + vID);
-            bool r = DeleteAntwoorden(vID);
+            bool r = DeleteAntwoorden(vID);      //Verwijder ook de antwoorden die gebonden zijn aan de vraag
 
             try
             {
                 db_connection();
                 cmd.Connection = connect;
                 cmd.ExecuteNonQuery();
-                if (r)
+
+                if (r)      //Wanneer de antwoorden & de vraag succesvol zijn verwijderd
                 {
                     MessageBox.Show("De vraag is succesvol verwijderd.", "Succes!");
                 }
-                else
+
+                else        //Wanneer er iets mis is gegaan met het verwijderen
                 {
                     MessageBox.Show("Er is iets mis gegaan met het verwijderen van de antwoorden die bij de vraag horen, contacteer een beheerder", "Ohjee.");
                 }
-                
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het verwijderen van de vraag, probeer later nog eens.", "Oh oh!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

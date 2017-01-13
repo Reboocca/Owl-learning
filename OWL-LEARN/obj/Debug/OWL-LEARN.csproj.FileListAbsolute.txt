@@ -304,3 +304,7 @@ C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.g.cs
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml

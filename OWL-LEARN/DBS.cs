@@ -787,5 +787,34 @@ namespace OWL_LEARN
                 connect.Close();
             }
         }
+
+        public void ToetsPlanningToevoegen(string LesOnderwerpId, string LeerlingUsername, DateTime SelectedDate, string ToetsNaam)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam)";
+            cmd.Parameters.AddWithValue("@leerlingusername", LeerlingUsername);       
+            cmd.Parameters.AddWithValue("@lesonderwerpid", LesOnderwerpId);                   
+            cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
+            cmd.Parameters.AddWithValue("@toetsnaam", ToetsNaam);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("De toetsplanning is succesvol toegevoegd!", "Succes!");
+            }
+
+            catch       //Foutafhandeling
+            {
+                MessageBox.Show("Er is iets mis gegaan met het opslaan van de nieuwe toetsplanning, probeer het nog eens ", "Error!");
+            }
+
+            finally     //Close database connection
+            {
+                connect.Close();
+
+            }
+        }
     }
 }

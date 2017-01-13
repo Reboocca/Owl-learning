@@ -23,6 +23,9 @@ namespace OWL_LEARN
         string sGekozenLeerlingUsername;
         string sGekozenVakId;
         string sGekozenLesonderdeelId;
+        string sGekozenLesonderdeelNaam;
+        string sToetsNaam;
+        DateTime dtChosenDate;
         struct Vakken
         {
             public string VakNaam { get; set; }
@@ -45,6 +48,7 @@ namespace OWL_LEARN
             InitializeComponent();
             PopulateLvLeerlingen();
             FillCbKiesVak();
+            cbKiesLesonderdeel.IsEnabled = false;
         }
 
         private void PopulateLvLeerlingen()
@@ -76,6 +80,7 @@ namespace OWL_LEARN
             if (cbKiesVak.SelectedItem != null)
             {
                 sGekozenVakId = ((Vakken)(cbKiesVak.SelectedItem)).VakId;
+
                 FillCbLesonderdelen();
             }
         }
@@ -111,7 +116,13 @@ namespace OWL_LEARN
 
         private void cbKiesLesonderdeel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            sGekozenLesonderdeelId = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
+            if (cbKiesLesonderdeel.SelectedItem != null)
+            {
+                sGekozenLesonderdeelId = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
+                sGekozenLesonderdeelNaam = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).Lesonderdeel;
+                sToetsNaam = sGekozenLesonderdeelNaam + " TOETS";
+                lblToetsNaam.Content = "De toetsnaam zal worden: " + sToetsNaam;
+            }
         }
 
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
@@ -120,10 +131,10 @@ namespace OWL_LEARN
             {
                 if(cbKiesLesonderdeel.SelectedItem != null)
                 {
-                    DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
-                    if (dtChosenDate != null)
+                    if (cdCalendar.SelectedDate != null)
                     {
-
+                        dtChosenDate = cdCalendar.SelectedDate.Value.Date;
+                        new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam);
                     }
                     else
                     {
@@ -139,6 +150,11 @@ namespace OWL_LEARN
             {
                 MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
             }
+        }
+
+        private void cdCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

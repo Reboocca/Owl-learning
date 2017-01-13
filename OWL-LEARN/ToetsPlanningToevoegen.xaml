@@ -44,6 +44,7 @@
         <Label x:Name="label" Content="Kies vak" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="637,72,0,0" Width="177"/>
         <Label x:Name="label1" Content="Kies lesonderwerp" HorizontalAlignment="Left" Margin="637,130,0,0" VerticalAlignment="Top" Width="177"/>
         <Button x:Name="btOpslaan" Content="Opslaan" HorizontalAlignment="Left" Margin="748,327,0,0" VerticalAlignment="Top" Width="75" Click="btOpslaan_Click"/>
-        <Calendar x:Name="cdCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,183,0,0"/>
+        <Calendar x:Name="cdCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,183,0,0" SelectedDatesChanged="cdCalendar_SelectedDatesChanged"/>
+        <Label x:Name="lblToetsNaam" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="661,422,0,0" Width="432"/>
     </Grid>
 </Window>

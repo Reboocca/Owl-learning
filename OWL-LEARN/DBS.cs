@@ -427,16 +427,17 @@ namespace OWL_LEARN
             return NaamUser;
         }
 
+        //Functie voor het aanmaken van een nieuw account
         public void newAccount(string user, string rolID, string fName, string lName, string gName, string WW, AccountToevoeg form)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "insert into users (Username, Password, firstName, lastName, rolID) VALUES (@sUsername, @sPassword, @sfName, @slName, @srolID)";
-            cmd.Parameters.AddWithValue("@sUsername", gName);
-            cmd.Parameters.AddWithValue("@sPassword", WW);
-            cmd.Parameters.AddWithValue("@sfName", fName);
-            cmd.Parameters.AddWithValue("@slName", lName);
-            cmd.Parameters.AddWithValue("@srolID", rolID);
+            cmd.Parameters.AddWithValue("@sUsername", gName);       //Parameter with Username
+            cmd.Parameters.AddWithValue("@sPassword", WW);          //Parameter with Password
+            cmd.Parameters.AddWithValue("@sfName", fName);          //Parameter with Firstname
+            cmd.Parameters.AddWithValue("@slName", lName);          //Parameter with Lastname
+            cmd.Parameters.AddWithValue("@srolID", rolID);          //Parameter with RolID
             cmd.Connection = connect;
 
             try
@@ -448,11 +449,13 @@ namespace OWL_LEARN
                 form.Close();
 
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
 

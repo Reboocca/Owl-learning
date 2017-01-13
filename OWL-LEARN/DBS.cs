@@ -294,7 +294,7 @@ namespace OWL_LEARN
 
             catch       //Foutafhandeling
             {
-                MessageBox.Show("Er is iets mis gegaan met het vewijderen van het lesonderwerp, probeer later nog eens.", "Whoops!");
+                MessageBox.Show("Er is iets mis gegaan met het toevoegen van het lesonderwerp, probeer later nog eens.", "Whoops!");
             }
 
             finally     //Close database connection
@@ -669,12 +669,24 @@ namespace OWL_LEARN
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB +"' AND datum > '" + sCurrentDate + "' OR usrname = '" + sCurrentDate + "' AND datum ='" + sCurrentDate + "'"))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB + "' AND datum <= '" + sCurrentDate + "'"))
             {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
+                try
+                {
+                    cmd.Connection = connect;
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    retValue.Load(reader);
+                }
+
+                catch       //Foutafhandeling
+                {
+                    MessageBox.Show("IDUNNOWHATHAPPENED");
+                }
+
+                finally     //Close database connection
+                {
+                    connect.Close();
+                }
             }
 
             //Return result
@@ -697,6 +709,83 @@ namespace OWL_LEARN
             //Return result
             return retValue;
         }
-        
+        public void addVraag(string vraag, string lesID, string loID)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO vragen(Vraag, LesID, LesonderwerpID) VALUES('" + vraag + "', '" + lesID + "' ,'" + loID + "')");
+            cmd.Connection = connect;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Het toevoegen van de vraag is voltooid", "Yes!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het toevoegen van de vraag, probeer later nog eens.", "Whoops!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+        public string getVraagID(string Vraag, string lesID, string loID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            using (MySqlCommand cmd = new MySqlCommand("Select * from vragen where vraag='" + Vraag + "' and LesID ='" + lesID + "' and LesonderwerpID = '" + loID + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+            string vraagID = Convert.ToString(retValue.Rows[0]["VraagID"]);
+            return vraagID;
+        }
+
+        public void addAntwoord(string vraag, string lesID, string loID, int juistAntwoord, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD)
+        {
+            //Ophalen van het vraag ID
+            string VraagID = getVraagID(vraag, lesID, loID).ToString();
+
+            //Veranderen van de sql command
+            string sql = "";
+            switch (juistAntwoord)
+            {
+                case 1:
+                    sql = "insert into antwoorden(VraagID, Antwoord, Juist_Onjuist) VALUES('" + VraagID + "', '" + AntwoordA + "', '1'), ('" + VraagID + "', '" + AntwoordB + "', '2'), ('" + VraagID + "', '" + AntwoordC + "', '2'), ('" + VraagID + "', '" + AntwoordD + "', '2');";
+                    break;
+                case 2:
+                    sql = "insert into antwoorden(VraagID, Antwoord, Juist_Onjuist) VALUES('" + VraagID + "', '" + AntwoordA + "', '2'), ('" + VraagID + "', '" + AntwoordB + "', '1'), ('" + VraagID + "', '" + AntwoordC + "', '2'), ('" + VraagID + "', '" + AntwoordD + "', '2');";
+                    break;
+                case 3:
+                    sql = "insert into antwoorden(VraagID, Antwoord, Juist_Onjuist) VALUES('" + VraagID + "', '" + AntwoordA + "', '2'), ('" + VraagID + "', '" + AntwoordB + "', '2'), ('" + VraagID + "', '" + AntwoordC + "', '1'), ('" + VraagID + "', '" + AntwoordD + "', '2');";
+                    break;
+                case 4:
+                    sql = "insert into antwoorden(VraagID, Antwoord, Juist_Onjuist) VALUES('" + VraagID + "', '" + AntwoordA + "', '2'), ('" + VraagID + "', '" + AntwoordB + "', '2'), ('" + VraagID + "', '" + AntwoordC + "', '2'), ('" + VraagID + "', '" + AntwoordD + "', '1');";
+                    break;
+            }
+
+            //Connectie met de database + maak het command aan
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand(sql);
+            cmd.Connection = connect;
+
+            //Voer de query uit + Fout afhandeling
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Het toevoegen van de antwoorden is voltooid", "Hoera!");
+            }
+            catch
+            {
+                MessageBox.Show("Er is iets mis gegaan met het toevoegen van de antwoorden, probeer later nog eens.", "O jeetje!");
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
 }

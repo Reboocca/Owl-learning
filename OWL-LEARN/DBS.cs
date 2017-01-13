@@ -516,6 +516,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het updaten van de les
         public void changeLesInfo(string lID, string newName, string newUitleg)
         {
             db_connection();
@@ -527,11 +528,13 @@ namespace OWL_LEARN
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("De naam en/of uitleg van de les is succesvol gewijzigd.", "Succes!");
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het wijzigen van de les gegevens, probeer later nog eens.", "Oh oh!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

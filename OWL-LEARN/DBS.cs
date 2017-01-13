@@ -119,6 +119,7 @@ namespace OWL_LEARN
             return RolID;
         }
 
+        //Functie voor het meegeven van alle vakgegevens
         public DataTable GetVakken()
         {
             DataTable retValue = new DataTable();
@@ -130,6 +131,8 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
 

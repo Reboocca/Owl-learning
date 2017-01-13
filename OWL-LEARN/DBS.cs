@@ -540,6 +540,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het controleren van het antwoord
         public DataTable GetGoedFout(string sAntwoord, string sVraagID)
         {
             DataTable retValue = new DataTable();
@@ -552,6 +553,8 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
 

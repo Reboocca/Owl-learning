@@ -56,39 +56,45 @@ namespace OWL_LEARN
             }
         }
 
+        //Controleer wie er is ingelogd (welke rol -> voor het doorverwijzen naar volgende window)
         public void try_login(string user, string password, MainWindow loginform)
         {
 
-            if (user == "" || password == "")
+            if (user == "" || password == "")       //Kleine controle of er gegevens zijn ingevuld
             {
                 MessageBox.Show("Vul uw gebruikersnaam en wachtwoord in", "Oeps!");
                 return;
             }
+
+            //Valideer de ingevoerde inloggegevens
             bool r = validate_login(user, password);
-            if (r)
+
+            if (r)      //Als de gegevens bekend zijn in de database & kloppen
             {
                 string sRolID = GetRol(user).ToString();
-                if (sRolID == "1")
+
+                if (sRolID == "1")          //Als de gebruiker die inlogt een consulent is
                 {
                     ConsulentForm form = new ConsulentForm(user);
                     form.Show();
                     loginform.Close();
                 }
 
-                else if (sRolID == "2")
+                else if (sRolID == "2")     //Als de gebruiker die inlogt een leerling is
                 {
                     LeerlingForm form = new LeerlingForm(user);
                     form.Show();
                     loginform.Close();
                 }
 
-                else
+                else        //Als er geen rol gevonden kan worden of hij is onbekend dan
                 {
                     MessageBox.Show("Er is een fout opgetreden in het systeem, neem contact op met de beheerders van het programma", "Whoops!");
                 }
 
             }
-            else
+
+            else            //Als de gegevens niet kloppen
             {
                 MessageBox.Show("Uw gebruikersnaam of wachtwoord is onjuist", "Oh oh...");
             }

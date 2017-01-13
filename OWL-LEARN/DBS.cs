@@ -633,16 +633,17 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het toevoegen van een planning
         public void PlanningToevoegen(string LeerlingId, string LesId, DateTime SelectedDate, string GekozenLesNaam, string sUsername)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "insert into planning (leerlingid, lesid, datum, lesnaam, usrname) VALUES (@leerlingid, @lesid, @selecteddate, @lesnaam, @usrname)";
-            cmd.Parameters.AddWithValue("@leerlingid", LeerlingId);
-            cmd.Parameters.AddWithValue("@lesid", LesId);
-            cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
-            cmd.Parameters.AddWithValue("@lesnaam", GekozenLesNaam);
-            cmd.Parameters.AddWithValue("@usrname", sUsername);
+            cmd.Parameters.AddWithValue("@leerlingid", LeerlingId);         //Parameter with LeerlingID
+            cmd.Parameters.AddWithValue("@lesid", LesId);                   //Parameter with LesID
+            cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);     //Parameter with Selected date
+            cmd.Parameters.AddWithValue("@lesnaam", GekozenLesNaam);        //Parameter with Gekozen lesnaam
+            cmd.Parameters.AddWithValue("@usrname", sUsername);             //Parameter with Username
             cmd.Connection = connect;
 
             try
@@ -650,11 +651,13 @@ namespace OWL_LEARN
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("De planning is succesvol toegevoegd!", "Succes!");
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
 

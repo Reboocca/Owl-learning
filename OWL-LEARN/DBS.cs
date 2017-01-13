@@ -329,6 +329,9 @@ namespace OWL_LEARN
             }
         }
 
+    
+
+
         public void newLes(string sloID, string sLesNaam, string sUitleg, Lestoevoegen regform, string user)
         {
             db_connection();

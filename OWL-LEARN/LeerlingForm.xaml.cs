@@ -21,8 +21,12 @@ namespace OWL_LEARN
     /// </summary>
     public partial class LeerlingForm : Window
     {
+        #region fields
         string user;
+        DBS dbs = new DBS();
         string sCurrentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        #endregion
+
         public LeerlingForm(string userRol)
         {
             InitializeComponent();
@@ -31,8 +35,7 @@ namespace OWL_LEARN
             GetUser();
         }
 
-        DBS dbs = new DBS();
-
+        #region Structs
         struct Vak
         {
             public string ID { get; set; }
@@ -44,17 +47,21 @@ namespace OWL_LEARN
             public string loID { get; set; }
             public string loNaam { get; set; }
         }
+
         struct Les
         {
             public string lID { get; set; }
             public string lNaam { get; set; }
         }
+
         struct Planningen
         {
             public string Date { get; set; }
             public string LesID { get; set; }
         }
+        #endregion
 
+        //Lijst vullen met de vakken voor het selecteren
         private void PopulateListBox()
         {
             List<Vak> lstVakken = new List<Vak>();
@@ -69,10 +76,12 @@ namespace OWL_LEARN
             
         }
 
+        //Zorgt ervoor dat de lijst wordt gevuld met de lesonderdelen wanneer de leerling een vak aan klikt
         private void lbVakken_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sVakID = "";
             List<LesOnderdeel> lstLesOnderdeel = new List<LesOnderdeel>();
+
             if (lbVakken.SelectedItem != null)
             {
                 sVakID = ((Vak)(lbVakken.SelectedItem)).ID;
@@ -84,10 +93,12 @@ namespace OWL_LEARN
             {
                 lstLesOnderdeel.Add(new LesOnderdeel() { loID = row["LesonderwerpID"].ToString(), loNaam = row["Omschrijving"].ToString() });
             }
+
             lbLesOnderdelen.ItemsSource = lstLesOnderdeel;
             lbLes.ItemsSource = null;
         }
 
+        //Handelingen die gebeuren wanneer je op terug klikt
         private void btTerug_Click(object sender, RoutedEventArgs e)
         {
             MainWindow login = new MainWindow();

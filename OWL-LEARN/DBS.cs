@@ -136,6 +136,7 @@ namespace OWL_LEARN
             return retValue;
         }
 
+        //Algemene functie voor het opzoeken van verschillende gegevens in de database
         public DataTable Search(string sTable, string sParameterA, string sParameterB)
         {
             DataTable retValue = new DataTable();
@@ -147,6 +148,8 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
 

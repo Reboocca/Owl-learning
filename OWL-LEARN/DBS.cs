@@ -187,6 +187,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het verwijderen van de antwoorden
         public bool DeleteAntwoorden(string vID)
         {
             db_connection();
@@ -198,11 +199,13 @@ namespace OWL_LEARN
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 return false;
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

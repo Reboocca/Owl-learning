@@ -328,6 +328,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het hernoemen van een lesonderwerp
         public void changeNameLO(string loID, string newName)
         {
             db_connection();
@@ -340,11 +341,13 @@ namespace OWL_LEARN
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("De omschrijving van het lesonderwerp is succesvol gewijzigd.", "Succes!");
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het wijzigen van het lesonderwerp, probeer later nog eens.", "Oh oh!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

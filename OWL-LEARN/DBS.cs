@@ -558,6 +558,7 @@ namespace OWL_LEARN
             return retValue;
         }
 
+        //Fundtie voor het ophalen van het userID voor het opslaan van de voortgang
         public void findIDVoorVoortgang(string sUsername, string sLesID, LesForm lsForm)
         {
             db_connection();
@@ -567,6 +568,7 @@ namespace OWL_LEARN
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 if (reader.Read())
                 {
                     sUserID = reader[0].ToString();
@@ -577,12 +579,13 @@ namespace OWL_LEARN
             connect.Close();
         }
 
+        //Het opslaan van de voortgang per gebruiker & les
         public void updateVoortgang(string sUserID, string sLesID, string sUsername, LesForm lsForm)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand("insert into voortgang (UserID, LesID, Voortgang) VALUES (@sUserID, @sLesID, 1)");
-            cmd.Parameters.AddWithValue("@sUserID", sUserID);
-            cmd.Parameters.AddWithValue("@sLesID", sLesID);
+            cmd.Parameters.AddWithValue("@sUserID", sUserID);       //Parameter with UserID
+            cmd.Parameters.AddWithValue("@sLesID", sLesID);         //Parameter with LesID
             cmd.Connection = connect;
 
             try
@@ -593,11 +596,13 @@ namespace OWL_LEARN
                 lf.Show();
                 lsForm.Close();
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het opslaan de voortgang.", "Error!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

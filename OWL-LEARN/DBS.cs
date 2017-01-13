@@ -788,11 +788,12 @@ namespace OWL_LEARN
             }
         }
 
-        public void ToetsPlanningToevoegen(string LesOnderwerpId, string LeerlingUsername, DateTime SelectedDate, string ToetsNaam)
+        public void ToetsPlanningToevoegen(string LesOnderwerpId, string LeerlingUsername, DateTime SelectedDate, string ToetsNaam, string sLeerlingId)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam)";
+            cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam, leerlingid) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam, @leerlingid)";
+            cmd.Parameters.AddWithValue("@leerlingid", sLeerlingId);
             cmd.Parameters.AddWithValue("@leerlingusername", LeerlingUsername);       
             cmd.Parameters.AddWithValue("@lesonderwerpid", LesOnderwerpId);                   
             cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);

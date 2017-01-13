@@ -20,11 +20,19 @@ namespace OWL_LEARN
     /// </summary>
     public partial class ToetsPlanningBeheren : Window
     {
+        string sGekozenLeerlingId;
         struct LvLeerlingInfo
         {
             public string LeerlingVoornaam { get; set; }
             public string LeerlingAchternaam { get; set; }
             public string LeerlingId { get; set; }
+        }
+
+        struct LvPlanningInfo
+        {
+            public string Date { get; set; }
+            public string SelectedPlanningId { get; set; }
+            public string ToetsNaam { get; set; }
         }
         public ToetsPlanningBeheren()
         {
@@ -48,6 +56,29 @@ namespace OWL_LEARN
             ToetsPlanningToevoegen TPT = new ToetsPlanningToevoegen();
             TPT.Show();
             this.Close();
+        }
+
+        private void lvLeerlingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvLeerlingen.SelectedItem != null)
+            {
+                sGekozenLeerlingId = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingId;
+                PopulateLVToetsPlanningen();
+            }
+        }
+        private void PopulateLVToetsPlanningen()
+        {
+            DataTable dtPlanningen = new DBS().Search("toetsplanning", "leerlingid", sGekozenLeerlingId);
+            List<LvPlanningInfo> lstPlanninginfo = new List<LvPlanningInfo>();
+            int iCounterDatum = 0;
+
+            foreach (DataRow drPlanningen in dtPlanningen.Rows)
+            {
+                lstPlanninginfo.Add(new LvPlanningInfo() { SelectedPlanningId = drPlanningen[0].ToString(), Date = Convert.ToDateTime(dtPlanningen.Rows[iCounterDatum]["datum"]).ToString("dd/MM/yyyy"), ToetsNaam = drPlanningen[4].ToString() });
+                iCounterDatum++;
+            }
+
+            lvPlanningen.ItemsSource = lstPlanninginfo;
         }
     }
 }

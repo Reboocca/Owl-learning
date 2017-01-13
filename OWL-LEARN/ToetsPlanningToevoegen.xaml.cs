@@ -25,6 +25,7 @@ namespace OWL_LEARN
         string sGekozenLesonderdeelId;
         string sGekozenLesonderdeelNaam;
         string sToetsNaam;
+        string sGekozenLeerlingId;
         DateTime dtChosenDate;
         struct Vakken
         {
@@ -36,6 +37,7 @@ namespace OWL_LEARN
             public string LeerlingVoornaam { get; set; }
             public string LeerlingAchternaam { get; set; }
             public string LeerlingUsername { get; set; }
+            public string LeerlingId { get; set; }
         }
         struct Lesonderdelen
         {
@@ -58,7 +60,7 @@ namespace OWL_LEARN
 
             foreach (DataRow drLeerlingen in dtLeerlingen.Rows)
             {
-                lstLeerlingen.Add(new LvLeerlingInfo() { LeerlingUsername = drLeerlingen[1].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
+                lstLeerlingen.Add(new LvLeerlingInfo() { LeerlingUsername = drLeerlingen[1].ToString(), LeerlingVoornaam = drLeerlingen[3].ToString(), LeerlingId = drLeerlingen[0].ToString(), LeerlingAchternaam = drLeerlingen[4].ToString() });
             }
             lvLeerlingen.ItemsSource = lstLeerlingen;
         }
@@ -111,6 +113,7 @@ namespace OWL_LEARN
             if (lvLeerlingen.SelectedItem != null)
             {
                 sGekozenLeerlingUsername = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingUsername;
+                sGekozenLeerlingId = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingId;
             }
         }
 
@@ -141,7 +144,7 @@ namespace OWL_LEARN
                         if (cdCalendar.SelectedDate != null)
                         {
                             dtChosenDate = cdCalendar.SelectedDate.Value.Date;
-                            new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam);
+                            new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam, sGekozenLeerlingId);
                         }
                         else
                         {

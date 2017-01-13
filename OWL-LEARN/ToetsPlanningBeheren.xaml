@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Toetsplanningen beheren" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
     <Grid>
-        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="192,60,0,0" VerticalAlignment="Top" Width="371"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="192,60,0,0" VerticalAlignment="Top" Width="371"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
@@ -18,12 +18,13 @@
         <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="620,60,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="196"/>
+                    <GridViewColumn Header="Toets" DisplayMemberBinding="{Binding ToetsNaam}" Width="196"/>
                     <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="196"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button x:Name="btAddToetsPlanning" Content="Voeg toetsplanning toe" HorizontalAlignment="Left" Margin="720,387,0,0" VerticalAlignment="Top" Width="170" Height="22" Click="btAddToetsPlanning_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="286,424,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

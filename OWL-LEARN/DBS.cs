@@ -447,7 +447,6 @@ namespace OWL_LEARN
                 UserCMS newForm = new UserCMS(user);
                 newForm.Show();
                 form.Close();
-
             }
 
             catch       //Foutafhandeling
@@ -458,19 +457,19 @@ namespace OWL_LEARN
             finally     //Close database connection
             {
                 connect.Close();
-
             }
         }
 
+        //Functie voor het updaten van het account
         public void safeAccount(string user, string fName, string lName, string gName, string WW, string userID, AccountWijzigen form)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "UPDATE  users SET Username=@sUsername, Password=@sPassword, firstName=@sfName, lastName=@slName  WHERE userID="+userID;
-            cmd.Parameters.AddWithValue("@sUsername", gName);
-            cmd.Parameters.AddWithValue("@sPassword", WW);
-            cmd.Parameters.AddWithValue("@sfName", fName);
-            cmd.Parameters.AddWithValue("@slName", lName);
+            cmd.Parameters.AddWithValue("@sUsername", gName);       //Parameter with Username
+            cmd.Parameters.AddWithValue("@sPassword", WW);          //Parameter with Password
+            cmd.Parameters.AddWithValue("@sfName", fName);          //Parameter with Firstname
+            cmd.Parameters.AddWithValue("@slName", lName);          //Parameter with Lastname
             cmd.Connection = connect;
 
             try
@@ -480,16 +479,16 @@ namespace OWL_LEARN
                 UserCMS newForm = new UserCMS(user);
                 newForm.Show();
                 form.Close();
-
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het opslaan van het nieuwe account, probeer het nog eens ", "Error!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
-
             }
         }
 

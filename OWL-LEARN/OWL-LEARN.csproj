@@ -78,6 +78,12 @@
     <Compile Include="Toetsform.xaml.cs">
       <DependentUpon>Toetsform.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToetsPlanningBeheren.xaml.cs">
+      <DependentUpon>ToetsPlanningBeheren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToetsPlanningToevoegen.xaml.cs">
+      <DependentUpon>ToetsPlanningToevoegen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserCMS.xaml.cs">
       <DependentUpon>UserCMS.xaml</DependentUpon>
     </Compile>
@@ -168,6 +174,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Toetsform.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToetsPlanningBeheren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToetsPlanningToevoegen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

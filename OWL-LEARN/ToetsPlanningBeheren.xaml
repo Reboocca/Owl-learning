@@ -1,0 +1,29 @@
+﻿<Window x:Class="OWL_LEARN.ToetsPlanningBeheren"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OWL_LEARN"
+        mc:Ignorable="d"
+        Title="Toetsplanningen beheren" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
+    <Grid>
+        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="192,60,0,0" VerticalAlignment="Top" Width="371"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
+                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="180"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="620,60,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Les" DisplayMemberBinding="{Binding LesNaam}" Width="196"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="196"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btAddToetsPlanning" Content="Voeg toetsplanning toe" HorizontalAlignment="Left" Margin="720,387,0,0" VerticalAlignment="Top" Width="170" Height="22" Click="btAddToetsPlanning_Click"/>
+
+    </Grid>
+</Window>

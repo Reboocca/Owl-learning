@@ -492,6 +492,7 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het verwijderen van een gebruiker
         public void DeleteUser(string userID)
         {
             db_connection();
@@ -503,11 +504,13 @@ namespace OWL_LEARN
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Het account is succesvol verwijderd.", "Succes!");
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het vewijderen van het account, probeer later nog eens.", "Oh oh!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

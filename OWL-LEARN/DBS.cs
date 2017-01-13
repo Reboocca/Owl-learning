@@ -669,12 +669,24 @@ namespace OWL_LEARN
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB +"' AND datum > '" + sCurrentDate + "' OR usrname = '" + sCurrentDate + "' AND datum ='" + sCurrentDate + "'"))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB + "' AND datum <= '" + sCurrentDate + "'"))
             {
-                cmd.Connection = connect;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                retValue.Load(reader);
-                connect.Close();
+                try
+                {
+                    cmd.Connection = connect;
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    retValue.Load(reader);
+                }
+
+                catch       //Foutafhandeling
+                {
+                    MessageBox.Show("IDUNNOWHATHAPPENED");
+                }
+
+                finally     //Close database connection
+                {
+                    connect.Close();
+                }
             }
 
             //Return result

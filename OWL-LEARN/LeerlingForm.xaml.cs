@@ -149,12 +149,15 @@ namespace OWL_LEARN
         //Handelingen wanneer er op verder geklikt word:
         private void btVerder_Click(object sender, RoutedEventArgs e)
         {
+            //Als er niks is geselecteerd:
             if (lbLes.SelectedIndex == -1)
             {
                 MessageBox.Show("Kies eerst een les om verder te gaan =)", "Oh!");
             }
-            else
+
+            else //Anders
             {
+                //
                 string sLesID = ((Les)(lbLes.SelectedItem)).lID;
                 LesForm Les = new LesForm(sLesID, user);
                 Les.Show();

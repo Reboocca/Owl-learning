@@ -256,18 +256,20 @@ namespace OWL_LEARN
             return retValue;
         }
 
+        //Functie voor het toevoegen van een nieuw lesonderwerp
         public void VoegLesOnderwerpToe(string VakID, string loOmschrijving)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand("INSERT INTO lesonderwerp(Omschrijving, VakID) VALUES('" + loOmschrijving + "', " + VakID + ")");
             cmd.Connection = connect;
             cmd.Parameters.AddWithValue("@lesonderwerp", loOmschrijving);
+
             try
             {
                 cmd.ExecuteNonQuery();
                 string sVakNaam = "";
 
-                switch (VakID)
+                switch (VakID)      //Switch voor de verschillende vakken & de ID's
                 {
                     case "1":
                         sVakNaam = "Geschiedenis";
@@ -285,13 +287,17 @@ namespace OWL_LEARN
                         sVakNaam = "Engels";
                         break;
                 }
+
                 MessageBox.Show("Het les onderwerp is toegevoegd aan " + sVakNaam + ".", "Succes!");
+
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het vewijderen van het lesonderwerp, probeer later nog eens.", "Whoops!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

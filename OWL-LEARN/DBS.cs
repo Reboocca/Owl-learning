@@ -694,11 +694,11 @@ namespace OWL_LEARN
         }
 
         //Functie voor het vinden van de bestaande planning
-        public DataTable CheckExistancePlanning(string sParameterA, string sParameterB)
+        public DataTable CheckExistancePlanning(string sTable, string sParameterA, string sParameterB, string sColumn)
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM planning WHERE usrname ='" + sParameterA + "'AND lesid ="+ sParameterB ))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE usrname ='" + sParameterA + "'AND " + sColumn + " ='"+ sParameterB +"'" ))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();

@@ -127,34 +127,37 @@ namespace OWL_LEARN
 
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            if (sGekozenLeerlingUsername != null)
+            DataTable dtCheckExistance = new DBS().CheckExistancePlanning("toetsplanning", sGekozenLeerlingUsername, sGekozenLesonderdeelId, "lesonderwerpid");
+            if (dtCheckExistance.Rows.Count != 0)
             {
-                if(cbKiesLesonderdeel.SelectedItem != null)
+                MessageBox.Show("De toetsplanning van de les in combinatie met de leerling bestaat al. Verwijder de huidige toetsplanning en maak een nieuwe aan.", "Toetsplanning bestaat al");
+            }
+            else
+            {
+                if (sGekozenLeerlingUsername != null)
                 {
-                    if (cdCalendar.SelectedDate != null)
+                    if (cbKiesLesonderdeel.SelectedItem != null)
                     {
-                        dtChosenDate = cdCalendar.SelectedDate.Value.Date;
-                        new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam);
+                        if (cdCalendar.SelectedDate != null)
+                        {
+                            dtChosenDate = cdCalendar.SelectedDate.Value.Date;
+                            new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam);
+                        }
+                        else
+                        {
+                            MessageBox.Show("U moet een datum selecteren in de kalender!", "Selecteer een datum");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("U moet een datum selecteren in de kalender!", "Selecteer een datum");
+                        MessageBox.Show("U heeft geen les geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een les");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("U heeft geen les geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een les");
+                    MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
                 }
             }
-            else
-            {
-                MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
-            }
-        }
-
-        private void cdCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
         }
     }
 }

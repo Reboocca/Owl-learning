@@ -130,7 +130,7 @@ namespace OWL_LEARN
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
             string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
-            DataTable dtCheckExistancePlanning = new DBS().CheckExistancePlanning(sGekozenLeerlingUsrname, sGekozenLesId);
+            DataTable dtCheckExistancePlanning = new DBS().CheckExistancePlanning("planning", sGekozenLeerlingUsrname, sGekozenLesId, "lesid");
             if (dtCheckExistancePlanning.Rows.Count != 0)
             {
                 MessageBox.Show("De planning van de les in combinatie met de leerling bestaat al. Verwijder de huidige planning en maak een nieuwe aan.", "Planning bestaat al");

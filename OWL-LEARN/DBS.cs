@@ -211,10 +211,11 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het ophalen van de lesonderwerpen die bij het vak horen
         public DataTable getLOcms(string VakNaam)
         {
             string VakID = "0";
-            switch (VakNaam)
+            switch (VakNaam)        //Switch voor de verschillende vakken & de ID's
             {
                 case "Geschiedenis":
                     VakID = "1";
@@ -242,6 +243,7 @@ namespace OWL_LEARN
 
             DataTable retValue = new DataTable();
             db_connection();
+
             using (MySqlCommand cmd = new MySqlCommand("Select * from LesOnderwerp where VakID=" + VakID))
             {
                 cmd.Connection = connect;
@@ -249,6 +251,8 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return result
             return retValue;
         }
 

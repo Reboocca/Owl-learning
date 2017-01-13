@@ -558,7 +558,7 @@ namespace OWL_LEARN
             return retValue;
         }
 
-        //Fundtie voor het ophalen van het userID voor het opslaan van de voortgang
+        //Functie voor het ophalen van het userID voor het opslaan van de voortgang
         public void findIDVoorVoortgang(string sUsername, string sLesID, LesForm lsForm)
         {
             db_connection();
@@ -608,23 +608,26 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het verwijderen van de planning
         public void DeletePlanning(string PlanningId)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand("DELETE FROM planning WHERE id= @planningid");
             cmd.Connection = connect;
-            cmd.Parameters.AddWithValue("@planningid", PlanningId);
+            cmd.Parameters.AddWithValue("@planningid", PlanningId);     //Parameter with PlanningID
 
             try
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("de planning is succesvol verwijderd.", "Succes!");
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het vewijderen van de planning, probeer later nog eens.", "Oh oh!");
             }
-            finally
+
+            finally     //Close database connection
             {
                 connect.Close();
             }

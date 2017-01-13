@@ -100,10 +100,12 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het meegeven van de rol
         public string GetRol(string sUser)
         {
             DataTable retValue = new DataTable();
             db_connection();
+
             using (MySqlCommand cmd = new MySqlCommand("Select * from users where Username='" + sUser + "'"))
             {
                 cmd.Connection = connect;
@@ -111,6 +113,8 @@ namespace OWL_LEARN
                 retValue.Load(reader);
                 connect.Close();
             }
+
+            //Return RolID
             string RolID = Convert.ToString(retValue.Rows[0]["rolID"]);
             return RolID;
         }

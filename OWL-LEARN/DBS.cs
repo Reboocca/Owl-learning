@@ -32,20 +32,23 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het valideren van de login
         private bool validate_login(string user, string password)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "Select * from users where Username=@user and Password=@pass";
-            cmd.Parameters.AddWithValue("@user", user);
-            cmd.Parameters.AddWithValue("@pass", password);
+            cmd.Parameters.AddWithValue("@user", user);         //Parameter with the username
+            cmd.Parameters.AddWithValue("@pass", password);     // Parameter with the password
             cmd.Connection = connect;
+
             MySqlDataReader login = cmd.ExecuteReader();
             if (login.Read())
             {
                 connect.Close();
                 return true;
             }
+
             else
             {
                 connect.Close();

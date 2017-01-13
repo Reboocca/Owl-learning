@@ -378,14 +378,15 @@ namespace OWL_LEARN
             }
         }
 
+        //Functie voor het toevoegen van een les
         public void newLes(string sloID, string sLesNaam, string sUitleg, Lestoevoegen regform, string user)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "insert into les (LesID, Uitleg, LesonderwerpID, lesNaam) VALUES (NULL, @sUitleg, @sloID, @sLesNaam);";
-            cmd.Parameters.AddWithValue("@sloID", sloID);
-            cmd.Parameters.AddWithValue("@sLesNaam", sLesNaam);
-            cmd.Parameters.AddWithValue("@sUitleg", sUitleg);
+            cmd.Parameters.AddWithValue("@sloID", sloID);           //Parameter with LesonderwerpID
+            cmd.Parameters.AddWithValue("@sLesNaam", sLesNaam);     //Parameter with Lesnaam
+            cmd.Parameters.AddWithValue("@sUitleg", sUitleg);       //Parameter with Uitleg
             cmd.Connection = connect;
 
             try
@@ -395,16 +396,16 @@ namespace OWL_LEARN
                 LesonderwerpWijzig form = new LesonderwerpWijzig(sloID, user);
                 form.Show();
                 regform.Close();
-
             }
-            catch
+
+            catch       //Foutafhandeling
             {
                 MessageBox.Show("Er is iets mis gegaan met het opslaan van de les ", "OOPSIE!");
             }
-            finally
-            {
-                connect.Close();
 
+            finally     //Close database connection
+            {
+                connect.Close();    
             }
         }
 

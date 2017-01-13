@@ -22,6 +22,7 @@ namespace OWL_LEARN
     {
         string sGekozenLeerlingUsername;
         string sGekozenVakId;
+        string sGekozenLesonderdeelId;
         struct Vakken
         {
             public string VakNaam { get; set; }
@@ -105,6 +106,38 @@ namespace OWL_LEARN
             if (lvLeerlingen.SelectedItem != null)
             {
                 sGekozenLeerlingUsername = ((LvLeerlingInfo)(lvLeerlingen.SelectedItem)).LeerlingUsername;
+            }
+        }
+
+        private void cbKiesLesonderdeel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sGekozenLesonderdeelId = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
+        }
+
+        private void btOpslaan_Click(object sender, RoutedEventArgs e)
+        {
+            if (sGekozenLeerlingUsername != null)
+            {
+                if(cbKiesLesonderdeel.SelectedItem != null)
+                {
+                    DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
+                    if (dtChosenDate != null)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("U moet een datum selecteren in de kalender!", "Selecteer een datum");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U heeft geen les geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een les");
+                }
+            }
+            else
+            {
+                MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
             }
         }
     }

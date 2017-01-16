@@ -43,6 +43,15 @@ namespace OWL_LEARN
             PopulateVraagLijst();
             SelectVragen();
             NextQuestion();
+            GetUser();
+        }
+
+        DBS dbs = new DBS();
+
+        private void GetUser()
+        {
+            string sUserNaam = dbs.getUserNaam(user).ToString();
+            lbUser.Content = sUserNaam;
         }
 
         //Lijst vullen met de vragen van alle lessen:
@@ -204,12 +213,6 @@ namespace OWL_LEARN
             {
                 MessageBox.Show("Zorg ervoor dat je een antwoord hebt aangevinkt!", "oops!");
             }
-        }
-
-        //Handelingen die gebeuren wanneer je op terug klikt
-        private void btTerug_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

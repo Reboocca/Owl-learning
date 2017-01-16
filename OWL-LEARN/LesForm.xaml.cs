@@ -125,12 +125,12 @@ namespace OWL_LEARN
             {
                 if (_iScore >= (_lsVragen.Count / 2))
                 {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Goed gedaan!");
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord, de les is voltooid.", "Goed gedaan!");
                     db.findIDVoorVoortgang(user, _psLesID, this);
                 }
                 else
                 {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Volgende keer beter!");
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord, maak de les opnieuw.", "Volgende keer beter!");
                 }
 
             }

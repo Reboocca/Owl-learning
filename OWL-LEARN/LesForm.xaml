@@ -71,7 +71,6 @@
             </Button>
             <TextBlock x:Name="tblUitleg" HorizontalAlignment="Left" Margin="-303,221,0,-19" TextWrapping="Wrap" Text="Uitleg" VerticalAlignment="Top" Height="248" Width="256" FontSize="16" FontFamily="Century Gothic" Foreground="#FF2B2B2B"/>
         </Grid>
-        <Label x:Name="lbVraagID" Content="Label" HorizontalAlignment="Left" Margin="1113,200,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbAntwoord1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,214,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,253,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,293,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>

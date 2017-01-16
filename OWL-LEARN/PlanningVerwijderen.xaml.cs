@@ -122,5 +122,12 @@ namespace OWL_LEARN
             form.Show();
             this.Close();
         }
+
+        private void btToets_Click(object sender, RoutedEventArgs e)
+        {
+            ToetsPlanningBeheren TPB = new ToetsPlanningBeheren(user);
+            TPB.Show();
+            this.Close();
+        }
     }
 }

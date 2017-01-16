@@ -106,7 +106,6 @@ C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\OWL-LEARN.exe.config
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.exe
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.pdb
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\Images\awaken_large.png
-C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\Images\DEERIEME.jpg
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_SunRise_1920x1080.jpg
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080.jpg
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\bin\Debug\Images\Sea.jpg

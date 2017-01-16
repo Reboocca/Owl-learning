@@ -5,26 +5,132 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OWL_LEARN"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Toetsplanningen beheren" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
-    <Grid>
-        <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="192,60,0,0" VerticalAlignment="Top" Width="371"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
-                    <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="180"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="392" Margin="620,60,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Toets" DisplayMemberBinding="{Binding ToetsNaam}" Width="196"/>
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="196"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="btAddToetsPlanning" Content="Voeg toetsplanning toe" HorizontalAlignment="Left" Margin="720,387,0,0" VerticalAlignment="Top" Width="170" Height="22" Click="btAddToetsPlanning_Click"/>
-        <Button x:Name="btVerwijder" Content="Verwijder" HorizontalAlignment="Left" Margin="286,424,0,0" VerticalAlignment="Top" Width="75" Click="btVerwijder_Click"/>
+    <Window.Background>
+        <ImageBrush ImageSource="Images/greenhills.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,-5,0" RenderTransformOrigin="0.541,0.519">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1101*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid HorizontalAlignment="Right" Height="570" VerticalAlignment="Top" Width="280" Background="#CCFFFFFF" Margin="0,-2,820,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="White" Grid.ColumnSpan="3"  Click="btTerug_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#6AA1B6"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#87b3c4"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="9.005,36.866,0,0" VerticalAlignment="Top" Width="202" Source="Images/owl_cropped1.png" Stretch="UniformToFill">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/owl_cropped.png"/>
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="412" Margin="308,38,0,0" VerticalAlignment="Top" Width="395" Background="#D8FFFFFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="395" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FFB67A62" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbContent_Copy" Content="Selecteer een leerling:" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="375" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+            <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,90,0,0" VerticalAlignment="Top" Width="375"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
+                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="180"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="412" Margin="732,38,0,0" VerticalAlignment="Top" Width="436" Background="#D8FFFFFF" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="411*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbContent" Content="Toetsplanningen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="436" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FFB67A62"/>
+            <Label x:Name="lbContent_Copy1" Content="Selecteer een toetsplanning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+            <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="413" Margin="10,87,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged" Grid.ColumnSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Toets" DisplayMemberBinding="{Binding ToetsNaam}" Width="200"/>
+                        <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Button x:Name="btVerwijder" Content="Toets verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,490,0,0" Width="400" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#6AA1B6"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#87b3c4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="btAddToetsPlanning" Content="Toets inplannen" HorizontalAlignment="Left" Padding="2" Margin="768,490,0,0" Width="400" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btAddToetsPlanning_Click" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#6AA1B6"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#87b3c4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="46" Margin="281,490,0,0" VerticalAlignment="Top" Width="918" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="146*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </Window>

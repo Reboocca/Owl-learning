@@ -124,7 +124,6 @@
                 <ImageBrush ImageSource="Images/User.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
-        <Button x:Name="btToetsplanningBeheren" Content="Toetsplanning beheren" HorizontalAlignment="Left" Margin="548,65,0,0" VerticalAlignment="Top" Width="325" Height="47" Click="btToetsplanningBeheren_Click"/>
 
     </Grid>
 </Window>

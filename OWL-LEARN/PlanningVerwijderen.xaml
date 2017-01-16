@@ -83,7 +83,7 @@
             </ListView>
             <Label x:Name="lbContent_Copy1" Content="Selecteer een planning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
         </Grid>
-        <Button x:Name="btVerwijder" Content="Planning verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,490,0,0" Width="395" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435"  Click="btVerwijderPlanning_Click">
+        <Button x:Name="btVerwijder" Content="Planning verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,490,0,0" Width="260" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435"  Click="btVerwijderPlanning_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#AA4B27"/>
@@ -104,7 +104,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="btOpslaan" Content="Nieuwe planning toevoegen" HorizontalAlignment="Left" Padding="2" Margin="732,490,0,0" Width="436" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btOpslaan_Click" Grid.ColumnSpan="2">
+        <Button x:Name="btToets" Content="Toetsplanning beheren" HorizontalAlignment="Left" Padding="2" Margin="908,490,0,0" Width="260" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btToets_Click" Grid.ColumnSpan="2">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#AA4B27"/>
@@ -125,5 +125,34 @@
                 </Style>
             </Button.Style>
         </Button>
+        <Grid HorizontalAlignment="Left" Height="46" Margin="281,490,0,0" VerticalAlignment="Top" Width="918" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="146*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btOpslaan" Content="Les inplannen" HorizontalAlignment="Left" Padding="2" Margin="42,0,0,0" Width="260" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btOpslaan_Click" Grid.ColumnSpan="2" Grid.Column="1">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#AA4B27"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#bb6e52"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

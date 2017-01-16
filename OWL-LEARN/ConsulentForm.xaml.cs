@@ -65,12 +65,5 @@ namespace OWL_LEARN
             PB.Show();
             this.Close();
         }
-
-        private void btToetsplanningBeheren_Click(object sender, RoutedEventArgs e)
-        {
-            ToetsPlanningBeheren TPB = new ToetsPlanningBeheren();
-            TPB.Show();
-            this.Close();
-        }
     }
 }

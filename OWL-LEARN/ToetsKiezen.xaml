@@ -46,7 +46,7 @@
                 </Button.Style>
             </Button>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="316" Margin="316,126,0,0" VerticalAlignment="Top" Width="848" Background="#D8FFFFFF">
+        <Grid HorizontalAlignment="Left" Height="279" Margin="316,126,0,0" VerticalAlignment="Top" Width="848" Background="#D8FFFFFF">
             <Label x:Name="lbcontent" Content="Toetsen" HorizontalAlignment="Center" VerticalAlignment="Top" Height="53" Width="848" FontFamily="Century Gothic" FontSize="27" Foreground="#D8FFFFFF" HorizontalContentAlignment="Center" Background="#FF231D35"/>
             <Label x:Name="lbContent_Copy" Content="Kies een vak:" Padding="10" Margin="10,120,123,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
             <Label x:Name="lbContent_Copy1" Content="Kies een lesonderwerp:" Padding="10" Margin="10,173,123,0" VerticalAlignment="Top" Height="48" FontFamily="Century Gothic" FontSize="18.667" Foreground="#FF686868" Background="{x:Null}"/>
@@ -78,7 +78,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
-        <Button x:Name="btVerder" Content="Naar de toets" HorizontalAlignment="Left" Padding="2" Margin="316,426,0,99" Height="46" Width="848" FontSize="18.667" Foreground="#FFEADEC5" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
+        <Button x:Name="btVerder" Content="Naar de toets" HorizontalAlignment="Left" Padding="2" Margin="316,405,0,103" Width="848" FontSize="18.667" Foreground="#FFEADEC5" RenderTransformOrigin="0.444,1.637" Click="btVerder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#D36A49"/>

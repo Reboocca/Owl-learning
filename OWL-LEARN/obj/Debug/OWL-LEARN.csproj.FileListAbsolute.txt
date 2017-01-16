@@ -47,7 +47,6 @@ F:\OWL-LEARN\OWL-LEARN\obj\Debug\OWL-LEARN.g.resources
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\OWL_LEARN.Properties.Resources.resources
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\OWL-LEARN.csproj.GenerateResource.Cache
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\awaken_large.png
-F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\DEERIEME.jpg
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Lakeside_SunRise_1920x1080.jpg
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080.jpg
 F:\OWL-LEARN\OWL-LEARN\bin\Debug\OWL-LEARN.exe
@@ -313,3 +312,11 @@ C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.baml
 C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsKiezen.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsKiezen.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
+F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml

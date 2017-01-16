@@ -92,13 +92,13 @@ namespace OWL_LEARN
 
         public void FillCbLesonderdelen()
         {
-            DataTable dtLesonderwerpen = new DBS().Search("lesonderwerp", "VakID", sGekozenVakId);
+            DataTable dtLesonderwerpen = new DBS().Search("toetsplanning", "VakID", sGekozenVakId);
             List<Lesonderdelen> lstLesonderwerpen = new List<Lesonderdelen>();
             if (dtLesonderwerpen.Rows.Count != 0)
             {
                 foreach (DataRow drVakken in dtLesonderwerpen.Rows)
                 {
-                    lstLesonderwerpen.Add(new Lesonderdelen() { LesonderdeelId = drVakken[0].ToString(), Lesonderdeel = drVakken[1].ToString() });
+                    lstLesonderwerpen.Add(new Lesonderdelen() { LesonderdeelId = drVakken[1].ToString(), Lesonderdeel = drVakken["toetsnaam"].ToString() });
                 }
                 cbKiesLesonderdeel.ItemsSource = lstLesonderwerpen;
                 cbKiesLesonderdeel.IsEnabled = true;
@@ -107,7 +107,7 @@ namespace OWL_LEARN
             {
                 cbKiesLesonderdeel.IsEnabled = false;
                 cbKiesLesonderdeel.ItemsSource = null;
-                MessageBox.Show("Het gekozen vak heeft nog geen lesonderwerpen, voeg deze allereerst toe.", "Voeg een lesonderwerp toe");
+                MessageBox.Show("Het gekozen vak heeft nog toetsen open staan, contacteer de docent", "Oh jeetje!");
             }
         }
 

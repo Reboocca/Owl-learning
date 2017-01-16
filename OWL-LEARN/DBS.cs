@@ -788,16 +788,17 @@ namespace OWL_LEARN
             }
         }
 
-        public void ToetsPlanningToevoegen(string LesOnderwerpId, string LeerlingUsername, DateTime SelectedDate, string ToetsNaam, string sLeerlingId)
+        public void ToetsPlanningToevoegen(string LesOnderwerpId, string LeerlingUsername, DateTime SelectedDate, string ToetsNaam, string sLeerlingId, string VakID)
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam, leerlingid) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam, @leerlingid)";
+            cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam, leerlingid, VakID) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam, @leerlingid, @vakID)";
             cmd.Parameters.AddWithValue("@leerlingid", sLeerlingId);
             cmd.Parameters.AddWithValue("@leerlingusername", LeerlingUsername);       
             cmd.Parameters.AddWithValue("@lesonderwerpid", LesOnderwerpId);                   
             cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
             cmd.Parameters.AddWithValue("@toetsnaam", ToetsNaam);
+            cmd.Parameters.AddWithValue("@vakID", VakID);
             cmd.Connection = connect;
 
             try
@@ -815,6 +816,28 @@ namespace OWL_LEARN
             {
                 connect.Close();
 
+            }
+        }
+        public bool checkToets(string loID)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("select * from toetsplanning where lesonderwerpid=" + loID);
+            cmd.Connection = connect;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+
+            catch       //Foutafhandeling
+            {
+                return false;
+            }
+
+            finally     //Close database connection
+            {
+                connect.Close();
             }
         }
     }

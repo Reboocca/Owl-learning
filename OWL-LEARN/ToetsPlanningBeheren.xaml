@@ -49,14 +49,14 @@
                 </Image.OpacityMask>
             </Image>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="412" Margin="308,38,0,0" VerticalAlignment="Top" Width="395" Background="#D8FFFFFF">
+        <Grid HorizontalAlignment="Left" Height="412" Margin="308,38,0,0" VerticalAlignment="Top" Width="420" Background="#D8FFFFFF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="39*"/>
                 <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="395" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FFB67A62" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="420" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FFB67A62" Grid.ColumnSpan="2"/>
             <Label x:Name="lbContent_Copy" Content="Selecteer een leerling:" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="375" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-            <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,90,0,0" VerticalAlignment="Top" Width="375"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2">
+            <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,85,0,0" VerticalAlignment="Top" Width="400"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="180"/>
@@ -65,7 +65,7 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="412" Margin="732,38,0,0" VerticalAlignment="Top" Width="436" Background="#D8FFFFFF" Grid.ColumnSpan="2">
+        <Grid HorizontalAlignment="Left" Height="412" Margin="748,38,0,0" VerticalAlignment="Top" Width="420" Background="#D8FFFFFF" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="12*"/>
                 <ColumnDefinition Width="411*"/>
@@ -73,7 +73,7 @@
             </Grid.ColumnDefinitions>
             <Label x:Name="lbContent" Content="Toetsplanningen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="436" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FFB67A62"/>
             <Label x:Name="lbContent_Copy1" Content="Selecteer een toetsplanning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-            <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="413" Margin="10,87,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged" Grid.ColumnSpan="2">
+            <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="400" Margin="8,87,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged" Grid.ColumnSpan="3">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Toets" DisplayMemberBinding="{Binding ToetsNaam}" Width="200"/>
@@ -82,7 +82,7 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Button x:Name="btVerwijder" Content="Toets verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,490,0,0" Width="400" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
+        <Button x:Name="btVerwijder" Content="Toets verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,460,0,0" Width="420" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#6AA1B6"/>
@@ -103,7 +103,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="btAddToetsPlanning" Content="Toets inplannen" HorizontalAlignment="Left" Padding="2" Margin="768,490,0,0" Width="400" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btAddToetsPlanning_Click" Grid.ColumnSpan="2">
+        <Button x:Name="btAddToetsPlanning" Content="Toets inplannen" HorizontalAlignment="Left" Padding="2" Margin="748,460,0,0" Width="420" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btAddToetsPlanning_Click" Grid.ColumnSpan="2">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#6AA1B6"/>
@@ -124,13 +124,5 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Grid HorizontalAlignment="Left" Height="46" Margin="281,490,0,0" VerticalAlignment="Top" Width="918" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="143*"/>
-                <ColumnDefinition Width="86*"/>
-                <ColumnDefinition Width="84*"/>
-                <ColumnDefinition Width="146*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
     </Grid>
 </Window>

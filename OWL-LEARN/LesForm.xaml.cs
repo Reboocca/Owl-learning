@@ -25,6 +25,7 @@ namespace OWL_LEARN
         public string _psLesID;
         public string _psUitleg;
         public string _psVraagID;
+        public string _psLesonderwerpID;
         int _piRadioButton = 99;
         List<string> _lsVragen = new List<string>();
         List<string> _lstVraagIDs = new List<string>();
@@ -32,12 +33,13 @@ namespace OWL_LEARN
         int _iIndex = 0;
         int _iScore = 0;
 
-        public LesForm(string slesID, string username)
+        public LesForm(string slesID, string username, string sLesonderwerpID)
         {
             InitializeComponent();
             user = username;
             GetUser();
-            _psLesID = slesID; 
+            _psLesID = slesID;
+            _psLesonderwerpID = sLesonderwerpID;
             PopulateUitleg();
             PopulateVraagLijst();
             NextQuestion();
@@ -126,7 +128,7 @@ namespace OWL_LEARN
                 if (_iScore >= (_lsVragen.Count / 2))
                 {
                     MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord, de les is voltooid.", "Goed gedaan!");
-                    db.findIDVoorVoortgang(user, _psLesID, this);
+                    db.findIDVoorVoortgang(user, _psLesonderwerpID, _psLesID, this);
                 }
                 else
                 {

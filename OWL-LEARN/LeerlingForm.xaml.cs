@@ -159,7 +159,9 @@ namespace OWL_LEARN
             {
                 //
                 string sLesID = ((Les)(lbLes.SelectedItem)).lID;
-                LesForm Les = new LesForm(sLesID, user);
+                string sLesonderwerpID = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
+
+                LesForm Les = new LesForm(sLesID, user, sLesonderwerpID);
                 Les.Show();
                 this.Close();
             }

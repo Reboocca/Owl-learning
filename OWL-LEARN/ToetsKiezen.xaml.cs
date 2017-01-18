@@ -62,11 +62,18 @@ namespace OWL_LEARN
 
             else //Anders
             {
-                //
                 string sLesOnderwerpID = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
-                Toetsform newform = new Toetsform(user, sLesOnderwerpID);
-                newform.Show();
-                this.Close();
+
+                if (dbs.CountLessen(sLesOnderwerpID) == dbs.CountLessenVoortgang(user, sLesOnderwerpID))
+                {
+                    Toetsform newform = new Toetsform(user, sLesOnderwerpID);
+                    newform.Show();
+                    this.Close(); 
+                }
+                else
+                {
+                    MessageBox.Show("Je hebt nog niet alle lessen voltooid die bij het lesonderwerp horen.", "Je kan de toets niet maken!");
+                }
             } 
         }
 

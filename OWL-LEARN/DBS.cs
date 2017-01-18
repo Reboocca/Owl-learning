@@ -405,7 +405,7 @@ namespace OWL_LEARN
 
             finally     //Close database connection
             {
-                connect.Close();    
+                connect.Close();
             }
         }
 
@@ -465,7 +465,7 @@ namespace OWL_LEARN
         {
             db_connection();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "UPDATE  users SET Username=@sUsername, Password=@sPassword, firstName=@sfName, lastName=@slName  WHERE userID="+userID;
+            cmd.CommandText = "UPDATE  users SET Username=@sUsername, Password=@sPassword, firstName=@sfName, lastName=@slName  WHERE userID=" + userID;
             cmd.Parameters.AddWithValue("@sUsername", gName);       //Parameter with Username
             cmd.Parameters.AddWithValue("@sPassword", WW);          //Parameter with Password
             cmd.Parameters.AddWithValue("@sfName", fName);          //Parameter with Firstname
@@ -559,7 +559,7 @@ namespace OWL_LEARN
         }
 
         //Functie voor het ophalen van het userID voor het opslaan van de voortgang
-        public void findIDVoorVoortgang(string sUsername, string sLesID, LesForm lsForm)
+        public void findIDVoorVoortgang(string sUsername, string sLesonderwerpID, string sLesID, LesForm lsForm)
         {
             db_connection();
             string sUserID;
@@ -573,19 +573,53 @@ namespace OWL_LEARN
                 {
                     sUserID = reader[0].ToString();
 
-                    updateVoortgang(sUserID, sLesID, sUsername, lsForm);
+                    if (CheckLesVoortgang(sUserID, sLesID))
+                    {
+                        LeerlingForm lf = new LeerlingForm(sUsername);
+                        lf.Show();
+                        lsForm.Close();
+                    }
+
+                    else
+                    {
+                        updateVoortgang(sUserID, sLesonderwerpID, sLesID, sUsername, lsForm);
+                    }
                 }
             }
             connect.Close();
         }
 
-        //Het opslaan van de voortgang per gebruiker & les
-        public void updateVoortgang(string sUserID, string sLesID, string sUsername, LesForm lsForm)
+        //Controleer of de leerling de les al ooit heeft voltooid -> onnodig om op te slaan
+        public bool CheckLesVoortgang(string sUserID, string sLesID)
         {
             db_connection();
-            MySqlCommand cmd = new MySqlCommand("insert into voortgang (UserID, LesID, Voortgang) VALUES (@sUserID, @sLesID, 1)");
-            cmd.Parameters.AddWithValue("@sUserID", sUserID);       //Parameter with UserID
-            cmd.Parameters.AddWithValue("@sLesID", sLesID);         //Parameter with LesID
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM voortgang WHERE UserID='" + sUserID + "' AND LesID='" + sLesID + "'");
+
+            cmd.Connection = connect;
+
+            MySqlDataReader check = cmd.ExecuteReader();
+            if (check.Read())
+            {
+                connect.Close();
+                return true;
+            }
+
+            else
+            {
+                connect.Close();
+                return false;
+            }
+
+        }
+
+        //Het opslaan van de voortgang per gebruiker & les
+        public void updateVoortgang(string sUserID, string sLesonderwerpID, string sLesID, string sUsername, LesForm lsForm)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand("insert into voortgang (UserID, LesID, LesonderwerpID, Voortgang) VALUES (@sUserID, @sLesID, @sLesonderwerpID, 1)");
+            cmd.Parameters.AddWithValue("@sUserID", sUserID);                           //Parameter with UserID
+            cmd.Parameters.AddWithValue("@sLesID", sLesID);                             //Parameter with LesID
+            cmd.Parameters.AddWithValue("@sLesonderwerpID", sLesonderwerpID);           //Parameter with LesonderwerpID
             cmd.Connection = connect;
 
             try
@@ -698,7 +732,7 @@ namespace OWL_LEARN
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE usrname ='" + sParameterA + "'AND " + sColumn + " ='"+ sParameterB +"'" ))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE usrname ='" + sParameterA + "'AND " + sColumn + " ='" + sParameterB + "'"))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -794,8 +828,8 @@ namespace OWL_LEARN
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "insert into toetsplanning (lesonderwerpid, usrname, datum, toetsnaam, leerlingid, VakID) VALUES (@lesonderwerpid, @leerlingusername, @selecteddate, @toetsnaam, @leerlingid, @vakID)";
             cmd.Parameters.AddWithValue("@leerlingid", sLeerlingId);
-            cmd.Parameters.AddWithValue("@leerlingusername", LeerlingUsername);       
-            cmd.Parameters.AddWithValue("@lesonderwerpid", LesOnderwerpId);                   
+            cmd.Parameters.AddWithValue("@leerlingusername", LeerlingUsername);
+            cmd.Parameters.AddWithValue("@lesonderwerpid", LesOnderwerpId);
             cmd.Parameters.AddWithValue("@selecteddate", SelectedDate);
             cmd.Parameters.AddWithValue("@toetsnaam", ToetsNaam);
             cmd.Parameters.AddWithValue("@vakID", VakID);
@@ -818,6 +852,8 @@ namespace OWL_LEARN
 
             }
         }
+
+        //
         public bool checkToets(string loID)
         {
             db_connection();
@@ -838,6 +874,138 @@ namespace OWL_LEARN
             finally     //Close database connection
             {
                 connect.Close();
+            }
+        }
+
+        //Tel de lessen in een lesonderwerp
+        public int CountLessen(string loID)
+        {
+            db_connection();
+
+            int result = 0;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM les where LesonderwerpID=" + loID))
+            {
+                try
+                {
+                    cmd.Connection = connect;
+                    result = int.Parse(cmd.ExecuteScalar().ToString());
+                }
+
+                catch       //Foutafhandeling
+                {
+                    MessageBox.Show("Er is iets mis gegaan met het ophalen van het aantal lessen", "Oops!");
+                }
+
+                finally     //Close database connection
+                {
+                    connect.Close();
+                }
+
+            }
+
+            return result;
+        }
+
+        //Tell het aantal gemaakte lessen door een leerling van een lesonderwerp
+        public int CountLessenVoortgang(string sUsername, string loID)
+        {
+            db_connection();
+            string sUserID;
+            int result = 0;
+
+            using (MySqlCommand cmd = new MySqlCommand("select UserID from users where Username='" + sUsername + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    sUserID = reader[0].ToString();
+
+                    connect.Close();
+                    db_connection();
+
+                    using (MySqlCommand cmd2 = new MySqlCommand("SELECT COUNT(*) FROM voortgang where LesonderwerpID='" + loID + "' and UserID='" + sUserID + "'"))
+                    {
+                        try
+                        {
+                            cmd2.Connection = connect;
+                            result = int.Parse(cmd2.ExecuteScalar().ToString());
+                        }
+
+                        catch       //Foutafhandeling
+                        {
+                            MessageBox.Show("Er is iets mis gegaan met het ophalen van het aantal lessen", "Oops!");
+                        }
+
+                        finally     //Close database connection
+                        {
+                            connect.Close();
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Kan niet de juiste gegevens ophalen", "Whoops!");
+                }
+
+                return result;
+            }
+        }
+
+            //Tell het aantal gemaakte lessen door een leerling van een lesonderwerp
+        public void SaveResultaat(string sUsername, string loID, string sResultaat, Toetsform tsf)
+        {
+            db_connection();
+            string sUserID;
+
+            using (MySqlCommand cmd = new MySqlCommand("select UserID from users where Username='" + sUsername + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    sUserID = reader[0].ToString();
+
+                    connect.Close();
+                    db_connection();
+
+                   MySqlCommand cmd2 = new MySqlCommand();
+                    cmd.CommandText = "insert into toetsresultaten (UserID, LesonderwerpID, Resultaat) VALUES (@sUserID, @loID, @sResultaat)";
+                    cmd.Parameters.AddWithValue("@sUserID", sUserID);
+                    cmd.Parameters.AddWithValue("@loID", loID);
+                    cmd.Parameters.AddWithValue("@sResultaat", sResultaat);
+                    cmd2.Connection = connect;
+
+                    try
+                    {
+                        
+                        cmd2.ExecuteNonQuery();
+                    }
+
+                    catch       //Foutafhandeling
+                    {
+                        MessageBox.Show("Er is iets mis gegaan met het opslaan van jouw cijfer, roep de juf/meester om hulp!", "Ohnee!");
+                    }
+
+                    finally     //Close database connection
+                    {
+                        connect.Close();
+
+                        LeerlingForm lf = new LeerlingForm(sUsername);
+                        lf.Show();
+                        tsf.Close();
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Kan niet de juiste gegevens ophalen", "Whoops!");
+                }
+
             }
         }
     }

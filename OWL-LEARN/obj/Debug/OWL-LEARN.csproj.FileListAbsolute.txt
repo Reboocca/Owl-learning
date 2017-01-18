@@ -67,7 +67,6 @@ C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\OWL-LEARN.exe.config
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.exe
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.pdb
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\awaken_large.png
-C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\DEERIEME.jpg
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_SunRise_1920x1080.jpg
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080.jpg
 C:\Users\miche\Owl-learning\OWL-LEARN\bin\Debug\Images\Sea.jpg
@@ -284,7 +283,6 @@ C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\lesWijzigen.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\PlanningenBeheren.baml
-C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.baml
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\PlanningVerwijderen.g.cs
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\Toetsform.g.cs
@@ -320,3 +318,9 @@ F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\PlanningVerwijderen.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
 F:\OWL-LEARN\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml

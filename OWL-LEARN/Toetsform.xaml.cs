@@ -168,19 +168,19 @@ namespace OWL_LEARN
                         sResultaatMessage = "Perfect!";
                         break;
                     case 38:
-                        sResultaat = "9,6";
+                        sResultaat = "9.6";
                         sResultaatMessage = "Top!";
                         break;
                     case 36:
-                        sResultaat = "9,2";
+                        sResultaat = "9.2";
                         sResultaatMessage = "Top!";
                         break;
                     case 34:
-                        sResultaat = "8,8";
+                        sResultaat = "8.8";
                         sResultaatMessage = "Super!";
                         break;
                     case 32:
-                        sResultaat = "8,4";
+                        sResultaat = "8.4";
                         sResultaatMessage = "Super!";
                         break;
                     case 30:
@@ -188,43 +188,43 @@ namespace OWL_LEARN
                         sResultaatMessage = "Super!";
                         break;
                     case 28:
-                        sResultaat = "7,5";
+                        sResultaat = "7.5";
                         sResultaatMessage = "Prima!";
                         break;
                     case 26:
-                        sResultaat = "7,1";
+                        sResultaat = "7.1";
                         sResultaatMessage = "Prima!";
                         break;
                     case 24:
-                        sResultaat = "6,8";
+                        sResultaat = "6.8";
                         sResultaatMessage = "Goed gedaan!";
                         break;
                     case 22:
-                        sResultaat = "6,3";
+                        sResultaat = "6.3";
                         sResultaatMessage = "Goed gedaan!";
                         break;
                     case 20:
-                        sResultaat = "5,9";
+                        sResultaat = "5.9";
                         sResultaatMessage = "Goed gedaan!";
                         break;
                     case 18:
-                        sResultaat = "5,5";
+                        sResultaat = "5.5";
                         sResultaatMessage = "Goed gedaan!";
                         break;
                     case 16:
-                        sResultaat = "5,0";
+                        sResultaat = "5.0";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 14:
-                        sResultaat = "4,5";
+                        sResultaat = "4.5";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 12:
-                        sResultaat = "4,0";
+                        sResultaat = "4.0";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 10:
-                        sResultaat = "3,5";
+                        sResultaat = "3.5";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 8:
@@ -232,19 +232,19 @@ namespace OWL_LEARN
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 6:
-                        sResultaat = "2,5";
+                        sResultaat = "2.5";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 4:
-                        sResultaat = "2,0";
+                        sResultaat = "2.0";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 2:
-                        sResultaat = "1,5";
+                        sResultaat = "1.5";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 0:
-                        sResultaat = "1,0";
+                        sResultaat = "1.0";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                 }

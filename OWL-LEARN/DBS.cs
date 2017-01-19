@@ -974,15 +974,14 @@ namespace OWL_LEARN
                     db_connection();
 
                    MySqlCommand cmd2 = new MySqlCommand();
-                    cmd.CommandText = "insert into toetsresultaten (UserID, LesonderwerpID, Resultaat) VALUES (@sUserID, @loID, @sResultaat)";
-                    cmd.Parameters.AddWithValue("@sUserID", sUserID);
-                    cmd.Parameters.AddWithValue("@loID", loID);
-                    cmd.Parameters.AddWithValue("@sResultaat", sResultaat);
+                    cmd2.CommandText = "INSERT INTO `toetsresultaten`(`UserID`, `LesonderwerpID`, `Resultaat`) VALUES (@sUserID, @loID, @sResultaat)";
+                    cmd2.Parameters.AddWithValue("@sUserID", sUserID);
+                    cmd2.Parameters.AddWithValue("@loID", loID);
+                    cmd2.Parameters.AddWithValue("@sResultaat", sResultaat);
                     cmd2.Connection = connect;
 
                     try
                     {
-                        
                         cmd2.ExecuteNonQuery();
                     }
 

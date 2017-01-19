@@ -129,7 +129,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox x:Name="cbKiesLes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Margin="919,207,0,0" Grid.ColumnSpan="2" BorderBrush="White" Foreground="#FF1F1D1C">
+        <ComboBox x:Name="cbKiesLes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Margin="919,207,0,0" Grid.ColumnSpan="2" BorderBrush="White" Foreground="#FF1F1D1C" SelectionChanged="cbKiesLes_SelectionChanged">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>

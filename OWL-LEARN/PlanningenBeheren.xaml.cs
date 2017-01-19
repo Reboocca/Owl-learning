@@ -24,9 +24,10 @@ namespace OWL_LEARN
         //sCurrentDate = DateTime.Now;
         string sGekozenVakId;
         string sGekozenLesonderwerpId;
-        string sGekozenLesNaam;
+        string sGekozenLesNaam = "";
         string sGekozenLeerlingId;
         string sGekozenLeerlingUsrname;
+        string sGekozenLesId;
         public string user;
 
 
@@ -129,7 +130,7 @@ namespace OWL_LEARN
         #endregion
         private void btOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            string sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
+             
             DataTable dtCheckExistancePlanning = new DBS().CheckExistancePlanning("planning", sGekozenLeerlingUsrname, sGekozenLesId, "lesid");
             if (dtCheckExistancePlanning.Rows.Count != 0)
             {
@@ -137,13 +138,13 @@ namespace OWL_LEARN
             }
             else
             {
-                sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
+               
                 if (cdCalendar.SelectedDate != null)
                 {
                     DateTime dtChosenDate = cdCalendar.SelectedDate.Value.Date;
                     if (sGekozenLeerlingId != null)
                     {
-                        if (sGekozenLesId != null)
+                        if (sGekozenLesNaam != "")
                         {
                             new DBS().PlanningToevoegen(sGekozenLeerlingId, sGekozenLesId, dtChosenDate, sGekozenLesNaam, sGekozenLeerlingUsrname);
                         }
@@ -203,6 +204,15 @@ namespace OWL_LEARN
             PlanningVerwijderen PV = new PlanningVerwijderen(user);
             PV.Show();
             this.Close();
+        }
+
+        private void cbKiesLes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbKiesLes.SelectedItem != null)
+            {
+               sGekozenLesId = ((Lessen)(cbKiesLes.SelectedItem)).LesId;
+               sGekozenLesNaam = ((Lessen)(cbKiesLes.SelectedItem)).LesNaam;
+            }
         }
     }
 }

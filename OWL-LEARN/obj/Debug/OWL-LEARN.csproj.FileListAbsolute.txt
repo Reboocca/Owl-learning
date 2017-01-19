@@ -230,7 +230,6 @@ C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\OWL-LEARN.exe.confi
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.exe
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.pdb
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\Images\awaken_large.png
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\Images\DEERIEME.jpg
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_SunRise_1920x1080.jpg
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\Images\Lakeside_Sunset_1920x1080.jpg
 C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\bin\Debug\Images\Sea.jpg
@@ -325,3 +324,5 @@ C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.baml
+C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\ToetsKiezen.g.cs

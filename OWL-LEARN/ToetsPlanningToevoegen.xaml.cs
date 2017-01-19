@@ -24,6 +24,7 @@ namespace OWL_LEARN
         string sGekozenVakId;
         string sGekozenLesonderdeelId;
         string sGekozenLesonderdeelNaam;
+        string sGekozenVakID;
         string sToetsNaam;
         string sGekozenLeerlingId;
         DateTime dtChosenDate;
@@ -45,12 +46,15 @@ namespace OWL_LEARN
             public string LesonderdeelId { get; set; }
         }
 
-        public ToetsPlanningToevoegen()
+        string user;
+        
+        public ToetsPlanningToevoegen(string username)
         {
             InitializeComponent();
             PopulateLvLeerlingen();
             FillCbKiesVak();
             cbKiesLesonderdeel.IsEnabled = false;
+            user = username;
         }
 
         private void PopulateLvLeerlingen()
@@ -123,7 +127,8 @@ namespace OWL_LEARN
             {
                 sGekozenLesonderdeelId = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).LesonderdeelId;
                 sGekozenLesonderdeelNaam = ((Lesonderdelen)(cbKiesLesonderdeel.SelectedItem)).Lesonderdeel;
-                sToetsNaam = sGekozenLesonderdeelNaam + " TOETS";
+                sGekozenVakID = ((Vakken)(cbKiesVak.SelectedItem)).VakId;
+                sToetsNaam = "Toets - " + sGekozenLesonderdeelNaam ;
                 lblToetsNaam.Content = "De toetsnaam zal worden: " + sToetsNaam;
             }
         }
@@ -144,7 +149,7 @@ namespace OWL_LEARN
                         if (cdCalendar.SelectedDate != null)
                         {
                             dtChosenDate = cdCalendar.SelectedDate.Value.Date;
-                            new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sToetsNaam, sGekozenLeerlingId);
+                            new DBS().ToetsPlanningToevoegen(sGekozenLesonderdeelId, sGekozenLeerlingUsername, dtChosenDate, sGekozenLesonderdeelNaam, sGekozenLeerlingId, sGekozenVakID);
                         }
                         else
                         {
@@ -161,6 +166,13 @@ namespace OWL_LEARN
                     MessageBox.Show("U heeft geen leerling geselecteerd waarvoor u deze planning wilt toevoegen", "Selecteer een leerling");
                 }
             }
+        }
+
+        private void btTerug_Click(object sender, RoutedEventArgs e)
+        {
+            ToetsPlanningBeheren form = new ToetsPlanningBeheren(user);
+            form.Show();
+            this.Close();
         }
     }
 }

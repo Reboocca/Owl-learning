@@ -22,6 +22,7 @@ namespace OWL_LEARN
     {
         string sGekozenLeerlingId;
         string sSelectedPlanning;
+        string user;
         struct LvLeerlingInfo
         {
             public string LeerlingVoornaam { get; set; }
@@ -35,10 +36,11 @@ namespace OWL_LEARN
             public string SelectedPlanningId { get; set; }
             public string ToetsNaam { get; set; }
         }
-        public ToetsPlanningBeheren()
+        public ToetsPlanningBeheren(string username)
         {
             InitializeComponent();
             PopulateLvLeerlingen();
+            user = username;
         }
         private void PopulateLvLeerlingen()
         {
@@ -54,7 +56,7 @@ namespace OWL_LEARN
 
         private void btAddToetsPlanning_Click(object sender, RoutedEventArgs e)
         {
-            ToetsPlanningToevoegen TPT = new ToetsPlanningToevoegen();
+            ToetsPlanningToevoegen TPT = new ToetsPlanningToevoegen(user);
             TPT.Show();
             this.Close();
         }
@@ -112,6 +114,13 @@ namespace OWL_LEARN
             {
                 sSelectedPlanning = ((LvPlanningInfo)(lvPlanningen.SelectedItem)).SelectedPlanningId;
             }
+        }
+
+        private void btTerug_Click(object sender, RoutedEventArgs e)
+        {
+            PlanningVerwijderen form = new PlanningVerwijderen(user);
+            form.Show();
+            this.Close();
         }
     }
 }

@@ -109,7 +109,7 @@
             <Label Content="Lesonderdeel" HorizontalAlignment="Left" Margin="30.5,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="204.506" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="366" Margin="896,86,0,0" VerticalAlignment="Top" Width="266" Background="White">
-            <ListBox x:Name="lbLes" HorizontalAlignment="Left" Height="306" Margin="8,52,0,0" VerticalAlignment="Top" Width="250" FontSize="16" FontFamily="Century Gothic" Background="#CCF0FFF8" Foreground="#FF553A3A">
+            <ListBox x:Name="lbLes" HorizontalAlignment="Left" Height="306" Margin="10,50,0,0" VerticalAlignment="Top" Width="246" FontSize="16" FontFamily="Century Gothic" Background="#CCF0FFF8" Foreground="#FF553A3A">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding lNaam}"/>

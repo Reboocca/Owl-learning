@@ -43,6 +43,15 @@ namespace OWL_LEARN
             PopulateVraagLijst();
             SelectVragen();
             NextQuestion();
+            GetUser();
+        }
+
+        DBS dbs = new DBS();
+
+        private void GetUser()
+        {
+            string sUserNaam = dbs.getUserNaam(user).ToString();
+            lbUser.Content = sUserNaam;
         }
 
         //Lijst vullen met de vragen van alle lessen:
@@ -60,7 +69,7 @@ namespace OWL_LEARN
         //Lijst vullen met een random selectie van de vragen -> max 10
         private void SelectVragen()
         {
-            for (int i = _psltSelectieVragen.Count; i < 10; i++)
+            for (int i = _psltSelectieVragen.Count; i < 20; i++)
             {
                 int r = rnd.Next(_plstVraagID.Count - 1);
                 bool contains = _psltSelectieVragen.Contains((string)_plstVraagID[r]);
@@ -95,7 +104,7 @@ namespace OWL_LEARN
                     {
                         if (row["Juist_onjuist"].ToString() == "1")
                         {
-                            _iScore++;
+                            _iScore += 2;
                             //MessageBox.Show("Je hebt het goede antwoord ingevuld.", "Goed zo");
                         }
 
@@ -124,6 +133,9 @@ namespace OWL_LEARN
                          lbVraag.Content = row["Vraag"].ToString();
                      }
 
+                    int iVraagNummer = _iIndex + 1;
+                    lbVraagNummer.Content = iVraagNummer.ToString() + " van " + _psltSelectieVragen.Count.ToString();
+
                     _iIndex++;
 
                     //Zorg dat alle radiobuttons uitgevinkt staan
@@ -148,15 +160,101 @@ namespace OWL_LEARN
             //Kleine melding of de student het goed of fout heeft gedaan:
             if (sContentButton == "Opslaan")
             {
-                if (_iScore >= (_psltSelectieVragen.Count / 2))
+                string sResultaat = "";
+                string sResultaatMessage = "";
+                int goedeantwoorden = _iScore / 2;
+
+                switch (_iScore)        //Switch voor de verschillende vakken & de ID's
                 {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _psltSelectieVragen.Count.ToString() + " vragen goed beantwoord", "Goed gedaan!");
-                }
-                else
-                {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _psltSelectieVragen.Count.ToString() + " vragen goed beantwoord", "Volgende keer beter!");
+                    case 40:
+                        sResultaat = "10";
+                        sResultaatMessage = "Perfect!";
+                        break;
+                    case 38:
+                        sResultaat = "9.6";
+                        sResultaatMessage = "Top!";
+                        break;
+                    case 36:
+                        sResultaat = "9.2";
+                        sResultaatMessage = "Top!";
+                        break;
+                    case 34:
+                        sResultaat = "8.8";
+                        sResultaatMessage = "Super!";
+                        break;
+                    case 32:
+                        sResultaat = "8.4";
+                        sResultaatMessage = "Super!";
+                        break;
+                    case 30:
+                        sResultaat = "8";
+                        sResultaatMessage = "Super!";
+                        break;
+                    case 28:
+                        sResultaat = "7.5";
+                        sResultaatMessage = "Prima!";
+                        break;
+                    case 26:
+                        sResultaat = "7.1";
+                        sResultaatMessage = "Prima!";
+                        break;
+                    case 24:
+                        sResultaat = "6.8";
+                        sResultaatMessage = "Goed gedaan!";
+                        break;
+                    case 22:
+                        sResultaat = "6.3";
+                        sResultaatMessage = "Goed gedaan!";
+                        break;
+                    case 20:
+                        sResultaat = "5.9";
+                        sResultaatMessage = "Goed gedaan!";
+                        break;
+                    case 18:
+                        sResultaat = "5.5";
+                        sResultaatMessage = "Goed gedaan!";
+                        break;
+                    case 16:
+                        sResultaat = "5.0";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 14:
+                        sResultaat = "4.5";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 12:
+                        sResultaat = "4.0";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 10:
+                        sResultaat = "3.5";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 8:
+                        sResultaat = "3";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 6:
+                        sResultaat = "2.5";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 4:
+                        sResultaat = "2.0";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 2:
+                        sResultaat = "1.5";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
+                    case 0:
+                        sResultaat = "1.0";
+                        sResultaatMessage = "Volgende keer beter";
+                        break;
                 }
 
+                MessageBox.Show("Je hebt een " + sResultaat + " behaald voor deze toets! Dit betekend dat je " + goedeantwoorden.ToString() + " van de " + _psltSelectieVragen.Count.ToString() + " vragen goed hebt beantwoord." , sResultaatMessage);
+
+                db.SaveResultaat(user, lesonderwerp, sResultaat, this);
             }
         }
 
@@ -204,12 +302,6 @@ namespace OWL_LEARN
             {
                 MessageBox.Show("Zorg ervoor dat je een antwoord hebt aangevinkt!", "oops!");
             }
-        }
-
-        //Handelingen die gebeuren wanneer je op terug klikt
-        private void btTerug_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

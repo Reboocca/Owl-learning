@@ -25,6 +25,7 @@ namespace OWL_LEARN
         public string _psLesID;
         public string _psUitleg;
         public string _psVraagID;
+        public string _psLesonderwerpID;
         int _piRadioButton = 99;
         List<string> _lsVragen = new List<string>();
         List<string> _lstVraagIDs = new List<string>();
@@ -32,12 +33,13 @@ namespace OWL_LEARN
         int _iIndex = 0;
         int _iScore = 0;
 
-        public LesForm(string slesID, string username)
+        public LesForm(string slesID, string username, string sLesonderwerpID)
         {
             InitializeComponent();
             user = username;
             GetUser();
-            _psLesID = slesID; 
+            _psLesID = slesID;
+            _psLesonderwerpID = sLesonderwerpID;
             PopulateUitleg();
             PopulateVraagLijst();
             NextQuestion();
@@ -82,12 +84,6 @@ namespace OWL_LEARN
                         if (row["Juist_onjuist"].ToString() == "1")
                         {
                             _iScore++;
-                            //MessageBox.Show("Je hebt het goede antwoord ingevuld.", "Goed zo");
-                        }
-
-                        else if (row["Juist_onjuist"].ToString() == "2")
-                        {
-                            //MessageBox.Show("Je een foutje gemaakt.", "Oh nee");
                         }
 
                         else
@@ -102,6 +98,10 @@ namespace OWL_LEARN
                 {
                     lbVraag.Content = _lsVragen[_iIndex];
                     _psVraagID = _lstVraagIDs[_iIndex];
+
+                    int iVraagNummer = _iIndex + 1;
+                    lbVraagNummer.Content =  iVraagNummer.ToString() + " van " + _lsVragen.Count.ToString();
+
                     _iIndex++;
 
 
@@ -125,12 +125,12 @@ namespace OWL_LEARN
             {
                 if (_iScore >= (_lsVragen.Count / 2))
                 {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Goed gedaan!");
-                    db.findIDVoorVoortgang(user, _psLesID, this);
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord, de les is voltooid.", "Goed gedaan!");
+                    db.findIDVoorVoortgang(user, _psLesonderwerpID, _psLesID, this);
                 }
                 else
                 {
-                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord", "Volgende keer beter!");
+                    MessageBox.Show("Je hebt " + _iScore.ToString() + " van de " + _lsVragen.Count.ToString() + " vragen goed beantwoord, maak de les opnieuw.", "Volgende keer beter!");
                 }
 
             }

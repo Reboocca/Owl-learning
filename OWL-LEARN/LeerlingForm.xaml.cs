@@ -159,7 +159,9 @@ namespace OWL_LEARN
             {
                 //
                 string sLesID = ((Les)(lbLes.SelectedItem)).lID;
-                LesForm Les = new LesForm(sLesID, user);
+                string sLesonderwerpID = ((LesOnderdeel)(lbLesOnderdelen.SelectedItem)).loID;
+
+                LesForm Les = new LesForm(sLesID, user, sLesonderwerpID);
                 Les.Show();
                 this.Close();
             }
@@ -173,8 +175,8 @@ namespace OWL_LEARN
 
         private void btToets_Click(object sender, RoutedEventArgs e)
         {
-            Toetsform newform = new Toetsform(user, "6");
-            newform.Show();
+            ToetsKiezen newtoets = new ToetsKiezen(user);
+            newtoets.Show();
             this.Close();
         }
     }

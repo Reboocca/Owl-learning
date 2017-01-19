@@ -78,6 +78,9 @@
     <Compile Include="Toetsform.xaml.cs">
       <DependentUpon>Toetsform.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToetsKiezen.xaml.cs">
+      <DependentUpon>ToetsKiezen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToetsPlanningBeheren.xaml.cs">
       <DependentUpon>ToetsPlanningBeheren.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ToetsKiezen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ToetsPlanningBeheren.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,9 +216,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Images\awaken_large.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\DEERIEME.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Images\Lakeside_SunRise_1920x1080.jpg">
@@ -285,12 +289,17 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Route_66_Larger.png">
+    <Resource Include="Images\mointains-01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\mointains-01.png">
+    <Resource Include="Images\greenhills.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ribbon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

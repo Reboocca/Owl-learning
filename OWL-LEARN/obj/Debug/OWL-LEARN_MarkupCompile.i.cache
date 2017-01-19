@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\obj\Debug\
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\
 OWL_LEARN
 none
 false
 DEBUG;TRACE
-C:\Users\Jordy\Source\Repos\Owl-learning\OWL-LEARN\App.xaml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\App.xaml
 19-895271330
 
-28-5123081
-151966014981
+28695486281
+151205039856
 AccountToevoeg.xaml;AccountWijzigen.xaml;addVraag.xaml;ConsulentForm.xaml;LeerlingForm.xaml;LesForm.xaml;LesOnderwerpCMS.xaml;LesonderwerpToevoegen.xaml;LesonderwerpWijzig.xaml;Lestoevoegen.xaml;lesWijzigen.xaml;MainWindow.xaml;PlanningenBeheren.xaml;PlanningVerwijderen.xaml;Toetsform.xaml;ToetsKiezen.xaml;ToetsPlanningBeheren.xaml;ToetsPlanningToevoegen.xaml;UserCMS.xaml;
 
-True
+False
 

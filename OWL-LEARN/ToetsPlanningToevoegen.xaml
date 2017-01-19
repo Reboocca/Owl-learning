@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Toetsplanning toevoegen" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="Images/greenhills.jpg"/>
+        <ImageBrush ImageSource="Images/field.jpg"/>
     </Window.Background>
     <Grid Margin="0,0,-5,0" RenderTransformOrigin="0.541,0.519">
         <Grid.Background>
@@ -28,7 +28,7 @@
             <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="White" Grid.ColumnSpan="3"  Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#6AA1B6"/>
+                        <Setter Property="Background" Value="#68A16E"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -40,7 +40,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#87b3c4"/>
+                                <Setter Property="Background" Value="#86b38b"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -60,12 +60,12 @@
             <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="306" Margin="10,90,0,0" VerticalAlignment="Top" Width="375" Grid.ColumnSpan="2" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="185"/>
-                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="185"/>
+                        <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding LeerlingVoornaam}" Width="183"/>
+                        <GridViewColumn Header="Achternaam" DisplayMemberBinding="{Binding LeerlingAchternaam}" Width="183"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Label x:Name="lbTitle" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="395" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FFB67A62" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbTitle" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="395" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FF7F152C" Grid.ColumnSpan="2"/>
             <Label x:Name="lbContent_Copy" Content="Selecteer een leerling voor deze toetsplanning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="375" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
 
         </Grid>
@@ -75,7 +75,7 @@
                 <ColumnDefinition Width="345*"/>
                 <ColumnDefinition Width="18*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lbContent" Content="Toetsplanning informatie" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="463" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FFB67A62"/>
+            <Label x:Name="lbContent" Content="Toetsplanning informatie" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="436" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FF7F152C"/>
             <Label x:Name="lbContent_Copy1" Content="Kies een vak:" Margin="10,76,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
             <Label x:Name="lbContent_Copy2" Content="Kies een lesonderdeel:" Margin="10,120,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
             <Label x:Name="lbContent_Copy3" Content="Vanaf wanneer mag de &#xD;&#xA;les gemaakt worden:" Margin="10,200,0,0" VerticalAlignment="Top" Height="80" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2" RenderTransformOrigin="0.501,0.437"/>
@@ -85,7 +85,7 @@
         <Button x:Name="btOpslaan" Content="Opslaan" HorizontalAlignment="Left" Padding="2" Margin="308,484,0,0" Width="860" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btOpslaan_Click" Grid.ColumnSpan="2">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#6AA1B6"/>
+                    <Setter Property="Background" Value="#68A16E"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -97,7 +97,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#87b3c4"/>
+                            <Setter Property="Background" Value="#86b38b"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>

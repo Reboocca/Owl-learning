@@ -84,12 +84,6 @@ namespace OWL_LEARN
                         if (row["Juist_onjuist"].ToString() == "1")
                         {
                             _iScore++;
-                            //MessageBox.Show("Je hebt het goede antwoord ingevuld.", "Goed zo");
-                        }
-
-                        else if (row["Juist_onjuist"].ToString() == "2")
-                        {
-                            //MessageBox.Show("Je een foutje gemaakt.", "Oh nee");
                         }
 
                         else
@@ -104,6 +98,10 @@ namespace OWL_LEARN
                 {
                     lbVraag.Content = _lsVragen[_iIndex];
                     _psVraagID = _lstVraagIDs[_iIndex];
+
+                    int iVraagNummer = _iIndex + 1;
+                    lbVraagNummer.Content =  iVraagNummer.ToString() + " van " + _lsVragen.Count.ToString();
+
                     _iIndex++;
 
 

@@ -26,7 +26,7 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="450" Margin="316,36,0,0" VerticalAlignment="Top" Width="848" Background="#D8FFFFFF">
-            <Label x:Name="lbVraag" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="87" Width="848" FontFamily="Century Gothic" FontSize="22" Foreground="#FF231D35" HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
+            <Label x:Name="lbVraag" Content="6 x 8 =" HorizontalAlignment="Center" VerticalAlignment="Top" Height="87" Width="848" FontFamily="Century Gothic" FontSize="22" Foreground="#FF231D35" HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
             <Button x:Name="btVerder" Content="Verder" HorizontalAlignment="Left" Padding="2" Margin="0,423,0,-19" Width="848" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -53,6 +53,12 @@
         <RadioButton x:Name="rbAntwoord2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,253,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,293,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
         <RadioButton x:Name="rbAntwoord4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,332,0,0" FontFamily="Century Gothic" FontSize="20" Height="32" Width="638" Foreground="#FF323232" Background="White"/>
+        <Image x:Name="imRibbon" HorizontalAlignment="Left" Height="111.8" Margin="1077.986,33.75,0,0" VerticalAlignment="Top" Width="56.695" Source="Images/Ribbon.png" Stretch="Fill">
+        	<Image.OpacityMask>
+        		<ImageBrush ImageSource="Images/Ribbon.png" Stretch="UniformToFill"/>
+        	</Image.OpacityMask>
+        </Image>
+        <Label x:Name="lbVraagNummer" Content="22 van 20" Padding="10" HorizontalContentAlignment="Center" Margin="1070.987,69.838,0,0" VerticalAlignment="Top" Height="38" FontFamily="Century Gothic" FontSize="10.667" Foreground="White" HorizontalAlignment="Left" Width="70.667" RenderTransformOrigin="-0.753,-1.167"/>
 
     </Grid>
 </Window>

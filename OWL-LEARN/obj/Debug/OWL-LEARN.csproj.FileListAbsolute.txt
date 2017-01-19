@@ -324,3 +324,4 @@ C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.g.cs
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningBeheren.baml
 C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\ToetsPlanningToevoegen.baml
+C:\Users\miche\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache

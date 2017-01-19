@@ -133,6 +133,9 @@ namespace OWL_LEARN
                          lbVraag.Content = row["Vraag"].ToString();
                      }
 
+                    int iVraagNummer = _iIndex + 1;
+                    lbVraagNummer.Content = iVraagNummer.ToString() + " van " + _psltSelectieVragen.Count.ToString();
+
                     _iIndex++;
 
                     //Zorg dat alle radiobuttons uitgevinkt staan

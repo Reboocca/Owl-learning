@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Toetsplanningen beheren" Height="520" Width="1200" MinWidth="1205" MinHeight="600" MaxWidth="1200" MaxHeight="700" Icon="Images/owl_cropped.png" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="Images/greenhills.jpg"/>
+        <ImageBrush ImageSource="Images/field.jpg"/>
     </Window.Background>
     <Grid Margin="0,0,-5,0" RenderTransformOrigin="0.541,0.519">
         <Grid.ColumnDefinitions>
@@ -25,7 +25,7 @@
             <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,-2,6" Width="282" FontSize="18.667" Foreground="White" Grid.ColumnSpan="3"  Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#6AA1B6"/>
+                        <Setter Property="Background" Value="#68A16E"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -37,7 +37,7 @@
                         </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#87b3c4"/>
+                                <Setter Property="Background" Value="#86b38b"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="39*"/>
                 <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="420" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FFB67A62" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbVak" Content="Leerlingen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="420" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" Background="#FF7F152C" Grid.ColumnSpan="2"/>
             <Label x:Name="lbContent_Copy" Content="Selecteer een leerling:" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="375" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
             <ListView x:Name="lvLeerlingen" HorizontalAlignment="Left" Height="302" Margin="10,85,0,0" VerticalAlignment="Top" Width="400"  Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvLeerlingen_SelectionChanged" Grid.ColumnSpan="2">
                 <ListView.View>
@@ -71,7 +71,7 @@
                 <ColumnDefinition Width="411*"/>
                 <ColumnDefinition Width="13*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lbContent" Content="Toetsplanningen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="436" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FFB67A62"/>
+            <Label x:Name="lbContent" Content="Toetsplanningen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="48" Width="420" FontFamily="Century Gothic" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" Grid.ColumnSpan="3" Background="#FF7F152C"/>
             <Label x:Name="lbContent_Copy1" Content="Selecteer een toetsplanning:" Margin="10,53,0,0" VerticalAlignment="Top" Height="29" Width="378" FontFamily="Century Gothic" FontSize="14" Foreground="#FF8B6C51" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
             <ListView x:Name="lvPlanningen" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="400" Margin="8,87,0,0" Foreground="#FF3F4657" FontSize="16" FontFamily="Century Gothic" SelectionChanged="lvPlanningen_SelectionChanged" Grid.ColumnSpan="3">
                 <ListView.View>
@@ -85,7 +85,7 @@
         <Button x:Name="btVerwijder" Content="Toets verwijderen" HorizontalAlignment="Left" Padding="2" Margin="308,460,0,0" Width="420" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerwijder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#6AA1B6"/>
+                    <Setter Property="Background" Value="#68A16E"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -97,7 +97,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#87b3c4"/>
+                            <Setter Property="Background" Value="#86b38b"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -106,7 +106,7 @@
         <Button x:Name="btAddToetsPlanning" Content="Toets inplannen" HorizontalAlignment="Left" Padding="2" Margin="748,460,0,0" Width="420" FontSize="18.667" Foreground="White" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btAddToetsPlanning_Click" Grid.ColumnSpan="2">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#6AA1B6"/>
+                    <Setter Property="Background" Value="#68A16E"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -118,7 +118,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#87b3c4"/>
+                            <Setter Property="Background" Value="#86b38b"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>

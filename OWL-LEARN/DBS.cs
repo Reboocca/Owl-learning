@@ -141,7 +141,7 @@ namespace OWL_LEARN
         {
             DataTable retValue = new DataTable();
             db_connection();
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "=" + sParameterB))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "='" + sParameterB + "'"))
             {
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();

@@ -19,9 +19,27 @@ namespace OWL_LEARN
     /// </summary>
     public partial class Cijferlijst : Window
     {
-        public Cijferlijst()
+        DBS db = new DBS();
+        string user;
+        
+        public Cijferlijst(string username)
         {
             InitializeComponent();
+            user = username;
+            PopulateTabel();
+        }
+
+        struct Cijferlijst
+        {
+            public string VakNaam { get; set; }
+            public string Lesonderwerp { get; set; }
+            public string Cijfer { get; set; }
+            public string Score { get; set; }
+        }
+
+        public void PopulateTabel()
+        {
+
         }
     }
 }

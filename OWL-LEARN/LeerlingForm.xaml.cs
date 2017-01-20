@@ -179,5 +179,12 @@ namespace OWL_LEARN
             newtoets.Show();
             this.Close();
         }
+
+        private void btCijferlijst_Click(object sender, RoutedEventArgs e)
+        {
+            Cijferlijst cl = new Cijferlijst(user);
+            cl.Show();
+            this.Close();
+        }
     }
 }

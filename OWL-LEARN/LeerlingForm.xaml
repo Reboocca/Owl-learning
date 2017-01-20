@@ -118,7 +118,7 @@
             </ListBox>
             <Label Content="Lessen" HorizontalAlignment="Left" Margin="77,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="119.006" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
         </Grid>
-        <Button x:Name="btToets_Copy" Content="Toetsen" HorizontalAlignment="Left" Padding="2" Margin="306,475.083,0,0" Width="266" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btToets_Click">
+        <Button x:Name="btCijferlijst" Content="Cijferlijst" HorizontalAlignment="Left" Padding="2" Margin="306,475.083,0,0" Width="266" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btCijferlijst_Click">
         	<Button.Style>
         		<Style TargetType="{x:Type Button}">
         			<Setter Property="Background" Value="#D3815B"/>

@@ -955,7 +955,7 @@ namespace OWL_LEARN
             }
         }
 
-            //Tell het aantal gemaakte lessen door een leerling van een lesonderwerp
+        //Tell het aantal gemaakte lessen door een leerling van een lesonderwerp
         public void SaveResultaat(string sUsername, string loID, string sResultaat, Toetsform tsf)
         {
             db_connection();
@@ -973,7 +973,7 @@ namespace OWL_LEARN
                     connect.Close();
                     db_connection();
 
-                   MySqlCommand cmd2 = new MySqlCommand();
+                    MySqlCommand cmd2 = new MySqlCommand();
                     cmd2.CommandText = "INSERT INTO `toetsresultaten`(`UserID`, `LesonderwerpID`, `Resultaat`) VALUES (@sUserID, @loID, @sResultaat)";
                     cmd2.Parameters.AddWithValue("@sUserID", sUserID);
                     cmd2.Parameters.AddWithValue("@loID", loID);
@@ -1005,6 +1005,46 @@ namespace OWL_LEARN
                     MessageBox.Show("Kan niet de juiste gegevens ophalen", "Whoops!");
                 }
 
+            }
+        }
+
+        public DataTable CijferlijstOphalen(string sTable, string sParameterA, string sParameterB, string sUsername)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+            string sUserID;
+
+            using (MySqlCommand cmd = new MySqlCommand("select UserID from users where Username='" + sUsername + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    sUserID = reader[0].ToString();
+
+                    connect.Close();
+
+
+                    
+                    db_connection();
+
+                    using (MySqlCommand cmd2 = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "=" + sParameterB))
+                    {
+                        cmd2.Connection = connect;
+                        MySqlDataReader reader2 = cmd2.ExecuteReader();
+                        retValue.Load(reader2);
+                        connect.Close();
+                    }
+
+                    //Return result
+                    return retValue;
+                }
+                else
+                {
+                    MessageBox.Show("Kan geen cijfers ophalen", "Oops!");
+                    return retValue;
+                }
             }
         }
     }

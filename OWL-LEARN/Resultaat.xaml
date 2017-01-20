@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OWL_LEARN.Resultaat"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Resultaat" Height="596.8" Width="511">
+        Title="Resultaat" Height="600" Width="511" MinWidth="511" MinHeight="600" MaxWidth="511" MaxHeight="600" Icon="Images/owl_cropped.png" ResizeMode="NoResize" >
     <Window.Background>
         <ImageBrush ImageSource="Images/mountain2-01.png" Stretch="UniformToFill"/>
     </Window.Background>

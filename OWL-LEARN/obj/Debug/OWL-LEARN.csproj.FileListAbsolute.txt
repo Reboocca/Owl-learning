@@ -384,3 +384,7 @@ D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csproj.GenerateRe
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.baml
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Cijferlijst.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.baml
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Cijferlijst.g.cs
+C:\Users\Rebecca\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.g.cs

@@ -55,7 +55,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Label Content="Vakken" HorizontalAlignment="Left" Margin="69.5,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="119.006" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
-            <Button x:Name="btVerder" Content="Ga naar de les" HorizontalAlignment="Left" Padding="2" Margin="436,389,-590,-69" Width="420" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
+            <Button x:Name="btVerder" Content="Ga naar de les" HorizontalAlignment="Left" Padding="2" Margin="589.5,389,-589.5,-69" Width="266" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btVerder_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#D3815B"/>
@@ -76,7 +76,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="btToets" Content="Toetsen" HorizontalAlignment="Left" Padding="2" Margin="-2,389,-152,-69" Width="420" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btToets_Click">
+            <Button x:Name="btToets" Content="Toetsen" HorizontalAlignment="Left" Padding="2" Margin="293.742,389,-293.742,-69" Width="266" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btToets_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#D3815B"/>
@@ -118,6 +118,27 @@
             </ListBox>
             <Label Content="Lessen" HorizontalAlignment="Left" Margin="77,3.5,0,0" VerticalAlignment="Top" Height="51.96" Width="119.006" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556"/>
         </Grid>
+        <Button x:Name="btToets_Copy" Content="Toetsen" HorizontalAlignment="Left" Padding="2" Margin="306,475.083,0,0" Width="266" FontSize="18.667" Foreground="#FFEADEC5" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.442,1.435" Click="btToets_Click">
+        	<Button.Style>
+        		<Style TargetType="{x:Type Button}">
+        			<Setter Property="Background" Value="#D3815B"/>
+        			<Setter Property="Template">
+        				<Setter.Value>
+        					<ControlTemplate TargetType="{x:Type Button}">
+        						<Border Background="{TemplateBinding Background}">
+        							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        						</Border>
+        					</ControlTemplate>
+        				</Setter.Value>
+        			</Setter>
+        			<Style.Triggers>
+        				<Trigger Property="IsMouseOver" Value="True">
+        					<Setter Property="Background" Value="#e0a68c"/>
+        				</Trigger>
+        			</Style.Triggers>
+        		</Style>
+        	</Button.Style>
+        </Button>
 
     </Grid>
 </Window>

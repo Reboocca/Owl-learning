@@ -99,7 +99,7 @@ namespace OWL_LEARN
 
         public void FillCbLesonderdelen()
         {
-            DataTable dtLesonderwerpen = new DBS().Search("toetsplanning", "VakID", sGekozenVakId);
+            DataTable dtLesonderwerpen = new DBS().FindPlanningMetUsername("toetsplanning", "VakID", sGekozenVakId, DateTime.Now.ToString("yyyy-MM-dd"));
             List<Lesonderdelen> lstLesonderwerpen = new List<Lesonderdelen>();
             if (dtLesonderwerpen.Rows.Count != 0)
             {

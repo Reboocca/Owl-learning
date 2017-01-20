@@ -231,7 +231,7 @@ namespace OWL_LEARN
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 8:
-                        sResultaat = "3";
+                        sResultaat = "3.0";
                         sResultaatMessage = "Volgende keer beter";
                         break;
                     case 6:

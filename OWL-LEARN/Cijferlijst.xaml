@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="43*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btTerug" Content="Uitloggen" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
+            <Button x:Name="btTerug" Content="Terug" HorizontalAlignment="Left" Padding="2" Margin="0,518,0,0" Width="282" FontSize="18.667" Foreground="#FFEADEC5" Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top" Click="btTerug_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#D3815B"/>
@@ -46,47 +46,17 @@
                 </Grid.Background>
             </Grid>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="446" Margin="306,86,0,0" VerticalAlignment="Top" Width="850" Background="White">
+        <Grid HorizontalAlignment="Left" Height="446" Margin="306,86,0,0" VerticalAlignment="Top" Width="850" Background="#CCFFFFFF">
             <Label Content="Cijferlijst" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="45" FontFamily="Century Gothic" FontSize="29.333" Foreground="#FFFF7556" Margin="10,10,10,0"/>
-            <DataGrid x:Name="dgCijfers" HorizontalAlignment="Left" Margin="50,60,0,0" VerticalAlignment="Top" Height="345" Width="760" IsReadOnly="True" FontFamily="Century Gothic" BorderBrush="{x:Null}">
+            <DataGrid x:Name="dgCijfers" ItemsSource="{Binding CijferTabel}" GridLinesVisibility="None" HorizontalAlignment="Left" Margin="50,60,0,0" VerticalAlignment="Top" Height="345" Width="760" IsReadOnly="True" FontFamily="Century Gothic" BorderBrush="{x:Null}" Foreground="#FF1D1B1A" Background="White" FontSize="16" ColumnWidth="SizeToCells" MinColumnWidth="175" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#FF40BDD9" />
+                        <Setter Property="Background" Value="#FF1890BD" />
                         <Setter Property="Foreground" Value="White" />
                         <Setter Property="Padding" Value="5"/>
-                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontSize" Value="20"/> 
                     </Style>
                 </DataGrid.Resources>
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Vak" Width="230" IsReadOnly="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding VakNaam}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Lesonderwerp" Width="230" IsReadOnly="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Lesonderwerp}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Cijfer" Width="100" IsReadOnly="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Cijfer}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Score" Width="100" IsReadOnly="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Score}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
             </DataGrid>
         </Grid>
 

@@ -1008,7 +1008,7 @@ namespace OWL_LEARN
             }
         }
 
-        public DataTable CijferlijstOphalen(string sTable, string sParameterA, string sParameterB, string sUsername)
+        public DataTable CijferlijstOphalen(string sUsername)
         {
             DataTable retValue = new DataTable();
             db_connection();
@@ -1029,7 +1029,7 @@ namespace OWL_LEARN
                     
                     db_connection();
 
-                    using (MySqlCommand cmd2 = new MySqlCommand("SELECT * FROM " + sTable + " WHERE " + sParameterA + "=" + sParameterB))
+                    using (MySqlCommand cmd2 = new MySqlCommand("select distinct toetsresultaten.Resultaat, lesonderwerp.Omschrijving, vak.Omschrijving from lesonderwerp inner join toetsresultaten on lesonderwerp.LesonderwerpID = toetsresultaten.LesonderwerpID inner join vak on lesonderwerp.VakID = vak.VakID where toetsresultaten.UserID = '" + sUserID + "'"))
                     {
                         cmd2.Connection = connect;
                         MySqlDataReader reader2 = cmd2.ExecuteReader();

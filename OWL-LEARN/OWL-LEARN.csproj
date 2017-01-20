@@ -69,6 +69,7 @@
     <Compile Include="Cijferlijst.xaml.cs">
       <DependentUpon>Cijferlijst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="datatable.cs" />
     <Compile Include="lesWijzigen.xaml.cs">
       <DependentUpon>lesWijzigen.xaml</DependentUpon>
     </Compile>

@@ -382,3 +382,5 @@ D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.g.resources
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL_LEARN.Properties.Resources.resources
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csproj.GenerateResource.Cache
 D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\OWL-LEARN.csprojResolveAssemblyReference.cache
+D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.baml
+D:\School\Leerjaar2\Owl-learning\OWL-LEARN\obj\Debug\Resultaat.g.cs

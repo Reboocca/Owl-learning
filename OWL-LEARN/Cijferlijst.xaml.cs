@@ -85,31 +85,31 @@ namespace OWL_LEARN
                     case "5.5":
                         sScore = " 9 van de 20";
                         break;
-                    case "5.0":
+                    case "5":
                         sScore = " 8 van de 20";
                         break;
                     case "4.5":
                         sScore = " 7 van de 20";
                         break;
-                    case "4.0":
+                    case "4":
                         sScore = " 6 van de 20";
                         break;
                     case "3.5":
                         sScore = " 5 van de 20";
                         break;
-                    case "3.0":
+                    case "3":
                         sScore = " 4 van de 20";
                         break;
                     case "2.5":
                         sScore = " 3 van de 20";
                         break;
-                    case "2.0":
+                    case "2":
                         sScore = " 2 van de 20";
                         break;
                     case "1.5":
                         sScore = " 1 van de 20";
                         break;
-                    case "1.0":
+                    case "1":
                         sScore = " 0 van de 20";
                         break;
                     default:

@@ -956,7 +956,7 @@ namespace OWL_LEARN
         }
 
         //Tell het aantal gemaakte lessen door een leerling van een lesonderwerp
-        public void SaveResultaat(string sUsername, string loID, string sResultaat, Toetsform tsf)
+        public void SaveResultaat(string sUsername, string loID, string sResultaat)
         {
             db_connection();
             string sUserID;
@@ -993,10 +993,6 @@ namespace OWL_LEARN
                     finally     //Close database connection
                     {
                         connect.Close();
-
-                        LeerlingForm lf = new LeerlingForm(sUsername);
-                        lf.Show();
-                        tsf.Close();
                     }
                 }
 
@@ -1026,7 +1022,7 @@ namespace OWL_LEARN
                     connect.Close();
 
 
-                    
+
                     db_connection();
 
                     using (MySqlCommand cmd2 = new MySqlCommand("select distinct toetsresultaten.Resultaat, lesonderwerp.Omschrijving, vak.Omschrijving from lesonderwerp inner join toetsresultaten on lesonderwerp.LesonderwerpID = toetsresultaten.LesonderwerpID inner join vak on lesonderwerp.VakID = vak.VakID where toetsresultaten.UserID = '" + sUserID + "'"))
@@ -1046,6 +1042,24 @@ namespace OWL_LEARN
                     return retValue;
                 }
             }
+        }
+
+        public DataTable ResultaatMessage(string loID)
+        {
+            DataTable retValue = new DataTable();
+            db_connection();
+
+
+            using (MySqlCommand cmd = new MySqlCommand("select distinct lesonderwerp.Omschrijving, vak.Omschrijving from lesonderwerp inner join vak on lesonderwerp.VakID = vak.VakID where lesonderwerp.LesonderwerpID='" + loID + "'"))
+            {
+                cmd.Connection = connect;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                retValue.Load(reader);
+                connect.Close();
+            }
+
+            //Return result
+            return retValue;
         }
     }
 }

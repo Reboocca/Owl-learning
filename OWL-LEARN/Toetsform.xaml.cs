@@ -160,101 +160,102 @@ namespace OWL_LEARN
             //Kleine melding of de student het goed of fout heeft gedaan:
             if (sContentButton == "Opslaan")
             {
+                string sVol_Onv = "";
                 string sResultaat = "";
-                string sResultaatMessage = "";
-                int goedeantwoorden = _iScore / 2;
 
                 switch (_iScore)        //Switch voor de verschillende vakken & de ID's
                 {
                     case 40:
                         sResultaat = "10";
-                        sResultaatMessage = "Perfect!";
+                        sVol_Onv = "perfect";
                         break;
                     case 38:
                         sResultaat = "9.6";
-                        sResultaatMessage = "Top!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 36:
                         sResultaat = "9.2";
-                        sResultaatMessage = "Top!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 34:
                         sResultaat = "8.8";
-                        sResultaatMessage = "Super!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 32:
                         sResultaat = "8.4";
-                        sResultaatMessage = "Super!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 30:
                         sResultaat = "8";
-                        sResultaatMessage = "Super!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 28:
                         sResultaat = "7.5";
-                        sResultaatMessage = "Prima!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 26:
                         sResultaat = "7.1";
-                        sResultaatMessage = "Prima!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 24:
                         sResultaat = "6.8";
-                        sResultaatMessage = "Goed gedaan!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 22:
                         sResultaat = "6.3";
-                        sResultaatMessage = "Goed gedaan!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 20:
                         sResultaat = "5.9";
-                        sResultaatMessage = "Goed gedaan!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 18:
                         sResultaat = "5.5";
-                        sResultaatMessage = "Goed gedaan!";
+                        sVol_Onv = "voldoende";
                         break;
                     case 16:
                         sResultaat = "5.0";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 14:
                         sResultaat = "4.5";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 12:
                         sResultaat = "4.0";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 10:
                         sResultaat = "3.5";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 8:
                         sResultaat = "3.0";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 6:
                         sResultaat = "2.5";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 4:
                         sResultaat = "2.0";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 2:
                         sResultaat = "1.5";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                     case 0:
                         sResultaat = "1.0";
-                        sResultaatMessage = "Volgende keer beter";
+                        sVol_Onv = "onvoldoende";
                         break;
                 }
 
-                MessageBox.Show("Je hebt een " + sResultaat + " behaald voor deze toets! Dit betekend dat je " + goedeantwoorden.ToString() + " van de " + _psltSelectieVragen.Count.ToString() + " vragen goed hebt beantwoord." , sResultaatMessage);
+               db.SaveResultaat(user, lesonderwerp, sResultaat);
 
-                db.SaveResultaat(user, lesonderwerp, sResultaat, this);
+                Resultaat rs = new Resultaat(user, sVol_Onv, lesonderwerp, sResultaat);
+                rs.Show();
+                this.Close();
             }
         }
 

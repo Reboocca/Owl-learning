@@ -79,6 +79,9 @@
     <Compile Include="PlanningVerwijderen.xaml.cs">
       <DependentUpon>PlanningVerwijderen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resultaat.xaml.cs">
+      <DependentUpon>Resultaat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Toetsform.xaml.cs">
       <DependentUpon>Toetsform.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlanningVerwijderen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resultaat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,6 +312,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\CijferlijstIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Goed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Jammer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Perfect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mountain2-01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
